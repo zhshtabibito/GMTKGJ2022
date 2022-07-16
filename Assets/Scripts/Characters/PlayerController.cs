@@ -95,12 +95,13 @@ public class PlayerController : CharacterBase
                         equips[diceUp - 1] = ' ';
                     }
                 }
+                Destroy(func.gameObject);
             }
         }
 
         if (validTurn)
         {
-            camera.transform.position = new Vector3(transform.position.x + 4.5f, camera.transform.position.y, camera.transform.position.z);
+            //camera.transform.position = new Vector3(transform.position.x + 4.5f, camera.transform.position.y, camera.transform.position.z);
             RefreshDiceHintUI();
             RefreshEquipFriendUI();
             bool defeatAll = true;
@@ -139,6 +140,23 @@ public class PlayerController : CharacterBase
                 // 通关
                 pause = true;
                 PanelManager.Instance.Push(new NextLevelPanel(turnCount));
+            }
+            else
+            {
+                // 判断无路可走
+                var up = map.GetGrid((int) Coordinate.x - 1, (int)Coordinate.z);
+                var down = map.GetGrid((int) Coordinate.x + 1, (int)Coordinate.z);
+                var left = map.GetGrid((int) Coordinate.x, (int)Coordinate.z-1);
+                var right = map.GetGrid((int) Coordinate.x, (int)Coordinate.z+1);
+
+                bool canWalk = (up != null && up.isWalkable()) || (down != null && down.isWalkable()) ||
+                               (left != null && left.isWalkable()) || (right != null && right.isWalkable());
+                if (!canWalk)
+                {
+                    // 失败，次数turnCount
+                    pause = true;
+                    PanelManager.Instance.Push(new ReplayPanel(turnCount));
+                }
             }
         }
 
