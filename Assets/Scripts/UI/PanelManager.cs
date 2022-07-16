@@ -21,7 +21,6 @@ public class PanelManager
         dictPanel = new Dictionary<string, BasePanel>();
         panelStack = new Stack<BasePanel>();
 
-        CanvasObj = GameObject.Find("Canvas").transform;
         // BlackMaskCpn = BlackMask.GetComponent<RawImage>();
     }
 
@@ -36,6 +35,10 @@ public class PanelManager
         {
             return dictUI[panel.Path];
         }
+
+        if(CanvasObj==null)
+            CanvasObj = GameObject.Find("Canvas").transform;
+
         GameObject obj = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(panel.Path), CanvasObj);
         obj.name = panel.Name;
         dictUI.Add(panel.Path, obj);
