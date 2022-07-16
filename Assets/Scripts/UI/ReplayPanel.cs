@@ -7,7 +7,7 @@ using TMPro;
 public class ReplayPanel : BasePanel
 {
     public int turnCount;
-    static readonly string Path = "Prefabs/UI/NextLevelPanel";
+    static readonly string Path = "Prefabs/UI/ReplayPanel";
 
     public ReplayPanel(int c) : base(new PanelInfo(Path))
     {
