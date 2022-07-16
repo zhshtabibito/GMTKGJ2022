@@ -81,15 +81,7 @@ public class PlayerController : CharacterBase
                 }
                 else if (func.functionState == 1)//装备
                 {
-                    if (friends[diceUp - 1] == 0)
-                    {
-                        equips[diceUp - 1] = func.functionOperator;
-                    }
-                    else
-                    {
-                        diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, friends[diceUp - 1].ToString());
-                        friends[diceUp - 1] = 0;
-                    }
+                    equips[diceUp - 1] = func.functionOperator;
                 }
                 else if (func.functionState == 2)
                 {
