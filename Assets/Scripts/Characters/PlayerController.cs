@@ -25,62 +25,45 @@ public class PlayerController : CharacterBase
     // Update is called once per frame
     void Update()
     {
-        var pos = Coordinate;
         bool validTurn = false;    // TODO: 判断所有无效输入
+        BaseGrid nextGrid = null;
+        char key = '';
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            var grid = map.GetGrid((int) Coordinate.x - 1, (int)Coordinate.z);
-            if (grid != null && grid.isWalkable())
-            {
-                UpdateByKey('w');
-                validTurn = true;
-            }
+            nextGrid = map.GetGrid((int) Coordinate.x - 1, (int)Coordinate.z);
+            key = 'w';
         }
         else if (Input.GetKeyDown(KeyCode.S)|| Input.GetKeyDown(KeyCode.DownArrow))
         {
-            var grid = map.GetGrid((int) Coordinate.x + 1, (int)Coordinate.z);
-            if (grid != null && grid.isWalkable())
-            {
-                UpdateByKey('s');
-                validTurn = true;
-            }
+            nextGrid = map.GetGrid((int) Coordinate.x + 1, (int)Coordinate.z);
+            key = 's';
         }
         else if (Input.GetKeyDown(KeyCode.A)|| Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            var grid = map.GetGrid((int) Coordinate.x, (int)Coordinate.z - 1);
-            if (grid != null && grid.isWalkable())
-            {
-                UpdateByKey('a');
-                validTurn = true;
-            }
+            nextGrid = map.GetGrid((int) Coordinate.x, (int)Coordinate.z - 1);
+            key = 'a';
         }
         else if (Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow))
         {
-            var grid = map.GetGrid((int) Coordinate.x, (int)Coordinate.z + 1);
-            if (grid != null && grid.isWalkable())
-            {
-                UpdateByKey('d');
-                validTurn = true;
-            }
+            nextGrid = map.GetGrid((int) Coordinate.x, (int)Coordinate.z + 1);
+            key = 'd';
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             validTurn = true;
         }
+        if (nextGrid != null && nextGrid.isWalkable())
+        {
+            var lastGrid = map.GetGrid((int) Coordinate.x, (int)Coordinate.z);
+            lastGrid.onLeave(true);
+            UpdateByKey(key);
+            validTurn = true;
+            nextGrid.onEnter(true);
+        }
 
         camera.transform.position = new Vector3(transform.position.x + 4.5f, camera.transform.position.y, camera.transform.position.z);
         if (validTurn)
         {
-//            if (pos.x == 1 && pos.z == 1)
-//            {
-//                diceValues[diceUp - 1] *= 2;
-//            }
-//            if (pos.x == 1 && pos.z == 2)
-//            {
-//                diceValues[diceUp - 1] += 2;
-//            }
-//
-
             foreach (var monster in FindObjectsOfType<MonsterController>())
             {
                 monster.Move();
