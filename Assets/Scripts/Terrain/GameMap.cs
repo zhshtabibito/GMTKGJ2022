@@ -34,6 +34,22 @@ public class GameMap : MonoBehaviour
         
     }
 
+    public Vector2Int GetGridIndexByWorldPosition(float x, float z)
+    {
+        return new Vector2Int(
+            (int)((transform.position.x - x)/gridSize[0]),
+            (int)((transform.position.z - z) / gridSize[1])
+            );
+    }
+
+    public Vector2 GetGridCenterWorldPosition(int x, int z)
+    {
+        return new Vector2(
+            x * gridSize[0] + 0.5f,
+            z * gridSize[1] + 0.5f
+            );
+    }
+
     public void ImportGameMapData()
     {
         if (!mapDataFile) return;

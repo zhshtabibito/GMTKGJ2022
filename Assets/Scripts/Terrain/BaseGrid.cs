@@ -46,28 +46,31 @@ public class BaseGrid : MonoBehaviour
 
     public virtual bool needOperator()
     {
-        // 伙伴类型返回true
+        // 先忽略它
         return false;
     }
 
     public virtual bool needOperand()
     {
-        // 装备类型返回true
+        // 先忽略它
         return false;
     }
 
     public virtual string GetFunctionalData()
     {
+        // 先忽略它
         return "";
     }
 
     public virtual int Settle(int operand)
     {
+        // 先忽略它
         throw new System.NotImplementedException();
     }
 
     public virtual int Settle(int operand, Vector2Int helpGridIndex)
     {
+        // 先忽略它
         throw new System.NotImplementedException();
     }
 
