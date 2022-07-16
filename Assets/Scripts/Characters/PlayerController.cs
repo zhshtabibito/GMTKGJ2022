@@ -21,6 +21,7 @@ public class PlayerController : CharacterBase
     private char[] equips = new char[6]{' ',' ',' ',' ',' ',' ',};
     private int[] friends = new int[6]{0,0,0,0,0,0};
     private int turnCount;
+    private bool pause;
 
     void Start()
     {
@@ -31,7 +32,12 @@ public class PlayerController : CharacterBase
     // Update is called once per frame
     void Update()
     {
-        bool validTurn = false;    // TODO: 判断所有无效输入
+        if (pause)
+        {
+            return;
+        }
+
+        bool validTurn = false;
         BaseGrid nextGrid = null;
         char key = ' ';
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
@@ -72,11 +78,9 @@ public class PlayerController : CharacterBase
             }
         }
 
-        camera.transform.position = new Vector3(transform.position.x + 4.5f, camera.transform.position.y, camera.transform.position.z);
-        
-        
         if (validTurn)
         {
+            camera.transform.position = new Vector3(transform.position.x + 4.5f, camera.transform.position.y, camera.transform.position.z);
             RefreshDiceHintUI();
             RefreshEquipFriendUI();
             bool defeatAll = true;
@@ -85,7 +89,7 @@ public class PlayerController : CharacterBase
             foreach (var monster in FindObjectsOfType<MonsterController>())
             {
                 monster.Move();
-                if (monster.Coordinate == Coordinate)
+                if (monster.Coordinate == Coordinate && !monster.hasDefeat)
                 {
                     if (monster.Battle(currentDiceValue))
                     {
@@ -107,10 +111,14 @@ public class PlayerController : CharacterBase
             if (fail)
             {
                 // 失败，次数turnCount
+                pause = true;
+                PanelManager.Instance.Push(new ReplayPanel(turnCount));
             }
             else if (defeatAll)
             {
                 // 通关
+                pause = true;
+                PanelManager.Instance.Push(new NextLevelPanel(turnCount));
             }
         }
 

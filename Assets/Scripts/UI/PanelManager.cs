@@ -17,6 +17,7 @@ public class PanelManager
 
     public PanelManager()
     {
+        Instance = this;
         dictUI = new Dictionary<string, GameObject>();
         dictPanel = new Dictionary<string, BasePanel>();
         panelStack = new Stack<BasePanel>();
