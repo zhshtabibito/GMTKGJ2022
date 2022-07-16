@@ -13,7 +13,14 @@ public class PlayerController : CharacterBase
     public TMP_Text leftText;
     public TMP_Text frontText;
     public TMP_Text backText;
-    public GameMap map;
+    GameMap map;
+    private Camera camera;
+
+    void Start()
+    {
+        map = FindObjectOfType<GameMap>();
+        camera = Camera.main;
+    }
 
     // Update is called once per frame
     void Update()
@@ -61,7 +68,7 @@ public class PlayerController : CharacterBase
             validTurn = true;
         }
 
-
+        camera.transform.position = new Vector3(transform.position.x + 4.5f, camera.transform.position.y, camera.transform.position.z);
         if (validTurn)
         {
 //            if (pos.x == 1 && pos.z == 1)

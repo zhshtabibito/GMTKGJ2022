@@ -27,17 +27,12 @@ public class GameMap : MonoBehaviour
     void Start()
     {
         _basegrids = new Dictionary<int, Dictionary<int, BaseGrid>>();
-        if (this.transform.childCount > 0)
-            for (int i = 0; i < this.transform.childCount; i++)
-            {
-                var gridIndex = GetGridIndexByWorldPosition(
-                    this.transform.GetChild(i).localPosition.x,
-                    this.transform.GetChild(i).localPosition.z
-                    );
-                if (!_basegrids.ContainsKey(gridIndex[0]))
-                    _basegrids[gridIndex[0]] = new Dictionary<int, BaseGrid>();
-                _basegrids[gridIndex[0]][gridIndex[1]] = this.transform.GetChild(i).GetComponent<BaseGrid>();
-            }
+        foreach (var grid in GetComponentsInChildren<BaseGrid>())
+        {
+            if (!_basegrids.ContainsKey(grid.gridIndex.x))
+                _basegrids[grid.gridIndex.x] = new Dictionary<int, BaseGrid>();
+            _basegrids[grid.gridIndex.x][grid.gridIndex.y] = grid;
+        }
     }
 
     // Update is called once per frame

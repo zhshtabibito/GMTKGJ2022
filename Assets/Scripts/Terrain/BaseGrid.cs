@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseGrid : MonoBehaviour
 {
-    [HideInInspector]
+    //[HideInInspector]
     public Vector2Int gridIndex = new Vector2Int(0, 0);
     private bool _isDestructed = false;
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TerrainGrid : BaseGrid
 {
+    [SerializeField]
     // 0=空地 1=围墙 2=不可破坏障碍 3=可破坏障碍
     private int _terrainType;
 

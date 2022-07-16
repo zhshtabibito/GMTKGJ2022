@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class FunctionalGrid : BaseGrid
 {
+    [SerializeField]
     private bool _hasOperator;  // 药水和装备填true
+    [SerializeField]
     private bool _hasOperand;  // 药水和伙伴填true
+    [SerializeField]
     char _operator;
+    [SerializeField]
     int _operand;
 
     public override bool needOperator()
