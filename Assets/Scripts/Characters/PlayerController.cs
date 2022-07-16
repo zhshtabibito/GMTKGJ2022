@@ -27,6 +27,7 @@ public class PlayerController : CharacterBase
     {
         map = FindObjectOfType<GameMap>();
         camera = Camera.main;
+        RefreshDiceHintUI();
     }
 
     // Update is called once per frame
@@ -71,10 +72,37 @@ public class PlayerController : CharacterBase
             UpdateByKey(key);
             validTurn = true;
             nextGrid.onEnter(true);
-            var func = nextGrid as FunctionalGrid;
+            var func = nextGrid.GetComponentInChildren<GridFunction>();
             if (func != null)
             {
-                
+                if (func.functionState == 0)
+                {
+                    diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, string.Empty);
+                }
+                else if (func.functionState == 1)//装备
+                {
+                    if (friends[diceUp - 1] == 0)
+                    {
+                        equips[diceUp - 1] = func.functionOperator;
+                    }
+                    else
+                    {
+                        diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, friends[diceUp - 1].ToString());
+                        friends[diceUp - 1] = 0;
+                    }
+                }
+                else if (func.functionState == 2)
+                {
+                    if (equips[diceUp - 1] == ' ')
+                    {
+                        friends[diceUp - 1] = func.functionOperand;
+                    }
+                    else
+                    {
+                        diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, equips[diceUp - 1].ToString());
+                        equips[diceUp - 1] = ' ';
+                    }
+                }
             }
         }
 
