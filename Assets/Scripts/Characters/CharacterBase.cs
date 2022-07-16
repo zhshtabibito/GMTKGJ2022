@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+[DisallowMultipleComponent]
 public class CharacterBase : MonoBehaviour
 {
     public Vector3 Coordinate

@@ -82,14 +82,21 @@ public class GameMap : MonoBehaviour
                 // 创建角色
                 GameObject avatar = null;
                 if (gridDatas[j][0] == 'X')
+                {
                     avatar = Instantiate(playerPrefab);
+                    avatar.AddComponent<PlayerController>();
+                }
+
                 if (gridDatas[j][0] == 'Y')
                 {
                     int monsterInd = int.Parse(gridDatas[j].Substring(1));
                     if (monsterInd >= monsterPrefabList.Count)
                         Debug.LogWarningFormat("[GameMapImporter] unable to find monster prefab {0}", monsterInd);
                     else
+                    {
                         avatar = Instantiate(monsterPrefabList[monsterInd]);
+                        avatar.AddComponent<MonsterController>();
+                    }
                 }
                 if (avatar != null)
                 {
