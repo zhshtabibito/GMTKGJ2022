@@ -13,25 +13,25 @@ public class GameMap : MonoBehaviour
     public bool createAvatar = false;
     [HideInInspector]
     public Vector2 gridSize = new Vector2(1, 1);
-    private BaseGrid[,] _basegrids;
+    private List<List<BaseGrid>> _basegrids;
 
     public BaseGrid GetGrid(int x, int z)
     {
-        if (x < 0 || x > _basegrids.GetLength(0)) return null;
-        if (z < 0 || z > _basegrids.GetLength(1)) return null;
-        return _basegrids[x, z].GetComponent<BaseGrid>();
+        if (x < 0 || x > _basegrids.Count) return null;
+        if (z < 0 || z > _basegrids[0].Count) return null;
+        return _basegrids[x][z];
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        createAvatar = false;
+        ImportGameMapData();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public Vector2Int GetGridIndexByWorldPosition(float x, float z)
@@ -55,12 +55,12 @@ public class GameMap : MonoBehaviour
         if (!mapDataFile) return;
         ClearChildrens();
         var lines = mapDataFile.text.Split("\n");
-        List<List<BaseGrid>> grids = new List<List<BaseGrid>>();
+        _basegrids = new List<List<BaseGrid>>();
         // 生成地块实例
         for (int i = 0; i < lines.Length; i++)
         {
             if (lines[i].Length == 0) continue;
-            grids.Add(new List<BaseGrid>());
+            _basegrids.Add(new List<BaseGrid>());
             var gridDatas = lines[i].Split(',');
             for (int j = 0; j < gridDatas.Length; j++)
             {
@@ -74,6 +74,7 @@ public class GameMap : MonoBehaviour
                 terrainObject.transform.Translate(new Vector3(gridSize[0] * i, 0, gridSize[1] * j));
                 // 添加普通地块Component(todo: addFunctionalGrids)
                 var terrainComponent = terrainObject.AddComponent<TerrainGrid>();
+                _basegrids[i].Add(terrainComponent);
                 terrainComponent.SetInfo(new Vector2Int(i, j), gridTerrainPrefabNumber.ToString());
                 // 创建角色
                 GameObject avatar = null;
@@ -97,6 +98,8 @@ public class GameMap : MonoBehaviour
 
     private void ClearChildrens()
     {
+        if (_basegrids != null)
+            _basegrids.Clear();
         if (this.transform.childCount > 0)
             for (int i = 0; i < this.transform.childCount; i++)
             {
