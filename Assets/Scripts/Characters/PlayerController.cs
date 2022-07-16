@@ -27,7 +27,7 @@ public class PlayerController : CharacterBase
     {
         bool validTurn = false;    // TODO: 判断所有无效输入
         BaseGrid nextGrid = null;
-        char key = '';
+        char key = ' ';
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             nextGrid = map.GetGrid((int) Coordinate.x - 1, (int)Coordinate.z);
