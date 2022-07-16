@@ -78,24 +78,23 @@ public class PlayerController : CharacterBase
                 if (func.functionState == 0)
                 {
                     diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, string.Empty);
+                    Destroy(func.gameObject);
                 }
                 else if (func.functionState == 1)//装备
                 {
                     equips[diceUp - 1] = func.functionOperator;
+                    Destroy(func.gameObject);
                 }
                 else if (func.functionState == 2)
                 {
-                    if (equips[diceUp - 1] == ' ')
-                    {
-                        friends[diceUp - 1] = func.functionOperand;
-                    }
-                    else
+                    if (equips[diceUp - 1] != ' ')
                     {
                         diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, equips[diceUp - 1].ToString());
                         equips[diceUp - 1] = ' ';
+                        Destroy(func.gameObject);
                     }
                 }
-                Destroy(func.gameObject);
+                
             }
         }
 
