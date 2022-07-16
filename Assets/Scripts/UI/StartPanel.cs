@@ -17,23 +17,23 @@ public class StartPanel : BasePanel
 
     protected override void InitEvent()
     {
-        ActivePanel.GetOrAddComponentInChildren<Button>("NewGame").onClick.AddListener(() =>
+        ActivePanel.GetOrAddComponentInChildren<Button>("PlayBtn").onClick.AddListener(() =>
         {
-            OnBtnStart();
+            OnBtnPlay();
         });
 
     }
 
-    private void OnBtnStart()
+    private void OnBtnPlay()
     {
         // TODO: load, if new, directly load level1
-        GameRoot.Instance.LoadScene(new LevelScene(0));
+        GameRoot.Instance.LoadScene(new LevelScene(1));
     }
 
     public override void OnEnter()
     {
         base.OnEnter();
-        Chapters = ActivePanel.Find("Chapters");
+
     }
 
 }

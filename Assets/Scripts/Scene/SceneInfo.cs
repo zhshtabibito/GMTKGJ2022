@@ -11,6 +11,7 @@ public abstract class SceneInfo
     public SceneInfo()
     {
         panelManager = new PanelManager();
+        GameRoot.Instance.Initialize(panelManager);
     }
 
     public virtual void OnEnter()
