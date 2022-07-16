@@ -15,14 +15,14 @@ public class LevelPanel : BasePanel
     public override void OnEnter()
     {
         base.OnEnter();
-        PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
+        PlayerController player = GameObject.Find("Player(Clone)").GetComponent<PlayerController>();
 
-        player.frontText = ActivePanel.Find("Num(1)").GetComponent<TMP_Text>();
-        player.leftText = ActivePanel.Find("Num(2)").GetComponent<TMP_Text>();
-        player.upText = ActivePanel.Find("Num(3)").GetComponent<TMP_Text>();
-        player.rightText = ActivePanel.Find("Num(4)").GetComponent<TMP_Text>();
-        player.backText = ActivePanel.Find("Num(5)").GetComponent<TMP_Text>();
-        player.bottomText = ActivePanel.Find("Num(6)").GetComponent<TMP_Text>();
+        player.frontText = GameObject.Find("Num(1)").GetComponent<TMP_Text>();
+        player.leftText = GameObject.Find("Num(2)").GetComponent<TMP_Text>();
+        player.upText = GameObject.Find("Num(3)").GetComponent<TMP_Text>();
+        player.rightText = GameObject.Find("Num(4)").GetComponent<TMP_Text>();
+        player.backText = GameObject.Find("Num(5)").GetComponent<TMP_Text>();
+        player.bottomText = GameObject.Find("Num(6)").GetComponent<TMP_Text>();
 
     }
 }
