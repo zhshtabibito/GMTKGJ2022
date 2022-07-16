@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 8414737342893709214}
   - component: {fileID: 1706386713372498903}
   m_Layer: 0
-  m_Name: Text(2)
+  m_Name: TurnCntText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
