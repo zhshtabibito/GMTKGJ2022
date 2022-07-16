@@ -113,6 +113,7 @@ public class BaseGrid : MonoBehaviour
         {
             int result = _function.Settlement(avatarOperand, helperData);
             Destroy(_function.gameObject);
+            _function = null;
             return result;
         }
         else
