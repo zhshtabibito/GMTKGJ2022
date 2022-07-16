@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 12}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &33248711
 BoxCollider:
@@ -283,6 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 5}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &34371905
 BoxCollider:
@@ -395,6 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 7}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &76353581
 BoxCollider:
@@ -507,6 +510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 9}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &80073964
 BoxCollider:
@@ -619,6 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 8}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &81730872
 BoxCollider:
@@ -731,6 +736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 17}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &85019051
 BoxCollider:
@@ -843,6 +849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 2}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &104728002
 BoxCollider:
@@ -955,6 +962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 15}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &108752832
 BoxCollider:
@@ -1067,6 +1075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 14}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &113522289
 BoxCollider:
@@ -1179,6 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 0}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &116443564
 BoxCollider:
@@ -1291,6 +1301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 11}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &119727785
 BoxCollider:
@@ -1403,6 +1414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 1}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &144456836
 BoxCollider:
@@ -1515,6 +1527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 3}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &144680356
 BoxCollider:
@@ -1627,6 +1640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 2}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &177268186
 BoxCollider:
@@ -1739,6 +1753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 16}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &182222102
 BoxCollider:
@@ -1851,6 +1866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 11}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &196822993
 BoxCollider:
@@ -1963,6 +1979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 16}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &197917435
 BoxCollider:
@@ -2333,6 +2350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 12}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &220202303
 BoxCollider:
@@ -2445,6 +2463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 15}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &235289613
 BoxCollider:
@@ -2557,6 +2576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 7}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &239164355
 BoxCollider:
@@ -2649,7 +2669,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252838511}
   m_LocalRotation: {x: -0.76354104, y: -0.000000011175872, z: -0.000000029802326, w: 0.6457594}
-  m_LocalPosition: {x: -3.6100018, y: 0.002064705, z: 1.4199991}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 102.47938, y: 254.82834, z: 104.965996}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2842,6 +2862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 0}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &259219268
 BoxCollider:
@@ -2954,6 +2975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 6}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &267606101
 BoxCollider:
@@ -3066,6 +3088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 3}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &277613509
 BoxCollider:
@@ -3178,6 +3201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 9}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &290789387
 BoxCollider:
@@ -3290,6 +3314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 12}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &302161768
 BoxCollider:
@@ -3402,6 +3427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 0}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &313700981
 BoxCollider:
@@ -3514,6 +3540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 10}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &320845824
 BoxCollider:
@@ -3626,6 +3653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 12}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &334072824
 BoxCollider:
@@ -3738,6 +3766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 13}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &340732331
 BoxCollider:
@@ -3850,6 +3879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 8}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &353414384
 BoxCollider:
@@ -3962,6 +3992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 3}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &363205470
 BoxCollider:
@@ -4074,6 +4105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 1}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &365085383
 BoxCollider:
@@ -4186,6 +4218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 16}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &365366323
 BoxCollider:
@@ -4298,6 +4331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 13}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &368071648
 BoxCollider:
@@ -4410,6 +4444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 13}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &369726961
 BoxCollider:
@@ -4522,6 +4557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 14}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &381295581
 BoxCollider:
@@ -4634,6 +4670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 13}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &418538092
 BoxCollider:
@@ -4746,6 +4783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 0}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &428419781
 BoxCollider:
@@ -4858,6 +4896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 12}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &432033860
 BoxCollider:
@@ -4970,6 +5009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 14}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &433404574
 BoxCollider:
@@ -5082,6 +5122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 5}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &433752561
 BoxCollider:
@@ -5288,6 +5329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 8}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &456505800
 BoxCollider:
@@ -5400,6 +5442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 9}
+  _function: {fileID: 0}
   _terrainType: 2
 --- !u!65 &457802887
 BoxCollider:
@@ -5512,6 +5555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 14}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &463135711
 BoxCollider:
@@ -5624,6 +5668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 5}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &488194227
 BoxCollider:
@@ -5736,6 +5781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 8}
+  _function: {fileID: 0}
   _terrainType: 2
 --- !u!65 &498522434
 BoxCollider:
@@ -5848,6 +5894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 10}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &500576886
 BoxCollider:
@@ -5960,6 +6007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 13}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &547764598
 BoxCollider:
@@ -6072,6 +6120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 1}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &559876665
 BoxCollider:
@@ -6184,6 +6233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 5}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &579406187
 BoxCollider:
@@ -6296,6 +6346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 0}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &587250925
 BoxCollider:
@@ -6408,6 +6459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 16}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &590463835
 BoxCollider:
@@ -6520,6 +6572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 16}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &621349992
 BoxCollider:
@@ -6632,6 +6685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 9}
+  _function: {fileID: 0}
   _terrainType: 2
 --- !u!65 &644428998
 BoxCollider:
@@ -6744,6 +6798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 16}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &645399772
 BoxCollider:
@@ -6856,6 +6911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 8}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &657639851
 BoxCollider:
@@ -6968,6 +7024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 14}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &671018717
 BoxCollider:
@@ -7080,6 +7137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 16}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &679573849
 BoxCollider:
@@ -7192,6 +7250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 2}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &696137797
 BoxCollider:
@@ -7304,6 +7363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 11}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &697569350
 BoxCollider:
@@ -7416,6 +7476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 3}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &701295906
 BoxCollider:
@@ -7528,6 +7589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 11}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &708257033
 BoxCollider:
@@ -7640,6 +7702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 1}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &721275988
 BoxCollider:
@@ -7752,6 +7815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 2}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &735943446
 BoxCollider:
@@ -7864,6 +7928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 3}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &760946707
 BoxCollider:
@@ -7976,6 +8041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 10}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &763619891
 BoxCollider:
@@ -8075,7 +8141,7 @@ MonoBehaviour:
   diceValues: 010000000200000003000000040000000500000006000000
   route: 
   operater: 0
-  number: 0
+  number: 6
   isDice: 0
 --- !u!4 &770190814
 Transform:
@@ -8141,6 +8207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 16}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &771449876
 BoxCollider:
@@ -8253,6 +8320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 7}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &774750984
 BoxCollider:
@@ -8365,6 +8433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 0}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &777620474
 BoxCollider:
@@ -8477,6 +8546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 14}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &787335180
 BoxCollider:
@@ -8589,6 +8659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 7}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &793954005
 BoxCollider:
@@ -8701,6 +8772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 4}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &811749465
 BoxCollider:
@@ -8813,6 +8885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 8}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &833499485
 BoxCollider:
@@ -8925,6 +8998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 10}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &840191014
 BoxCollider:
@@ -9037,6 +9111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 8}
+  _function: {fileID: 0}
   _terrainType: 2
 --- !u!65 &840326549
 BoxCollider:
@@ -9149,6 +9224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 3}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &844554082
 BoxCollider:
@@ -9261,6 +9337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 16}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &862974174
 BoxCollider:
@@ -9373,6 +9450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 6}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &864724987
 BoxCollider:
@@ -9485,6 +9563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 1}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &871238808
 BoxCollider:
@@ -9597,6 +9676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 16}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &887648190
 BoxCollider:
@@ -9709,6 +9789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 10}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &907267317
 BoxCollider:
@@ -9821,6 +9902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 4}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &911019280
 BoxCollider:
@@ -9933,6 +10015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 7}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &915594142
 BoxCollider:
@@ -10045,6 +10128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 14}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &927625908
 BoxCollider:
@@ -10157,6 +10241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 12}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &933734849
 BoxCollider:
@@ -10269,6 +10354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 6}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &934067263
 BoxCollider:
@@ -10412,6 +10498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 2}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &952911895
 BoxCollider:
@@ -10524,6 +10611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 12}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &956005346
 BoxCollider:
@@ -10636,6 +10724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 4}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &967773688
 BoxCollider:
@@ -10748,6 +10837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 11}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &974705695
 BoxCollider:
@@ -10860,6 +10950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 13}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1006906095
 BoxCollider:
@@ -10972,6 +11063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 9}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1014224824
 BoxCollider:
@@ -11084,6 +11176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 9}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1022088239
 BoxCollider:
@@ -11196,6 +11289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 12}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1022242531
 BoxCollider:
@@ -11308,6 +11402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 7}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1033107389
 BoxCollider:
@@ -11420,6 +11515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 6}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1053358010
 BoxCollider:
@@ -11532,6 +11628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 17}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1054610573
 BoxCollider:
@@ -11644,6 +11741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 15}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1058289282
 BoxCollider:
@@ -11756,6 +11854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 8}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1070927963
 BoxCollider:
@@ -11868,6 +11967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 14}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1099649539
 BoxCollider:
@@ -11980,6 +12080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 17}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1100611496
 BoxCollider:
@@ -12092,6 +12193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 1}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1106580812
 BoxCollider:
@@ -12204,6 +12306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 10}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1108256711
 BoxCollider:
@@ -12316,6 +12419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 3}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1109755041
 BoxCollider:
@@ -12428,6 +12532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 6}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1138648769
 BoxCollider:
@@ -12540,6 +12645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 17}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1145620469
 BoxCollider:
@@ -12681,14 +12787,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1180508652}
-  m_LocalRotation: {x: 0.33848622, y: -0.6208278, z: 0.33848622, w: 0.6208278}
-  m_LocalPosition: {x: 10.9, y: 7.91, z: 7}
+  m_LocalRotation: {x: 0.36534986, y: -0.60540855, z: 0.36534986, w: 0.60540855}
+  m_LocalPosition: {x: 10.4, y: 8.25, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 57.2, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 62.22, y: -90, z: 0}
 --- !u!114 &1180508656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12764,6 +12870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 4}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1197989401
 BoxCollider:
@@ -12876,6 +12983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 6}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1216773674
 BoxCollider:
@@ -12988,6 +13096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 6}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1218883882
 BoxCollider:
@@ -13100,6 +13209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 11}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1228461663
 BoxCollider:
@@ -13212,6 +13322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 6}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1252229319
 BoxCollider:
@@ -13324,6 +13435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 1}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1265002866
 BoxCollider:
@@ -13436,6 +13548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 10}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1265267104
 BoxCollider:
@@ -13548,6 +13661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 15}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1279199955
 BoxCollider:
@@ -13660,6 +13774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 3}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1288331960
 BoxCollider:
@@ -13772,6 +13887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 13}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1292402469
 BoxCollider:
@@ -13884,6 +14000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 0}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1297148992
 BoxCollider:
@@ -13996,6 +14113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 11}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1311901877
 BoxCollider:
@@ -14108,6 +14226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 12}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1359176496
 BoxCollider:
@@ -14220,6 +14339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 7}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1360302224
 BoxCollider:
@@ -14332,6 +14452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 15}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1385979664
 BoxCollider:
@@ -14444,6 +14565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 2}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1388370250
 BoxCollider:
@@ -14556,6 +14678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 11}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1400016925
 BoxCollider:
@@ -14668,6 +14791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 2}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1414991686
 BoxCollider:
@@ -14780,6 +14904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 15}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1429097939
 BoxCollider:
@@ -14892,6 +15017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 3}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1443833727
 BoxCollider:
@@ -15004,6 +15130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 2}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1468097859
 BoxCollider:
@@ -15116,6 +15243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 1}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1475450002
 BoxCollider:
@@ -15228,6 +15356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 6}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1482433262
 BoxCollider:
@@ -15340,6 +15469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 3}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1485828009
 BoxCollider:
@@ -15452,6 +15582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 4}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1499754206
 BoxCollider:
@@ -15564,6 +15695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 1}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1508377533
 BoxCollider:
@@ -15676,6 +15808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 7}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1526133383
 BoxCollider:
@@ -15788,6 +15921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 17}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1528725811
 BoxCollider:
@@ -15900,6 +16034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 9}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1530299272
 BoxCollider:
@@ -16127,6 +16262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 9}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1553182105
 BoxCollider:
@@ -16239,6 +16375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 5}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1558187769
 BoxCollider:
@@ -16351,6 +16488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 16}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1576389987
 BoxCollider:
@@ -16463,6 +16601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 10}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1589218360
 BoxCollider:
@@ -16643,6 +16782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 0}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1590632064
 BoxCollider:
@@ -16755,6 +16895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 9}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1598076454
 BoxCollider:
@@ -16867,6 +17008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 13}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1610929243
 BoxCollider:
@@ -16979,6 +17121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 4}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1613336841
 BoxCollider:
@@ -17091,6 +17234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 5}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1624488518
 BoxCollider:
@@ -17203,6 +17347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 0}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1625193296
 BoxCollider:
@@ -17315,6 +17460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 15}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1626925330
 BoxCollider:
@@ -17427,6 +17573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 7}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1627030937
 BoxCollider:
@@ -17539,6 +17686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 4}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1632817419
 BoxCollider:
@@ -17651,6 +17799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 17}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1657476655
 BoxCollider:
@@ -17763,6 +17912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 4}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1659754629
 BoxCollider:
@@ -17875,6 +18025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 15}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1674387712
 BoxCollider:
@@ -17987,6 +18138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 2}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1688591476
 BoxCollider:
@@ -18099,6 +18251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 14}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1693138903
 BoxCollider:
@@ -18211,6 +18364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 4}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1695549784
 BoxCollider:
@@ -18323,6 +18477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 11}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1709083226
 BoxCollider:
@@ -18435,6 +18590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 13}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1709224408
 BoxCollider:
@@ -18547,6 +18703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 8}
+  _function: {fileID: 0}
   _terrainType: 2
 --- !u!65 &1721218195
 BoxCollider:
@@ -18659,6 +18816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 17}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1721588631
 BoxCollider:
@@ -18771,6 +18929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 7}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1743861390
 BoxCollider:
@@ -18883,6 +19042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 17}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1746906272
 BoxCollider:
@@ -18995,6 +19155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 13}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1755748649
 BoxCollider:
@@ -19107,6 +19268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 5}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1763835399
 BoxCollider:
@@ -19219,6 +19381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 17}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1765661789
 BoxCollider:
@@ -19331,6 +19494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 5}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1771475123
 BoxCollider:
@@ -19443,6 +19607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 1, y: 9}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1788878018
 BoxCollider:
@@ -19555,6 +19720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 9}
+  _function: {fileID: 0}
   _terrainType: 2
 --- !u!65 &1804813630
 BoxCollider:
@@ -19667,6 +19833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 0}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1830111875
 BoxCollider:
@@ -19779,6 +19946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 4}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1840182094
 BoxCollider:
@@ -19891,6 +20059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 11}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1846043280
 BoxCollider:
@@ -20003,6 +20172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 6, y: 12}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1851737741
 BoxCollider:
@@ -20115,6 +20285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 1}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1856269458
 BoxCollider:
@@ -20227,6 +20398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 14}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1868008470
 BoxCollider:
@@ -20339,6 +20511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 14}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1880002576
 BoxCollider:
@@ -20451,6 +20624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 12}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1882264893
 BoxCollider:
@@ -20563,6 +20737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 13}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1884021021
 BoxCollider:
@@ -20675,6 +20850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 15}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1890824758
 BoxCollider:
@@ -20787,6 +20963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 5}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1898625642
 BoxCollider:
@@ -20899,6 +21076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 8}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1906800632
 BoxCollider:
@@ -21011,6 +21189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 3}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1908790927
 BoxCollider:
@@ -21123,6 +21302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 2}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1937101683
 BoxCollider:
@@ -21235,6 +21415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 6}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1942438115
 BoxCollider:
@@ -21347,6 +21528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 7}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1973133908
 BoxCollider:
@@ -21459,6 +21641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 0}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1974705866
 BoxCollider:
@@ -21571,6 +21754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 9, y: 5}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1980913733
 BoxCollider:
@@ -21683,6 +21867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 1}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &1981655293
 BoxCollider:
@@ -21795,6 +21980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 7, y: 6}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &1981748742
 BoxCollider:
@@ -21907,6 +22093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 15}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &2025759122
 BoxCollider:
@@ -22019,6 +22206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 0, y: 4}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &2043035660
 BoxCollider:
@@ -22131,6 +22319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 4, y: 10}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &2054129319
 BoxCollider:
@@ -22243,6 +22432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 5}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &2058393645
 BoxCollider:
@@ -22355,6 +22545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 10}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &2068311075
 BoxCollider:
@@ -22567,6 +22758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 8}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &2082834833
 BoxCollider:
@@ -22679,6 +22871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 10, y: 10}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &2084203601
 BoxCollider:
@@ -22791,6 +22984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 2}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &2089879047
 BoxCollider:
@@ -22903,6 +23097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 3, y: 17}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &2091810739
 BoxCollider:
@@ -23015,6 +23210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 8, y: 15}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &2128749104
 BoxCollider:
@@ -23127,6 +23323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 5, y: 11}
+  _function: {fileID: 0}
   _terrainType: 0
 --- !u!65 &2135790911
 BoxCollider:
@@ -23239,6 +23436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridIndex: {x: 2, y: 17}
+  _function: {fileID: 0}
   _terrainType: 1
 --- !u!65 &2141090348
 BoxCollider:
