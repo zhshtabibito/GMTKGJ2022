@@ -66,8 +66,10 @@ public class GameMap : MonoBehaviour
             {
                 // 生成地块Object
                 int gridTerrainPrefabNumber = 0;
-                if (gridDatas[j].Length == 1 && gridDatas[j][0] >= '0' && gridDatas[j][0] <= '3')
+                if (gridDatas[j].Length >= 1 && gridDatas[j][0] >= '0' && gridDatas[j][0] <= '3')
+                {
                     gridTerrainPrefabNumber = int.Parse(gridDatas[j]);
+                }
                 var terrainObject = Instantiate(terrainGridPrefabs[gridTerrainPrefabNumber], transform);
                 terrainObject.transform.Translate(new Vector3(gridSize[0] * i, 0, gridSize[1] * j));
                 // 添加普通地块Component(todo: addFunctionalGrids)
