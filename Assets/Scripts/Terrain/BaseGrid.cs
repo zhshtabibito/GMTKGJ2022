@@ -7,6 +7,12 @@ public class BaseGrid : MonoBehaviour
     //[HideInInspector]
     public Vector2Int gridIndex = new Vector2Int(0, 0);
     private bool _isDestructed = false;
+    public GridFunction _function;
+
+    private void Start()
+    {
+        _function = GetComponentInChildren<GridFunction>();
+    }
 
     public bool isDestructed { get { return _isDestructed; }}
 
@@ -84,5 +90,32 @@ public class BaseGrid : MonoBehaviour
     public virtual void ParseString(string gridData)
     {
         throw new System.NotImplementedException();
+    }
+
+    public virtual string BeforeSettlement(out int needFunctionState)
+    {
+        string currentFunctionData = "";
+        if (_function)
+        {
+            needFunctionState = _function.needFunctionState;
+            currentFunctionData = _function.AsHelper();
+        }
+        else
+        {
+            needFunctionState = -1;
+        }
+        return currentFunctionData;
+    }
+
+    public virtual int Settlement(int avatarOperand, string helperData)
+    {
+        if (_function)
+        {
+            int result = _function.Settlement(avatarOperand, helperData);
+            Destroy(_function.gameObject);
+            return result;
+        }
+        else
+            return avatarOperand;
     }
 }

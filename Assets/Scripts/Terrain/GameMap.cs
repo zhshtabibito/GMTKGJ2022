@@ -7,7 +7,7 @@ public class GameMap : MonoBehaviour
 {
     public TextAsset mapDataFile; // 待解析的.txt数据文件
     public GameObject[] terrainGridPrefabs = new GameObject[4];
-    public GameObject[] functionPrefabs = new GameObject[3];
+    public GameObject[] functionPrefabs = new GameObject[3];  // 0-药水 1-装备 2-伙伴
     public GameObject playerPrefab;
     public List<GameObject> monsterPrefabList;
     public bool createAvatar = false;
@@ -76,31 +76,44 @@ public class GameMap : MonoBehaviour
                 }
                 var terrainObject = Instantiate(terrainGridPrefabs[gridTerrainPrefabNumber], transform);
                 terrainObject.transform.Translate(new Vector3(gridSize[0] * i, 0, gridSize[1] * j));
-                // 添加普通地块Component(todo: addFunctionalGrids)
+                // 添加地块Component
                 var terrainComponent = terrainObject.AddComponent<TerrainGrid>();
                 terrainComponent.SetInfo(new Vector2Int(i, j), gridTerrainPrefabNumber.ToString());
                 // 创建角色
-                GameObject avatar = null;
-                if (gridDatas[j][0] == 'X')
-                {
-                    avatar = Instantiate(playerPrefab);
-                    avatar.AddComponent<PlayerController>();
-                }
-
-                if (gridDatas[j][0] == 'Y')
-                {
-                    int monsterInd = int.Parse(gridDatas[j].Substring(1));
-                    if (monsterInd >= monsterPrefabList.Count)
-                        Debug.LogWarningFormat("[GameMapImporter] unable to find monster prefab {0}", monsterInd);
-                    else
+                if (createAvatar) {
+                    GameObject avatar = null;
+                    if (gridDatas[j][0] == 'X')
                     {
-                        avatar = Instantiate(monsterPrefabList[monsterInd]);
-                        avatar.AddComponent<MonsterController>();
+                        avatar = Instantiate(playerPrefab);
+                        avatar.AddComponent<PlayerController>();
+                    }
+
+                    if (gridDatas[j][0] == 'Y')
+                    {
+                        int monsterInd = int.Parse(gridDatas[j].Substring(1));
+                        if (monsterInd >= monsterPrefabList.Count)
+                            Debug.LogWarningFormat("[GameMapImporter] unable to find monster prefab {0}", monsterInd);
+                        else
+                        {
+                            avatar = Instantiate(monsterPrefabList[monsterInd]);
+                            avatar.AddComponent<MonsterController>();
+                        }
                     }
                 }
-                if (avatar != null)
+                // 生成环境物体Object
+                if (gridDatas[j].Contains('}'))
                 {
-                    avatar.transform.Translate(new Vector3(gridSize[0] * i, 1, gridSize[1] * j));
+                    var data = gridDatas[j].Split('}');
+                    bool hasOperator = data[0].Length > 1;
+                    bool hasOperand = data[1].Length > 1;
+                    int functionType = 0;
+                    if (hasOperator && !hasOperand) functionType = 1;
+                    else if (!hasOperator && hasOperand) functionType = 2;
+                    var functionObject = Instantiate(functionPrefabs[functionType], terrainObject.transform);
+                    functionObject.transform.Translate(0, 1, 0);
+                    // 添加环境物体功能Component
+                    var GridFunction = functionObject.AddComponent<GridFunction>();
+                    GridFunction.SetInfo(functionType, data[0][1..], data[1][1..]);
                 }
             }
         }
