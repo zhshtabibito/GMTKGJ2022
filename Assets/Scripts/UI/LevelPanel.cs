@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelPanel : BasePanel
 {
-    static readonly string Path = "Prefabs/UI/LevelPanel";
+    static readonly string Path = "Prefabs/UI/HudAll";
 
     public LevelPanel() : base(new PanelInfo(Path))
     {

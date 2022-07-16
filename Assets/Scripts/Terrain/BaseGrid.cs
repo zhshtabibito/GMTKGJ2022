@@ -10,6 +10,12 @@ public class BaseGrid : MonoBehaviour
 
     public bool isDestructed { get { return _isDestructed; }}
 
+    public virtual void SetInfo(Vector2Int gridIndex, string gridData)
+    {
+        this.gridIndex = gridIndex;
+        this.ParseString(gridData);
+    }
+
     public virtual bool isWalkable(bool isPlayer=true)
     {
         if (isPlayer)
