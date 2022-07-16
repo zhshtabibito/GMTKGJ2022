@@ -112,13 +112,13 @@ public class PlayerController : CharacterBase
             {
                 // 失败，次数turnCount
                 pause = true;
-                PanelManager.Instance.Push(new ReplayPanel());
+                PanelManager.Instance.Push(new ReplayPanel(turnCount));
             }
             else if (defeatAll)
             {
                 // 通关
                 pause = true;
-                PanelManager.Instance.Push(new NextLevelPanel());
+                PanelManager.Instance.Push(new NextLevelPanel(turnCount));
             }
         }
 
