@@ -35,7 +35,7 @@ public class GameRoot : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && panelManager.GetPeek().isExitIfClicked)
+        if (Input.GetMouseButtonDown(0) && panelManager.GetPeek()!=null && panelManager.GetPeek().isExitIfClicked)
         {
             if (!panelManager.isMouseInPanel(panelManager.GetPeek()))
                 panelManager.Pop();
@@ -63,11 +63,11 @@ public class GameRoot : MonoBehaviour
         scene?.OnEnter();
         isReady = true;
         SceneManager.sceneLoaded -= SceneLoaded;
-        Debug.Log($"{sceneName}³¡¾°¼ÓÔØÍê±Ï£¡");
+        Debug.Log($"{sceneName}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½");
     }
 
     /// <summary>
-    /// ³õÊ¼»¯Ãæ°å¹ÜÀíÆ÷
+    /// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     /// <param name="manager"></param>
     public void Initialize(PanelManager manager)
