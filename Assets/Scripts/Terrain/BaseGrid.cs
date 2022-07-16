@@ -38,6 +38,7 @@ public class BaseGrid : MonoBehaviour
         if (isPlayer)
         {
             _isDestructed = true;
+            this.transform.Translate(0, -0.5f, 0);
             Debug.LogFormat("player leave grid: {0}", gridIndex);
         }
         else
