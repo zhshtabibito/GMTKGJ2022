@@ -5,12 +5,12 @@ using UnityEngine;
 public class SavingManager : MonoBehaviour
 {
     public static SavingManager Instance;
-    public static int Chapter;
+    public static int Level;
 
     private void Awake()
     {
         Instance = this;
-        Chapter = LoadGame();
+        Level = LoadGame();
     }
 
     // Start is called before the first frame update
@@ -27,15 +27,16 @@ public class SavingManager : MonoBehaviour
 
     public void SaveGame(int CurrentChapter)
     {
-        if(CurrentChapter > Chapter)
+        if(CurrentChapter > Level)
         {
-            Chapter = CurrentChapter;
+            Level = CurrentChapter;
             PlayerPrefs.SetInt("Chapter", CurrentChapter);
         }
     }
 
     private int LoadGame()
     {
+        return 10;
         return PlayerPrefs.GetInt("Chapter", 0);
     }
 

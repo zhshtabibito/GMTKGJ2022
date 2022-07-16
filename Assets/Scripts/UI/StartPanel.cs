@@ -27,7 +27,10 @@ public class StartPanel : BasePanel
     private void OnBtnPlay()
     {
         // TODO: load, if new, directly load level1
-        GameRoot.Instance.LoadScene(new LevelScene(1));
+        if (SavingManager.Level == 0)
+            GameRoot.Instance.LoadScene(new LevelScene(1));
+        else
+            Push(new LevelChoosePanel());
     }
 
     public override void OnEnter()
