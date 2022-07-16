@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : CharacterBase
 {
@@ -13,8 +14,13 @@ public class PlayerController : CharacterBase
     public TMP_Text leftText;
     public TMP_Text frontText;
     public TMP_Text backText;
+    public Image equipImg;
+    public Image friendImg;
     GameMap map;
     private Camera camera;
+    private char[] equips = new char[6]{' ',' ',' ',' ',' ',' ',};
+    private int[] friends = new int[6]{0,0,0,0,0,0};
+    private int turnCount;
 
     void Start()
     {
@@ -59,20 +65,58 @@ public class PlayerController : CharacterBase
             UpdateByKey(key);
             validTurn = true;
             nextGrid.onEnter(true);
+            var func = nextGrid as FunctionalGrid;
+            if (func != null)
+            {
+                
+            }
         }
 
         camera.transform.position = new Vector3(transform.position.x + 4.5f, camera.transform.position.y, camera.transform.position.z);
+        
+        
         if (validTurn)
         {
+            RefreshDiceHintUI();
+            RefreshEquipFriendUI();
+            bool defeatAll = true;
+            bool fail = false;
+            turnCount++;
             foreach (var monster in FindObjectsOfType<MonsterController>())
             {
                 monster.Move();
+                if (monster.Coordinate == Coordinate)
+                {
+                    if (monster.Battle(currentDiceValue))
+                    {
+                        diceValues[diceUp - 1] = diceUp;
+                    }
+                    else
+                    {
+                        fail = true;
+                        break;
+                    }
+                }
+
+                if (!monster.hasDefeat)
+                {
+                    defeatAll = false;
+                }
+            }
+
+            if (fail)
+            {
+                // 失败，次数turnCount
+            }
+            else if (defeatAll)
+            {
+                // 通关
             }
         }
 
         
-        RefreshDiceHintUI();
-
+        
+        
     }
 
     void RefreshDiceHintUI()
@@ -88,6 +132,28 @@ public class PlayerController : CharacterBase
         bottomText.text = diceValues[7-diceUp-1].ToString();
         leftText.text = diceValues[7-diceRight-1].ToString();
         backText.text = diceValues[7-diceFront-1].ToString();
+        
     }
 
+    void RefreshEquipFriendUI()
+    {
+
+        switch (equips[diceUp - 1])
+        {
+            case ' ':    // 代表没有装备
+                break;
+            default:
+                break;
+        }
+        
+
+        switch (friends[diceUp - 1])
+        {
+            case 0:    // 代表没有伙伴
+                break;
+            default:
+                break;
+        }
+        
+    }
 }

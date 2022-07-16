@@ -18,7 +18,8 @@ public class CharacterBase : MonoBehaviour
 
     public int diceRight = 3;
     
-    public int[] diceValues = new int[6]{1,2,3,4,5,6};    // dice每一面的初始值
+    public int[] diceValues = new int[6]{1,2,3,4,5,6};    // dice每一面的实际值
+    public int currentDiceValue => diceValues[diceUp - 1];
 
     protected void UpdateByKey(char key)
     {
