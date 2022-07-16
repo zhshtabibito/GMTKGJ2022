@@ -99,6 +99,8 @@ public class GameMap : MonoBehaviour
                             avatar.AddComponent<MonsterController>();
                         }
                     }
+                    if (avatar)
+                        avatar.transform.Translate(i, 1, j);
                 }
                 // 生成环境物体Object
                 if (gridDatas[j].Contains('}'))
