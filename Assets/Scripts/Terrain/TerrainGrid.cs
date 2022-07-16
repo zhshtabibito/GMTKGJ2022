@@ -6,11 +6,6 @@ public class TerrainGrid : BaseGrid
 {
     // 0=空地 1=围墙 2=不可破坏障碍 3=可破坏障碍
     private int _terrainType;
-    TerrainGrid(Vector2Int gridIndex, string gridData)
-    {
-        this.gridIndex = gridIndex;
-        this.ParseString(gridData);
-    }
 
     public override bool isWalkable(bool isPlayer = true)
     {

@@ -8,11 +8,6 @@ public class FunctionalGrid : BaseGrid
     private bool _hasOperand;  // 药水和伙伴填true
     char _operator;
     int _operand;
-    FunctionalGrid(Vector2Int gridIndex, string gridData)
-    {
-        this.gridIndex = gridIndex;
-        this.ParseString(gridData);
-    }
 
     public override bool needOperator()
     {
