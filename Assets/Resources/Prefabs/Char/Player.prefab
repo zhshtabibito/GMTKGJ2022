@@ -1,5 +1,117 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2070103096723095271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7804172949723707874}
+  - component: {fileID: 6833372453874623409}
+  - component: {fileID: 4648625499412659416}
+  - component: {fileID: 6076439792461584284}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7804172949723707874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070103096723095271}
+  m_LocalRotation: {x: 0.36534986, y: -0.60540855, z: 0.36534986, w: 0.60540855}
+  m_LocalPosition: {x: 5.3999996, y: 7.25, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6707864388318591732}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 62.22, y: -90, z: 0}
+--- !u!20 &6833372453874623409
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070103096723095271}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 56
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!81 &4648625499412659416
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070103096723095271}
+  m_Enabled: 1
+--- !u!114 &6076439792461584284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070103096723095271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413f12cf1ea2a664a85150d39de1208e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapDataFile: {fileID: 4900000, guid: ae9211da71b96ee4f93ebcfdf8d7e0e4, type: 3}
+  terrainGridPrefabs:
+  - {fileID: 4402296911064721877, guid: 5b2fb81f4222f1f40b1cc01e2a5000b6, type: 3}
+  - {fileID: 877927048391764842, guid: 3499e3c153f42dc4bab0da913be2de71, type: 3}
+  - {fileID: 8017162570747566990, guid: 3e4ec21668e723d479f038bf9a071ef9, type: 3}
+  - {fileID: 8017162570747566990, guid: 3e4ec21668e723d479f038bf9a071ef9, type: 3}
+  functionPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  playerPrefab: {fileID: 7640718122978241782, guid: e1d7eeaac4cb1e04a8ce3fe4fc9aed93, type: 3}
+  monsterPrefabList: []
+  createAvatar: 1
+  sizeTotal: {x: 0, y: 0}
+  gridSize: {x: 1, y: 1}
 --- !u!1 &5228180732952301882
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,6 +174,7 @@ Transform:
   m_Children:
   - {fileID: 8529656871400620184}
   - {fileID: 6062935706602860749}
+  - {fileID: 7804172949723707874}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -87,7 +200,8 @@ MonoBehaviour:
   leftText: {fileID: 0}
   frontText: {fileID: 0}
   backText: {fileID: 0}
-  map: {fileID: 0}
+  equipImg: {fileID: 0}
+  friendImg: {fileID: 0}
 --- !u!1001 &8525772327686750150
 PrefabInstance:
   m_ObjectHideFlags: 0
