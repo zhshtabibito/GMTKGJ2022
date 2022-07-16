@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class StartPanel : BasePanel
 {
-    static readonly string Path = "Prefabs/Panels/StartPanel";
+    static readonly string Path = "Prefabs/UI/StartPanel";
 
     private Transform Chapters;
 
@@ -27,14 +27,7 @@ public class StartPanel : BasePanel
     private void OnBtnStart()
     {
         // TODO: load, if new, directly load level1
-        if (true)
-        {
-            Chapters.gameObject.SetActive(true);
-        }
-        else
-        {
-            SceneManager.LoadScene("Level1");
-        }
+        GameRoot.Instance.LoadScene(new LevelScene(0));
     }
 
     public override void OnEnter()
