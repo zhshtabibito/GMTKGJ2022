@@ -107,10 +107,12 @@ public class PlayerController : CharacterBase
             if (fail)
             {
                 // 失败，次数turnCount
+                PanelManager.Instance.Push(new ReplayPanel());
             }
             else if (defeatAll)
             {
                 // 通关
+                PanelManager.Instance.Push(new NextLevelPanel());
             }
         }
 

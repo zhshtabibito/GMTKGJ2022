@@ -8,9 +8,9 @@ public class GameRoot : MonoBehaviour
     public static GameRoot Instance;
     private PanelManager panelManager;
 
-    bool isReady;
-    string sceneName;
-    SceneInfo scene;
+    private bool isReady;
+    private string sceneName;
+    public SceneInfo scene;
 
 
 
