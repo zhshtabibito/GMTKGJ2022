@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2034096077406845011, guid: 13ee372815df4774abc484343b76dc00, type: 3}
       propertyPath: m_Name
-      value: Item
+      value: Friend
       objectReference: {fileID: 0}
     - target: {fileID: 3078755935460005007, guid: 13ee372815df4774abc484343b76dc00, type: 3}
       propertyPath: m_RootOrder
@@ -57,3 +57,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ee372815df4774abc484343b76dc00, type: 3}
+--- !u!1 &7640718122978241782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2034096077406845011, guid: 13ee372815df4774abc484343b76dc00, type: 3}
+  m_PrefabInstance: {fileID: 8517370382843925669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4758843723362719158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7640718122978241782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a985bcd6cae534a58b616f8452a996a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diceUp: 1
+  diceFront: 2
+  diceRight: 3
+  diceValues: 010000000200000003000000040000000500000006000000
+  upText: {fileID: 0}
+  bottomText: {fileID: 0}
+  rightText: {fileID: 0}
+  leftText: {fileID: 0}
+  frontText: {fileID: 0}
+  backText: {fileID: 0}
+  map: {fileID: 0}
