@@ -137,13 +137,13 @@ public class GameMap : MonoBehaviour
                     int functionType = 0;
                     if (hasOperator && !hasOperand) functionType = 1;
                     else if (!hasOperator && hasOperand) functionType = 2;
-                    if (data.Length == 2)  // 一般装备实例化
-                        functionObject = Instantiate(functionPrefabs[functionType], terrainObject.transform);
-                    else
+                    if (data.Length > 2 && data[2].Length > 1)
                     {  // 武器实例化
                         int weaponType = data[2][0] == '+' ? 0 : 1;
                         functionObject = Instantiate(weaponPrefabs[weaponType], terrainObject.transform);
                     }
+                    else  // 一般装备实例化
+                        functionObject = Instantiate(functionPrefabs[functionType], terrainObject.transform);
                     functionObject.transform.Translate(0, 1, 0);
                     // 添加环境物体功能Component
                     var GridFunction = functionObject.AddComponent<GridFunction>();

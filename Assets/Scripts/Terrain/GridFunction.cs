@@ -25,7 +25,7 @@ public class GridFunction: MonoBehaviour
         this.functionState = functionState;
         functionOperator = data[0].Length > 1 ? data[0][1] : '.';
         functionOperand = data[1].Length > 1 ? int.Parse(data[1][1..]) : 0;
-        if (data.Length > 2)
+        if (data.Length > 2 && data[2].Length > 1)
         {
             switch (data[2][1])
             {
