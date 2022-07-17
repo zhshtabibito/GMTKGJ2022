@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Friend Variant 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2184079264388189153, guid: 759208fff491a014b822c8be17dc2de4, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5228533012511128108, guid: 759208fff491a014b822c8be17dc2de4, type: 3}
       propertyPath: m_RootOrder
       value: 0
