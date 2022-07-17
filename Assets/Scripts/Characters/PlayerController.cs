@@ -210,23 +210,6 @@ public class PlayerController : CharacterBase
 
     void RefreshEquipFriendUI()
     {
-
-        switch (equips[diceUp - 1])
-        {
-            case ' ':    // 代表没有装备
-                break;
-            default:
-                break;
-        }
-        
-
-        switch (friends[diceUp - 1])
-        {
-            case 0:    // 代表没有伙伴
-                break;
-            default:
-                break;
-        }
-        
+        GameObject.Find("HudAll").GetComponent<EquipHud>().Refresh(equips[diceUp - 1], friends[diceUp - 1]);        
     }
 }
