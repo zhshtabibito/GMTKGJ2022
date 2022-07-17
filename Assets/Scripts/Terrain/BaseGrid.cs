@@ -10,6 +10,7 @@ public class BaseGrid : MonoBehaviour
     public GridFunction _function;
     public bool isLocked = false;
     public List<Vector2Int> relatedGrids;
+    private bool isColored;
 
     protected virtual void Start()
     {
@@ -113,6 +114,25 @@ public class BaseGrid : MonoBehaviour
         {
             transform.Translate(0, -0.5f, 0);
             isLocked = false;
+        }
+    }
+
+    public virtual void RemoveHinder() { }
+
+    public virtual void ColorAttackRange()
+    {
+        isColored = true;
+        var r = GetComponentInChildren<Renderer>();
+        r.material.color = Color.red;
+    }
+    
+    public virtual void UnColorAttackRange()
+    {
+        if (isColored)
+        {
+            var r = GetComponentInChildren<Renderer>();
+            r.material.color = Color.white;
+            isColored = false;
         }
     }
 }

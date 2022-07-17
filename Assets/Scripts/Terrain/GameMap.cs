@@ -6,8 +6,10 @@ using UnityEngine;
 public class GameMap : MonoBehaviour
 {
     public TextAsset mapDataFile; // 待解析的.txt数据文件
-    public GameObject[] terrainGridPrefabs = new GameObject[5];
-    public GameObject[] functionPrefabs = new GameObject[3];  // 0-药水 1-装备 2-伙伴
+    public Vector3 terrainGridRatio = new Vector3(1.0f, 0, 0);
+    public GameObject[] terrainGridPrefabs = new GameObject[3];  // 空白地形，目前是三个随机
+    public GameObject[] functionPrefabs = new GameObject[3];  // 0-药水 1-普通装备 2-伙伴
+    public GameObject[] weaponPrefabs = new GameObject[4];  // 0-剑 1-弓 2-棍 3-枪(其实可以和普通装备合到一个prefab里，看美术资源情况再调整)
     public GameObject playerPrefab;
     public List<GameObject> monsterPrefabList;
     public bool createAvatar = false;
@@ -72,21 +74,34 @@ public class GameMap : MonoBehaviour
             for (int j = 0; j < gridDatas.Length; j++)
             {
                 // 生成地块Object
-                int gridTerrainPrefabNumber = 0;
+                var ratio = Random.Range(0, terrainGridRatio.x + terrainGridRatio.y + terrainGridRatio.z);
+                GameObject terrainObject = null;
+                if (ratio <= terrainGridRatio[0])
+                {
+                    terrainObject = PrefabUtility.InstantiatePrefab(terrainGridPrefabs[0], transform) as GameObject;
+                }
+                else if (ratio <= terrainGridRatio[1] + terrainGridRatio[0])
+                {
+                    terrainObject = PrefabUtility.InstantiatePrefab(terrainGridPrefabs[1], transform) as GameObject;
+                }
+                else
+                {
+                    terrainObject = PrefabUtility.InstantiatePrefab(terrainGridPrefabs[2], transform) as GameObject;
+                }
+                terrainObject.transform.Translate(new Vector3(gridSize[0] * i, 0, gridSize[1] * j));
+                // 添加地块component
+                int gridTerrainTypeNumber = 0;
                 if (gridDatas[j].Length >= 1 && gridDatas[j][0] >= '0' && gridDatas[j][0] <= '3')
                 {
-                    gridTerrainPrefabNumber = int.Parse(gridDatas[j]);
+                    gridTerrainTypeNumber = int.Parse(gridDatas[j]);
                 }
-                else if (gridDatas[j].Contains(')'))
-                    gridTerrainPrefabNumber = 4;
-                var terrainObject = Instantiate(terrainGridPrefabs[gridTerrainPrefabNumber], transform);
-                terrainObject.transform.Translate(new Vector3(gridSize[0] * i, 0, gridSize[1] * j));
-                // 添加地块Component
+                else if (gridDatas[j].Contains(')') && !gridDatas[j].Contains('}'))
+                    gridTerrainTypeNumber = 4;
                 BaseGrid terrainComponent = null;
-                if (gridTerrainPrefabNumber < 4)
+                if (gridTerrainTypeNumber < 4)
                 {
                     terrainComponent = terrainObject.AddComponent<TerrainGrid>();
-                    terrainComponent.SetInfo(new Vector2Int(i, j), gridTerrainPrefabNumber.ToString());
+                    terrainComponent.SetInfo(new Vector2Int(i, j), gridTerrainTypeNumber.ToString());
                 }
                 else
                 {
@@ -100,7 +115,7 @@ public class GameMap : MonoBehaviour
                     GameObject avatar = null;
                     if (gridDatas[j][0] == 'X')
                     {
-                        avatar = Instantiate(playerPrefab);
+                        avatar = PrefabUtility.InstantiatePrefab(playerPrefab) as GameObject;
                         avatar.AddComponent<PlayerController>();
                     }
 
@@ -111,7 +126,7 @@ public class GameMap : MonoBehaviour
                             Debug.LogWarningFormat("[GameMapImporter] unable to find monster prefab {0}", monsterInd);
                         else
                         {
-                            avatar = Instantiate(monsterPrefabList[monsterInd]);
+                            avatar = PrefabUtility.InstantiatePrefab(monsterPrefabList[monsterInd]) as GameObject;
                             avatar.AddComponent<MonsterController>();
                         }
                     }
@@ -124,14 +139,33 @@ public class GameMap : MonoBehaviour
                     var data = gridDatas[j].Split('}');
                     bool hasOperator = data[0].Length > 1;
                     bool hasOperand = data[1].Length > 1;
+                    GameObject functionObject = null;
                     int functionType = 0;
                     if (hasOperator && !hasOperand) functionType = 1;
                     else if (!hasOperator && hasOperand) functionType = 2;
-                    var functionObject = Instantiate(functionPrefabs[functionType], terrainObject.transform);
+                    if (data.Length > 2 && data[2].Length > 1)
+                    {  // 武器实例化
+                        int weaponType = 0;
+                        switch (data[2][1])
+                        {
+                            case '*':
+                                weaponType = 1;
+                                break;
+                            case '-':
+                                weaponType = 2;
+                                break;
+                            case '/':
+                                weaponType = 3;
+                                break;
+                        }
+                        functionObject = PrefabUtility.InstantiatePrefab(weaponPrefabs[weaponType], terrainObject.transform) as GameObject;
+                    }
+                    else  // 一般装备实例化
+                        functionObject = PrefabUtility.InstantiatePrefab(functionPrefabs[functionType], terrainObject.transform) as GameObject;
                     functionObject.transform.Translate(0, 1, 0);
                     // 添加环境物体功能Component
                     var GridFunction = functionObject.AddComponent<GridFunction>();
-                    GridFunction.SetInfo(functionType, data[0][1..], data[1][1..]);
+                    GridFunction.SetInfo(functionType, gridDatas[j]);
                 }
             }
         }

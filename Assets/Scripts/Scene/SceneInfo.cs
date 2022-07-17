@@ -16,7 +16,7 @@ public abstract class SceneInfo
 
     public virtual void OnEnter()
     {
-
+        GameRoot.Instance.StartCoroutine("HideMask");
     }
 
     public virtual void OnUpdate()

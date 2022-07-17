@@ -12,8 +12,7 @@ public class PanelManager
     private Stack<BasePanel> panelStack;
 
     public Transform CanvasObj;
-    public Transform BlackMask;
-    private RawImage BlackMaskCpn;
+    public RawImage BlackMaskCpn = null;
 
     public PanelManager()
     {
@@ -22,11 +21,16 @@ public class PanelManager
         dictPanel = new Dictionary<string, BasePanel>();
         panelStack = new Stack<BasePanel>();
 
-        // BlackMaskCpn = BlackMask.GetComponent<RawImage>();
+        // Debug.Log(GameObject.Find("CanvasMask").GetComponent<RawImage>());
+        if (BlackMaskCpn == null)
+            BlackMaskCpn = GameObject.Find("CanvasMask").GetComponent<RawImage>();
+
     }
 
     public BasePanel GetPeek()
     {
+        if (panelStack == null)
+            return null;
         return panelStack.Peek();
     }
 
@@ -37,7 +41,7 @@ public class PanelManager
             return dictUI[panel.Path];
         }
 
-        if(CanvasObj==null)
+        if (CanvasObj == null)
             CanvasObj = GameObject.Find("Canvas").transform;
 
         GameObject obj = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(panel.Path), CanvasObj);
@@ -67,7 +71,7 @@ public class PanelManager
     {
         if (panelStack.Count > 0)
             panelStack.Peek().OnPause();
-        // Î¬»¤×Öµä
+        // Î¬ï¿½ï¿½ï¿½Öµï¿½
         if (!dictPanel.ContainsKey(newPanel.Info.Path))
         {
             dictPanel.Add(newPanel.Info.Path, newPanel);
@@ -77,7 +81,7 @@ public class PanelManager
         }
         else
         {
-            // Ë¢ÐÂ×ÖµäÖÐµÄpanel£¬²»add new panal
+            // Ë¢ï¿½ï¿½ï¿½Öµï¿½ï¿½Ðµï¿½panelï¿½ï¿½ï¿½ï¿½add new panal
             BasePanel p = dictPanel[newPanel.Info.Path];
             p.OnChange(newPanel);
             newPanel = p;
@@ -86,7 +90,7 @@ public class PanelManager
         // Push
         if (panelStack.Count > 0)
         {
-            // ·ÀÖ¹Á¬ÐøÍÆËÍÖØ¸´µÄÃæ°å
+            // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (panelStack.Peek().Info.Path != newPanel.Info.Path)
                 panelStack.Push(newPanel);
             else

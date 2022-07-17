@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameRoot : MonoBehaviour
@@ -44,18 +45,22 @@ public class GameRoot : MonoBehaviour
 
     public void LoadScene(SceneInfo newScene, bool reload = true)
     {
-        isReady = false;
-        scene?.OnExit();
-        scene = newScene;
-        sceneName = newScene.SceneName;
+
 
         if (reload)
         {
-            SceneManager.LoadScene(sceneName);
-            SceneManager.sceneLoaded += SceneLoaded;
+            // SceneManager.LoadScene(sceneName);
+            // SceneManager.sceneLoaded += SceneLoaded;
+            StartCoroutine("ShowMaskAndLoadScene", newScene);
         }
         else
+        {
+            isReady = false;
+            scene?.OnExit();
+            scene = newScene;
+            sceneName = newScene.SceneName;
             scene?.OnEnter();
+        }
     }
 
     protected void SceneLoaded(Scene newScene, LoadSceneMode mode)
@@ -63,7 +68,7 @@ public class GameRoot : MonoBehaviour
         scene?.OnEnter();
         isReady = true;
         SceneManager.sceneLoaded -= SceneLoaded;
-        Debug.Log($"{sceneName}����������ϣ�");
+        Debug.Log($"{sceneName} loaded!");
     }
 
     /// <summary>
@@ -83,4 +88,51 @@ public class GameRoot : MonoBehaviour
         Application.Quit();
 #endif
     }
+
+    private IEnumerator ShowMaskAndLoadScene(SceneInfo newScene)
+    {
+        panelManager.BlackMaskCpn.color = Color.clear;
+        panelManager.BlackMaskCpn.gameObject.SetActive(true);
+
+        panelManager.BlackMaskCpn.transform.SetAsLastSibling();
+        for (float x = 0f; x < 1.0f; x += Time.deltaTime / 1f)
+        {
+            panelManager.BlackMaskCpn.color = Color.Lerp(Color.clear, Color.black, x);
+            yield return null;
+        }
+
+        isReady = false;
+        scene?.OnExit();
+        scene = newScene;
+        sceneName = newScene.SceneName;
+
+        SceneManager.LoadScene(sceneName);
+        SceneManager.sceneLoaded += SceneLoaded;
+
+        //BlackMask.SetAsLastSibling();
+        //for (float x = 1f; x > 0f; x -= Time.deltaTime / 2f)
+        //{
+        //    BlackMaskCpn.color = Color.Lerp(Color.clear, Color.black, x);
+        //    yield return null;
+        //}
+        //BlackMask.gameObject.SetActive(false);
+        //if (panelStack.Peek().GetType() == typeof(CutPanel))
+        //{
+        //    CutManager.Instance.OnFinishLoad();
+        //}
+    }
+
+    private IEnumerator HideMask()
+    {
+        RawImage RI = GameObject.Find("CanvasMask").GetComponent<RawImage>();
+
+        RI.transform.SetAsLastSibling();
+        for (float x = 0f; x < 1.0f; x += Time.deltaTime / 1f)
+        {
+            RI.color = Color.Lerp(Color.black, Color.clear, x);
+            yield return null;
+        }
+        RI.gameObject.SetActive(false);
+    }
+
 }
