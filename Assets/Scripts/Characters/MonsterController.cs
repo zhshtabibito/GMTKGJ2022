@@ -39,6 +39,7 @@ public class MonsterController : CharacterBase
 
     public bool Battle(int playerNum)
     {
+        PlayAttack();
         bool win = false;
         switch (operater)
         {
