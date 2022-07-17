@@ -6,6 +6,7 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class CharacterBase : MonoBehaviour
 {
+    public Transform dice;
     public Vector3 Coordinate
     {
         get { return transform.localPosition; }
@@ -32,25 +33,58 @@ public class CharacterBase : MonoBehaviour
                 Coordinate = coord;
                 diceUp = diceFront;
                 diceFront = 7 - oldDiceUp;
+                PlayIdle();
+                if (dice)
+                {
+                    dice.Rotate(0,0,90, Space.World);
+                }
                 break;
             case 's':
                 coord.x++;
                 Coordinate = coord;
                 diceUp = 7 - diceFront;
                 diceFront = oldDiceUp;
+                PlayWalk();
+                if (dice)
+                {
+                    dice.Rotate(0, 0, -90, Space.World);
+                }
                 break;
             case 'a':
                 coord.z--;
                 Coordinate = coord;
                 diceUp = diceRight;
                 diceRight = 7 - oldDiceUp;
+                PlayWalk();
+                if (dice)
+                {
+                    dice.Rotate(-90, 0, 0, Space.World);
+                }
                 break;
             case 'd':
                 coord.z++;
                 Coordinate = coord;
                 diceUp = 7 - diceRight;
                 diceRight = oldDiceUp;
+                PlayAttack();
+                if (dice)
+                {
+                    dice.Rotate(90, 0, 0, Space.World);
+                }
                 break;
         }
+    }
+
+    public void PlayIdle()
+    {
+        GetComponentInChildren<Animator>()?.SetTrigger("idle");
+    }
+    public void PlayWalk()
+    {
+        GetComponentInChildren<Animator>()?.SetTrigger("walk");
+    }
+    public void PlayAttack()
+    {
+        GetComponentInChildren<Animator>()?.SetTrigger("attack");
     }
 }

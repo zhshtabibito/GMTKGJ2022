@@ -13696,10 +13696,10 @@ MonoBehaviour:
   diceUp: 1
   diceFront: 2
   diceRight: 3
-  diceValues: 010000000200000003000000040000000500000006000000
+  diceValues: 06000000
   route: 
   operater: 0
-  number: 0
+  number: 6
   isDice: 0
 --- !u!1001 &1706590688
 PrefabInstance:
