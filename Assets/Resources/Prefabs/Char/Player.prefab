@@ -943,6 +943,7 @@ MonoBehaviour:
   HotWeapon: {fileID: 8300000, guid: 84128299387e4294eb592d46fc664e99, type: 3}
   GetItem: {fileID: 8300000, guid: 9e4c44bf5128b2b44935f7851f4d1e58, type: 3}
   Move: {fileID: 8300000, guid: 895049e7c5a3330499876f4cac92fdaf, type: 3}
+  body: {fileID: 4313699558091588214}
 --- !u!82 &4223048801907361437
 AudioSource:
   m_ObjectHideFlags: 0
