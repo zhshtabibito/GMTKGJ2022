@@ -92,18 +92,18 @@ public class GameRoot : MonoBehaviour
 
     private IEnumerator ShowMaskAndLoadScene(SceneInfo newScene)
     {
-
-
-        BlackMaskCpn.color = Color.clear;
-        BlackMaskCpn.gameObject.SetActive(true);
-
-        BlackMaskCpn.transform.SetAsLastSibling();
-        for (float x = 0f; x < 1.0f; x += Time.deltaTime / 1f)
+        if (BlackMaskCpn != null)
         {
-            BlackMaskCpn.color = Color.Lerp(Color.clear, Color.black, x);
-            yield return null;
-        }
+            BlackMaskCpn.color = Color.clear;
+            BlackMaskCpn.gameObject.SetActive(true);
 
+            BlackMaskCpn.transform.SetAsLastSibling();
+            for (float x = 0f; x < 1.0f; x += Time.deltaTime / 1f)
+            {
+                BlackMaskCpn.color = Color.Lerp(Color.clear, Color.black, x);
+                yield return null;
+            }
+        }
         isReady = false;
         scene?.OnExit();
         scene = newScene;
