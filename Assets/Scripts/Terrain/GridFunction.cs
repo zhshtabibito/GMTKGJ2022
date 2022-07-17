@@ -90,4 +90,10 @@ public class GridFunction: MonoBehaviour
             return operand1 / operand2;
         return 0;
     }
+
+    public void Performance()
+    {
+        foreach (var render in GetComponentsInChildren<MeshRenderer>())
+            render.enabled = false;
+    }
 }
