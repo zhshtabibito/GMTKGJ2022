@@ -644,9 +644,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8861106155003586124}
     m_Modifications:
+    - target: {fileID: 330021298377009606, guid: 8f8b48cf52e5e44e0934ea2d244cef2a, type: 3}
+      propertyPath: m_Name
+      value: LImage2
+      objectReference: {fileID: 0}
     - target: {fileID: 424098646462505556, guid: 8f8b48cf52e5e44e0934ea2d244cef2a, type: 3}
       propertyPath: m_Name
       value: HandState
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246605463579487582, guid: 8f8b48cf52e5e44e0934ea2d244cef2a, type: 3}
+      propertyPath: m_Name
+      value: LIcon1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069569029883656476, guid: 8f8b48cf52e5e44e0934ea2d244cef2a, type: 3}
+      propertyPath: m_Name
+      value: LIcon4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281063972778278846, guid: 8f8b48cf52e5e44e0934ea2d244cef2a, type: 3}
+      propertyPath: m_Name
+      value: LImage3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230554128568079663, guid: 8f8b48cf52e5e44e0934ea2d244cef2a, type: 3}
+      propertyPath: m_Name
+      value: LIcon2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324647989687119906, guid: 8f8b48cf52e5e44e0934ea2d244cef2a, type: 3}
+      propertyPath: m_Name
+      value: LIcon3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909624765280835232, guid: 8f8b48cf52e5e44e0934ea2d244cef2a, type: 3}
+      propertyPath: m_Name
+      value: LImage0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252291930748417572, guid: 8f8b48cf52e5e44e0934ea2d244cef2a, type: 3}
+      propertyPath: m_Name
+      value: LImage4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460596114040006003, guid: 8f8b48cf52e5e44e0934ea2d244cef2a, type: 3}
+      propertyPath: m_Name
+      value: LImage1
       objectReference: {fileID: 0}
     - target: {fileID: 8861106155003586124, guid: 8f8b48cf52e5e44e0934ea2d244cef2a, type: 3}
       propertyPath: m_Pivot.x
