@@ -31,6 +31,7 @@ public class PlayerController : CharacterBase
     private int turnCount;
     private bool pause;
     private Record record;
+    private List<BaseGrid> coloredGrids = new List<BaseGrid>();
 
     class Record
     {
@@ -130,14 +131,18 @@ public class PlayerController : CharacterBase
             //camera.transform.position = new Vector3(transform.position.x + 4.5f, camera.transform.position.y, camera.transform.position.z);
             RefreshDiceHintUI();
             RefreshEquipFriendUI();
-            var attackGrids = GetAllAttackRangeGrids();
 
             if (record == null) // 没有使用技能时
             {
+                foreach (var g in coloredGrids)
+                {
+                    g.UnColorAttackRange();
+                }
+                coloredGrids = GetAllAttackRangeGrids();
                 bool defeatAll = true;
                 bool fail = false;
                 turnCount++;
-                foreach (var g in attackGrids)
+                foreach (var g in coloredGrids)
                 {
                     g.RemoveHinder();
                     g.ColorAttackRange();
@@ -146,7 +151,7 @@ public class PlayerController : CharacterBase
                 {
                     monster.Move();
                     bool inAttackRange = false;
-                    foreach (var g in attackGrids)
+                    foreach (var g in coloredGrids)
                     {
                         if (monster.Coordinate.x == g.gridIndex.x && monster.Coordinate.z == g.gridIndex.y)
                         {

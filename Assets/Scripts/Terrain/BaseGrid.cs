@@ -48,7 +48,6 @@ public class BaseGrid : MonoBehaviour
         {
             _isDestructed = true;
             this.transform.Translate(0, -0.5f, 0);
-            UnColorAttackRange();
             Debug.LogFormat("player leave grid: {0}", gridIndex);
         }
         else
@@ -132,7 +131,7 @@ public class BaseGrid : MonoBehaviour
         if (isColored)
         {
             var r = GetComponentInChildren<Renderer>();
-            r.material.color = Color.clear;
+            r.material.color = Color.white;
             isColored = false;
         }
     }
