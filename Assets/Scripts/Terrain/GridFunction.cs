@@ -24,6 +24,8 @@ public class GridFunction: MonoBehaviour
         var text = GetComponentInChildren<TMPro.TMP_Text>();
         if (text)
         {
+            text.color = Color.green;
+            text.text = "";
             if (functionState <= 1) text.text = functionOperator.ToString();
             if (functionState == 0 || functionState == 2) text.text += functionOperand.ToString();
         }
