@@ -93,7 +93,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7804172949723707874}
   - component: {fileID: 6833372453874623409}
-  - component: {fileID: 6076439792461584284}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -159,41 +158,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &6076439792461584284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2070103096723095271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 413f12cf1ea2a664a85150d39de1208e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapDataFile: {fileID: 4900000, guid: ae9211da71b96ee4f93ebcfdf8d7e0e4, type: 3}
-  terrainGridRatio: {x: 1, y: 0, z: 0}
-  terrainGridPrefabs:
-  - {fileID: 4402296911064721877, guid: 5b2fb81f4222f1f40b1cc01e2a5000b6, type: 3}
-  - {fileID: 877927048391764842, guid: 3499e3c153f42dc4bab0da913be2de71, type: 3}
-  - {fileID: 8017162570747566990, guid: 3e4ec21668e723d479f038bf9a071ef9, type: 3}
-  - {fileID: 8017162570747566990, guid: 3e4ec21668e723d479f038bf9a071ef9, type: 3}
-  functionPrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  weaponPrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  removeableHinder: {fileID: 0}
-  unremovableHinder: {fileID: 0}
-  playerPrefab: {fileID: 7640718122978241782, guid: e1d7eeaac4cb1e04a8ce3fe4fc9aed93, type: 3}
-  monsterPrefabList: []
-  createAvatar: 1
-  sizeTotal: {x: 0, y: 0}
-  gridSize: {x: 1, y: 1}
 --- !u!1 &3721300403693237052
 GameObject:
   m_ObjectHideFlags: 0
