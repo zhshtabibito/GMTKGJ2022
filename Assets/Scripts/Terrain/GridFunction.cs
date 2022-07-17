@@ -7,7 +7,7 @@ public class GridFunction: MonoBehaviour
     public char functionOperator;
     public int functionOperand;
     public int functionState;  // 0-药水 1-装备 2-伙伴
-    public int attackDistanceType;  // 0-剑 1-弓
+    public int attackDistanceType;  // 0=+(剑) 1=*(弓) 2=-(棍) 3=/(枪)
     public List<Vector2Int> attackRelativeGrids = new List<Vector2Int>();  // 相对坐标列表
     public int needFunctionState
     {
@@ -27,7 +27,21 @@ public class GridFunction: MonoBehaviour
         functionOperand = data[1].Length > 1 ? int.Parse(data[1][1..]) : 0;
         if (data.Length > 2)
         {
-            attackDistanceType = data[2][1] == '+' ? 0 : 1;
+            switch (data[2][1])
+            {
+                case '+':
+                    attackDistanceType = 0;
+                    break;
+                case '*':
+                    attackDistanceType = 1;
+                    break;
+                case '-':
+                    attackDistanceType = 2;
+                    break;
+                default:
+                    attackDistanceType = 3;
+                    break;
+            }
             attackRelativeGrids.Clear();
             var relativeGridDataList = data[2][2..].Split(')');
             foreach(var relativeGridData in relativeGridDataList)
