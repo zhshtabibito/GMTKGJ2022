@@ -229,7 +229,7 @@ public class PlayerController : CharacterBase
         {
             diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, string.Empty);
             upTipText.text = func.functionOperator.ToString() + func.functionOperand.ToString();
-            Destroy(func.gameObject);
+            func.Performance();
             LeanTween.delayedCall(gameObject, 1, () => upTipText.text = "");
         }
         else if (func.functionState == 1) //装备
@@ -240,7 +240,7 @@ public class PlayerController : CharacterBase
                 equips[diceUp - 1]._operator = func.functionOperator;
                 equips[diceUp - 1].attackDistanceType = func.attackDistanceType;
                 equips[diceUp - 1].attackRelativeGrids = func.attackRelativeGrids;
-                Destroy(func.gameObject);
+                func.Performance();
 
                 Audio.PlayOneShot(GetItem);
             }
@@ -251,7 +251,7 @@ public class PlayerController : CharacterBase
             {
                 diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, equips[diceUp - 1]._operator.ToString());
                 friends[diceUp - 1] = func.functionOperand;
-                Destroy(func.gameObject);
+                func.Performance();
                 upTipText.text = equips[diceUp - 1]._operator.ToString() + friends[diceUp - 1].ToString();
                 LeanTween.delayedCall(gameObject, 1, () => upTipText.text = "");
 
