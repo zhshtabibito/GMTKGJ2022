@@ -7,7 +7,8 @@ public class GameMap : MonoBehaviour
 {
     public TextAsset mapDataFile; // 待解析的.txt数据文件
     public GameObject[] terrainGridPrefabs = new GameObject[5];
-    public GameObject[] functionPrefabs = new GameObject[3];  // 0-药水 1-装备 2-伙伴
+    public GameObject[] functionPrefabs = new GameObject[3];  // 0-药水 1-普通装备 2-伙伴
+    public GameObject[] weaponPrefabs = new GameObject[2];  // 0-剑 1-弓 (其实可以和普通装备合到一个prefab里，看美术资源情况再调整)
     public GameObject playerPrefab;
     public List<GameObject> monsterPrefabList;
     public bool createAvatar = false;
@@ -77,7 +78,7 @@ public class GameMap : MonoBehaviour
                 {
                     gridTerrainPrefabNumber = int.Parse(gridDatas[j]);
                 }
-                else if (gridDatas[j].Contains(')'))
+                else if (gridDatas[j].Contains(')') && !gridDatas[j].Contains('}'))
                     gridTerrainPrefabNumber = 4;
                 var terrainObject = Instantiate(terrainGridPrefabs[gridTerrainPrefabNumber], transform);
                 terrainObject.transform.Translate(new Vector3(gridSize[0] * i, 0, gridSize[1] * j));
@@ -124,14 +125,21 @@ public class GameMap : MonoBehaviour
                     var data = gridDatas[j].Split('}');
                     bool hasOperator = data[0].Length > 1;
                     bool hasOperand = data[1].Length > 1;
+                    GameObject functionObject = null;
                     int functionType = 0;
                     if (hasOperator && !hasOperand) functionType = 1;
                     else if (!hasOperator && hasOperand) functionType = 2;
-                    var functionObject = Instantiate(functionPrefabs[functionType], terrainObject.transform);
+                    if (data.Length == 2)  // 一般装备实例化
+                        functionObject = Instantiate(functionPrefabs[functionType], terrainObject.transform);
+                    else
+                    {  // 武器实例化
+                        int weaponType = data[2][0] == '+' ? 0 : 1;
+                        functionObject = Instantiate(weaponPrefabs[weaponType], terrainObject.transform);
+                    }
                     functionObject.transform.Translate(0, 1, 0);
                     // 添加环境物体功能Component
                     var GridFunction = functionObject.AddComponent<GridFunction>();
-                    GridFunction.SetInfo(functionType, data[0][1..], data[1][1..]);
+                    GridFunction.SetInfo(functionType, gridDatas[j]);
                 }
             }
         }

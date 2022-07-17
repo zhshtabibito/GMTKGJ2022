@@ -115,4 +115,6 @@ public class BaseGrid : MonoBehaviour
             isLocked = false;
         }
     }
+
+    public virtual void RemoveHinder() { }
 }
