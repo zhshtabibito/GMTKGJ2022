@@ -102,10 +102,15 @@ public class PlayerController : CharacterBase
 
         if (nextGrid != null && nextGrid.isWalkable())
         {
-            if (record == null)    // 没有使用技能时
+            if (record == null)
             {
-                var lastGrid = map.GetGrid((int) Coordinate.x, (int)Coordinate.z);
+                var lastGrid = map.GetGrid((int) Coordinate.x, (int) Coordinate.z);
                 lastGrid.onLeave(true);
+            }
+            UpdateByKey(key);
+            validTurn = true;
+            if (record == null)
+            {
                 nextGrid.onEnter(true);
                 var func = nextGrid.GetComponentInChildren<GridFunction>();
                 if (func != null)
@@ -138,8 +143,6 @@ public class PlayerController : CharacterBase
                     }
                 }
             }
-            UpdateByKey(key);
-            validTurn = true;
         }
 
         if (validTurn)
