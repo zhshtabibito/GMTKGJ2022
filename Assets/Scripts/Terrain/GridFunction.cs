@@ -99,5 +99,7 @@ public class GridFunction: MonoBehaviour
             render.enabled = false;
         foreach (var particleSystem in GetComponentsInChildren<ParticleSystem>())
             particleSystem.Stop();
+        foreach (var text in GetComponentsInChildren<TextMesh>())
+            text.text = "";
     }
 }
