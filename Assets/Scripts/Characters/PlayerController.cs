@@ -119,12 +119,15 @@ public class PlayerController : CharacterBase
                     }
                     else if (func.functionState == 1)//装备
                     {
-                        equips[diceUp - 1] = func.functionOperator;
-                        Destroy(func.gameObject);
+                        if (friends[diceUp - 1] == 0) // 仅当没有伙伴时
+                        {
+                            equips[diceUp - 1] = func.functionOperator;
+                            Destroy(func.gameObject);
+                        }
                     }
                     else if (func.functionState == 2)
                     {
-                        if (equips[diceUp - 1] != ' ' && friends[diceUp - 1] == 0)
+                        if (equips[diceUp - 1] != ' ' && friends[diceUp - 1] == 0)    // 仅当有装备没有伙伴时
                         {
                             diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, equips[diceUp - 1].ToString());
                             friends[diceUp - 1] = func.functionOperand;
