@@ -3296,6 +3296,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6501453506133516836, guid: e617331650a85e6428064ac6d95c51ef, type: 3}
+      propertyPath: m_text
+      value: '+
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501453506133516836, guid: e617331650a85e6428064ac6d95c51ef, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501453506133516836, guid: e617331650a85e6428064ac6d95c51ef, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501453506133516836, guid: e617331650a85e6428064ac6d95c51ef, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501453506133516836, guid: e617331650a85e6428064ac6d95c51ef, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278255360
+      objectReference: {fileID: 0}
     - target: {fileID: 7166422131556808981, guid: e617331650a85e6428064ac6d95c51ef, type: 3}
       propertyPath: m_Name
       value: WeaponAdd
@@ -3632,7 +3654,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6076439792461584284, guid: 7e6930c648b5ce1409b2030a0898216d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7e6930c648b5ce1409b2030a0898216d, type: 3}
 --- !u!1001 &352955988
 PrefabInstance:
@@ -4986,7 +5009,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &460235907
 PrefabInstance:
@@ -8008,6 +8031,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1409359737}
     m_Modifications:
+    - target: {fileID: 112291646752454134, guid: e1d7eeaac4cb1e04a8ce3fe4fc9aed93, type: 3}
+      propertyPath: m_text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 112291646752454134, guid: e1d7eeaac4cb1e04a8ce3fe4fc9aed93, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 112291646752454134, guid: e1d7eeaac4cb1e04a8ce3fe4fc9aed93, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 112291646752454134, guid: e1d7eeaac4cb1e04a8ce3fe4fc9aed93, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 112291646752454134, guid: e1d7eeaac4cb1e04a8ce3fe4fc9aed93, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278255360
+      objectReference: {fileID: 0}
     - target: {fileID: 6668202716023504938, guid: e1d7eeaac4cb1e04a8ce3fe4fc9aed93, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -13690,7 +13733,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1592439806
 PrefabInstance:
@@ -17160,6 +17203,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 92845102919266338, guid: a1576b2dd749d52459f38be1e0d45690, type: 3}
+      propertyPath: m_text
+      value: '6
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 2221883173726247273, guid: a1576b2dd749d52459f38be1e0d45690, type: 3}
       propertyPath: m_Name
       value: Friend Variant 1
@@ -17234,7 +17283,7 @@ MonoBehaviour:
   diceValues: 010000000200000003000000040000000500000006000000
   route: 
   operater: 0
-  number: 0
+  number: 6
   isDice: 0
 --- !u!1001 &2106059364
 PrefabInstance:
