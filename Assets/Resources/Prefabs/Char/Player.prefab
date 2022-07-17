@@ -364,6 +364,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2729818350385994325}
     m_Modifications:
+    - target: {fileID: 2260330559206677220, guid: b95ac6976d22f29499a77289cdc827db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5667366425263135924, guid: b95ac6976d22f29499a77289cdc827db, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -546,6 +550,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2729818350385994325}
     m_Modifications:
+    - target: {fileID: 5593013381116017861, guid: d72fc858d553a374aafe1348d33603f5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6530439982277108872, guid: d72fc858d553a374aafe1348d33603f5, type: 3}
       propertyPath: m_Name
       value: WeaponBy
@@ -612,6 +620,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2729818350385994325}
     m_Modifications:
+    - target: {fileID: 527024402666976269, guid: e617331650a85e6428064ac6d95c51ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1691123902146122350, guid: e617331650a85e6428064ac6d95c51ef, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -678,6 +690,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2729818350385994325}
     m_Modifications:
+    - target: {fileID: 2120946596873813688, guid: 8beb32a83e3ccd045b5559bf01713617, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3885337763133151158, guid: 8beb32a83e3ccd045b5559bf01713617, type: 3}
       propertyPath: m_Name
       value: WeaponSub
