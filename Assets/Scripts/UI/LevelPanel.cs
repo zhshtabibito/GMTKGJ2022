@@ -47,7 +47,7 @@ public class LevelPanel : BasePanel
             goal += (", " + ML[i].ToString());
         }
 
-        GameObject.Find("BossValue").GetComponentInChildren<TMP_Text>().text = "GOAL: <color=#FFE6B5>" + goal + "</color>";
+        GameObject.Find("BossValue").GetComponentInChildren<TMP_Text>().text = "GOAL: > <color=#FFE6B5>" + goal + "</color>";
 
     }
 }
