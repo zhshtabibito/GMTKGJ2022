@@ -40,6 +40,10 @@ public class PlayerController : CharacterBase
     public AudioClip Move;
     private AudioSource Audio;
     public Transform body;
+    public Transform weaponSword;
+    public Transform weaponBow;
+    public Transform weaponGunzi;
+    public Transform weaponGun;
 
     class Record
     {
@@ -149,6 +153,7 @@ public class PlayerController : CharacterBase
 
         if (validTurn)
         {
+            
             //camera.transform.position = new Vector3(transform.position.x + 4.5f, camera.transform.position.y, camera.transform.position.z);
             RefreshDiceHintUI();
             RefreshEquipFriendUI();
@@ -204,12 +209,12 @@ public class PlayerController : CharacterBase
                 if (fail)// 失败，次数turnCount
                 {
                     pause = true;
-                    LeanTween.delayedCall(gameObject, 2, () => PanelManager.Instance.Push(new ReplayPanel(turnCount)));
+                    LeanTween.delayedCall(gameObject, 1, () => PanelManager.Instance.Push(new ReplayPanel(turnCount)));
                 }
                 else if (defeatAll)// 通关
                 {
                     pause = true;
-                    LeanTween.delayedCall(gameObject, 2, () => PanelManager.Instance.Push(new NextLevelPanel(turnCount)));
+                    LeanTween.delayedCall(gameObject, 1, () => PanelManager.Instance.Push(new NextLevelPanel(turnCount)));
                 }
                 else// 判断无路可走
                 {
@@ -249,22 +254,6 @@ public class PlayerController : CharacterBase
                 equips[diceUp - 1].attackDistanceType = func.attackDistanceType;
                 equips[diceUp - 1].attackRelativeGrids = func.attackRelativeGrids;
                 func.Performance();
-                switch (func.attackDistanceType)
-                {
-                    case 0:
-                        PlayState("棒子");
-                        break;
-                    case 1:
-                        PlayState("射箭");
-                        break;
-                    case 2:
-                        PlayState("棒子");
-                        break;
-                    case 3:
-                        PlayState("开枪");
-                        break;
-                }
-                Audio.PlayOneShot(GetItem);
             }
         }
         else if (func.functionState == 2)
@@ -276,10 +265,49 @@ public class PlayerController : CharacterBase
                 func.Performance();
                 upTipText.text = equips[diceUp - 1]._operator.ToString() + friends[diceUp - 1].ToString();
                 LeanTween.delayedCall(gameObject, 1, () => upTipText.text = "");
-
-                Audio.PlayOneShot(GetItem);
             }
         }
+    }
+
+    void UseEquip()
+    {
+        if (equips[diceUp - 1] == null)
+        {
+            PlayState("walk");
+            weaponSword.gameObject.SetActive(false);
+            weaponBow.gameObject.SetActive(false);
+            weaponGunzi.gameObject.SetActive(false);
+            weaponGun.gameObject.SetActive(false);
+            return;
+        }
+
+        int type = equips[diceUp - 1].attackDistanceType;
+        
+        weaponSword.gameObject.SetActive(type == 0);
+        weaponBow.gameObject.SetActive(type == 1);
+        weaponGunzi.gameObject.SetActive(type == 2);
+        weaponGun.gameObject.SetActive(type == 3);
+        
+        switch (type)
+        {
+            case 0:
+                PlayState("棒子");
+                Audio.PlayOneShot(ColdWeapen);
+                break;
+            case 1:
+                PlayState("射箭");
+                Audio.PlayOneShot(ColdWeapen);
+                break;
+            case 2:
+                PlayState("棒子");
+                Audio.PlayOneShot(ColdWeapen);
+                break;
+            case 3:
+                PlayState("开枪");
+                Audio.PlayOneShot(HotWeapon);
+                break;
+        }
+        
     }
 
     List<BaseGrid> GetAllAttackRangeGrids()
@@ -288,7 +316,8 @@ public class PlayerController : CharacterBase
         if (equips[diceUp - 1] == null || equips[diceUp - 1].attackRelativeGrids == null ||
             equips[diceUp - 1].attackRelativeGrids.Count == 0)
             return results;
-        
+
+        UseEquip();
         foreach (var g in equips[diceUp - 1].attackRelativeGrids)
         {
             var grid = map.GetGrid((int) Coordinate.x + g.x, (int) Coordinate.z + g.y);
