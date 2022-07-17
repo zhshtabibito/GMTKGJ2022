@@ -34,6 +34,7 @@ public class MonsterController : CharacterBase
         var currentKey = route[currentRouteIndex % route.Length];
         UpdateByKey(currentKey);
         currentRouteIndex++;
+        PlayWalk();
     }
 
     public bool Battle(int playerNum)

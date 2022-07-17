@@ -76,25 +76,25 @@ public class PlayerController : CharacterBase
         {
             nextGrid = map.GetGrid((int) Coordinate.x - 1, (int)Coordinate.z);
             key = 'w';
-            body.forward = Vector3.right;
+            body.forward = Vector3.left;
         }
         else if (Input.GetKeyDown(KeyCode.S)|| Input.GetKeyDown(KeyCode.DownArrow))
         {
             nextGrid = map.GetGrid((int) Coordinate.x + 1, (int)Coordinate.z);
             key = 's';
-            body.forward = Vector3.left;
+            body.forward = Vector3.right;
         }
         else if (Input.GetKeyDown(KeyCode.A)|| Input.GetKeyDown(KeyCode.LeftArrow))
         {
             nextGrid = map.GetGrid((int) Coordinate.x, (int)Coordinate.z - 1);
             key = 'a';
-            body.forward = Vector3.forward;
+            body.forward = Vector3.back;
         }
         else if (Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow))
         {
             nextGrid = map.GetGrid((int) Coordinate.x, (int)Coordinate.z + 1);
             key = 'd';
-            body.forward = Vector3.back;
+            body.forward = Vector3.forward;
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {

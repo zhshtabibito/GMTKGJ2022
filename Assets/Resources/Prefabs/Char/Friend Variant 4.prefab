@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6769a417ee45dba680f1ace9125e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dice: {fileID: 0}
   diceUp: 1
   diceFront: 2
   diceRight: 3
@@ -159,7 +160,7 @@ Animator:
   m_GameObject: {fileID: 5798980725363382011}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b7fbebd78765f40bf977f38838cc4d07, type: 2}
+  m_Controller: {fileID: 22100000, guid: 61f123a24ab7d4b4f8c217bf335f4575, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
