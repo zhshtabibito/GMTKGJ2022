@@ -14,8 +14,11 @@ public class PlayerController : CharacterBase
     public TMP_Text leftText;
     public TMP_Text frontText;
     public TMP_Text backText;
+    public TMP_Text upTipText;
+    public TMP_Text downTipText;
     public Image equipImg;
     public Image friendImg;
+    
     GameMap map;
     private Camera camera;
     private char[] equips = new char[6]{' ',' ',' ',' ',' ',' ',};
@@ -111,6 +114,8 @@ public class PlayerController : CharacterBase
                     {
                         diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, string.Empty);
                         Destroy(func.gameObject);
+                        upTipText.text = func.functionOperator.ToString() + func.functionOperand.ToString();
+                        LeanTween.delayedCall(gameObject, 1, () => upTipText.text = "");
                     }
                     else if (func.functionState == 1)//装备
                     {
@@ -119,11 +124,13 @@ public class PlayerController : CharacterBase
                     }
                     else if (func.functionState == 2)
                     {
-                        if (equips[diceUp - 1] != ' ')
+                        if (equips[diceUp - 1] != ' ' && friends[diceUp - 1] == 0)
                         {
                             diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, equips[diceUp - 1].ToString());
-                            equips[diceUp - 1] = ' ';
+                            friends[diceUp - 1] = func.functionOperand;
                             Destroy(func.gameObject);
+                            upTipText.text = equips[diceUp - 1].ToString() + friends[diceUp - 1].ToString();
+                            LeanTween.delayedCall(gameObject, 1, () => upTipText.text = "");
                         }
                     }
                 }
@@ -150,6 +157,8 @@ public class PlayerController : CharacterBase
                         if (monster.Battle(currentDiceValue))
                         {
                             diceValues[diceUp - 1] = diceUp;
+                            downTipText.text = "↓↓↓";
+                            LeanTween.delayedCall(gameObject, 1, () => downTipText.text = "");
                         }
                         else
                         {
