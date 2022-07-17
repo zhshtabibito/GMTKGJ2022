@@ -11,6 +11,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Friend Variant 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2184079264388189153, guid: 759208fff491a014b822c8be17dc2de4, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2184079264388189153, guid: 759208fff491a014b822c8be17dc2de4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2184079264388189153, guid: 759208fff491a014b822c8be17dc2de4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2184079264388189153, guid: 759208fff491a014b822c8be17dc2de4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 2184079264388189153, guid: 759208fff491a014b822c8be17dc2de4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: 2184079264388189153, guid: 759208fff491a014b822c8be17dc2de4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
     - target: {fileID: 5228533012511128108, guid: 759208fff491a014b822c8be17dc2de4, type: 3}
       propertyPath: m_RootOrder
       value: 0
