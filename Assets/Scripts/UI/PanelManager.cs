@@ -12,7 +12,7 @@ public class PanelManager
     private Stack<BasePanel> panelStack;
 
     public Transform CanvasObj;
-    public RawImage BlackMaskCpn = null;
+    // public RawImage BlackMaskCpn = null;
 
     public PanelManager()
     {
@@ -22,8 +22,8 @@ public class PanelManager
         panelStack = new Stack<BasePanel>();
 
         // Debug.Log(GameObject.Find("CanvasMask").GetComponent<RawImage>());
-        if (BlackMaskCpn == null)
-            BlackMaskCpn = GameObject.Find("CanvasMask").GetComponent<RawImage>();
+        // if (BlackMaskCpn == null)
+        //    BlackMaskCpn = GameObject.Find("CanvasMask").GetComponent<RawImage>();
 
     }
 
