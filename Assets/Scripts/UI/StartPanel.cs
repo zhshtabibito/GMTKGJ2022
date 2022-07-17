@@ -21,6 +21,10 @@ public class StartPanel : BasePanel
         {
             OnBtnPlay();
         });
+        ActivePanel.GetOrAddComponentInChildren<Button>("StaffBtn").onClick.AddListener(() =>
+        {
+            Push(new EndPanel());
+        });
 
     }
 

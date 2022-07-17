@@ -17,8 +17,9 @@ public class LevelPanel : BasePanel
     {
         ActivePanel.GetOrAddComponentInChildren<Button>("BackBtn").onClick.AddListener(() =>
         {
-            Push(new ReplayPanel(0));
+            Push(new NoticePanel());
         });
+
     }
 
 

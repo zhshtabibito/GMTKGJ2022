@@ -18,6 +18,7 @@ public class LevelScene : SceneInfo
             SceneName = $"Level_{LevelNum}";
         }
 
+        SavingManager.Instance.SaveGame(LevelNum);
 
     }
 

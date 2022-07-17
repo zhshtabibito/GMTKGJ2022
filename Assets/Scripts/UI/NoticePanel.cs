@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class NoticePanel : BasePanel
 {
-    static readonly string Path = "Prefabs/UI/NextLevelPanel";
+    static readonly string Path = "Prefabs/UI/NoticePanel";
 
     public NoticePanel() : base(new PanelInfo(Path))
     {
@@ -14,15 +14,24 @@ public class NoticePanel : BasePanel
 
     protected override void InitEvent()
     {
+        ActivePanel.GetOrAddComponentInChildren<Button>("CloseBtn").onClick.AddListener(() =>
+        {
+            Pop();
+        });
+        ActivePanel.GetOrAddComponentInChildren<Button>("LeaveBtn").onClick.AddListener(() =>
+        {
+            GameRoot.Instance.LoadScene(new StartScene());
+        });
         ActivePanel.GetOrAddComponentInChildren<Button>("PlayBtn").onClick.AddListener(() =>
         {
-            OnBtnPlay();
+            LevelScene s = (LevelScene)GameRoot.Instance.scene;
+            GameRoot.Instance.LoadScene(new LevelScene(s.LevelNum));
         });
 
     }
 
     private void OnBtnPlay()
     {
-        GameRoot.Instance.LoadScene(new StartScene());
+        
     }
 }
