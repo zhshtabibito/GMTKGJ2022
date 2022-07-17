@@ -2307,6 +2307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapDataFile: {fileID: 4900000, guid: 313c55a27f5df1e4393028336ae149a4, type: 3}
+  terrainGridRatio: {x: 1, y: 0, z: 0}
   terrainGridPrefabs:
   - {fileID: 4402296911064721877, guid: 5b2fb81f4222f1f40b1cc01e2a5000b6, type: 3}
   - {fileID: 877927048391764842, guid: 3499e3c153f42dc4bab0da913be2de71, type: 3}
@@ -2316,6 +2317,9 @@ MonoBehaviour:
   - {fileID: 8480613052119278027, guid: 7781b33402688c74a926b573e6e00b3c, type: 3}
   - {fileID: 8821015477691872744, guid: 5b66bdc78c1103844b8a61ce330f0f0b, type: 3}
   - {fileID: 2221883173726247273, guid: 9627905c4ef8bfd4c8177996d0abb786, type: 3}
+  weaponPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
   playerPrefab: {fileID: 8562933960768482490, guid: 7e6930c648b5ce1409b2030a0898216d, type: 3}
   monsterPrefabList:
   - {fileID: 2221883173726247273, guid: 0dd7a45dd08d43a4ea05801332d4cf4c, type: 3}
@@ -4599,6 +4603,8 @@ MonoBehaviour:
   functionOperator: 43
   functionOperand: 3
   functionState: 0
+  attackDistanceType: 0
+  attackRelativeGrids: []
 --- !u!135 &335552543
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5007,6 +5013,82 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363663027}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &366776453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 366776454}
+  - component: {fileID: 366776456}
+  - component: {fileID: 366776455}
+  m_Layer: 5
+  m_Name: CanvasMask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &366776454
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366776453}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2070049923}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &366776455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366776453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &366776456
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366776453}
+  m_CullTransparentMesh: 1
 --- !u!1 &372880769
 GameObject:
   m_ObjectHideFlags: 0
@@ -5058,6 +5140,8 @@ MonoBehaviour:
   functionOperator: 42
   functionOperand: 0
   functionState: 1
+  attackDistanceType: 0
+  attackRelativeGrids: []
 --- !u!135 &372880772
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7275,6 +7359,8 @@ MonoBehaviour:
   functionOperator: 46
   functionOperand: 2
   functionState: 2
+  attackDistanceType: 0
+  attackRelativeGrids: []
 --- !u!1 &519316461
 GameObject:
   m_ObjectHideFlags: 0
@@ -22368,6 +22454,8 @@ MonoBehaviour:
   leftText: {fileID: 0}
   frontText: {fileID: 0}
   backText: {fileID: 0}
+  upTipText: {fileID: 0}
+  downTipText: {fileID: 0}
   equipImg: {fileID: 0}
   friendImg: {fileID: 0}
 --- !u!4 &1822280081
@@ -24372,7 +24460,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 366776454}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

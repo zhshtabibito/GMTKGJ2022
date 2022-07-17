@@ -63,7 +63,7 @@ public class GameRoot : MonoBehaviour
         scene?.OnEnter();
         isReady = true;
         SceneManager.sceneLoaded -= SceneLoaded;
-        Debug.Log($"{sceneName}����������ϣ�");
+        Debug.Log($"{sceneName} loaded!");
     }
 
     /// <summary>
@@ -83,4 +83,31 @@ public class GameRoot : MonoBehaviour
         Application.Quit();
 #endif
     }
+
+    private IEnumerator ShowMask()
+    {
+        panelManager.BlackMaskCpn.color = Color.clear;
+        panelManager.BlackMaskCpn.gameObject.SetActive(true);
+
+        panelManager.BlackMaskCpn.transform.SetAsLastSibling();
+        for (float x = 0f; x < 1.0f; x += Time.deltaTime / 1f)
+        {
+            panelManager.BlackMaskCpn.color = Color.Lerp(Color.clear, Color.black, x);
+            yield return null;
+        }
+
+        //BlackMask.SetAsLastSibling();
+        //for (float x = 1f; x > 0f; x -= Time.deltaTime / 2f)
+        //{
+        //    BlackMaskCpn.color = Color.Lerp(Color.clear, Color.black, x);
+        //    yield return null;
+        //}
+        //BlackMask.gameObject.SetActive(false);
+        //if (panelStack.Peek().GetType() == typeof(CutPanel))
+        //{
+        //    CutManager.Instance.OnFinishLoad();
+        //}
+    }
+
+
 }
