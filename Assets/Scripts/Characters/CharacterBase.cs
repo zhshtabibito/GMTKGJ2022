@@ -74,7 +74,10 @@ public class CharacterBase : MonoBehaviour
                 break;
         }
     }
-
+    public void PlayState(string state)
+    {
+        GetComponentInChildren<Animator>()?.Play(state);
+    }
     public void PlayIdle()
     {
         GetComponentInChildren<Animator>()?.SetTrigger("idle");

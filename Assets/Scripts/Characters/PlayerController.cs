@@ -39,6 +39,7 @@ public class PlayerController : CharacterBase
     public AudioClip GetItem;
     public AudioClip Move;
     private AudioSource Audio;
+    public Transform body;
 
     class Record
     {
@@ -47,6 +48,7 @@ public class PlayerController : CharacterBase
         public int diceFront;
         public int diceRight;
         public int[] diceValues;
+        public Quaternion diceRotation;
     }
 
     void Start()
@@ -74,21 +76,25 @@ public class PlayerController : CharacterBase
         {
             nextGrid = map.GetGrid((int) Coordinate.x - 1, (int)Coordinate.z);
             key = 'w';
+            body.forward = Vector3.right;
         }
         else if (Input.GetKeyDown(KeyCode.S)|| Input.GetKeyDown(KeyCode.DownArrow))
         {
             nextGrid = map.GetGrid((int) Coordinate.x + 1, (int)Coordinate.z);
             key = 's';
+            body.forward = Vector3.left;
         }
         else if (Input.GetKeyDown(KeyCode.A)|| Input.GetKeyDown(KeyCode.LeftArrow))
         {
             nextGrid = map.GetGrid((int) Coordinate.x, (int)Coordinate.z - 1);
             key = 'a';
+            body.forward = Vector3.forward;
         }
         else if (Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow))
         {
             nextGrid = map.GetGrid((int) Coordinate.x, (int)Coordinate.z + 1);
             key = 'd';
+            body.forward = Vector3.back;
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -102,6 +108,7 @@ public class PlayerController : CharacterBase
             record.diceRight = diceRight;
             record.diceValues = diceValues;
             record.coordinate = Coordinate;
+            record.diceRotation = dice.localRotation;
             RefreshDiceHintUI();
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
@@ -111,6 +118,7 @@ public class PlayerController : CharacterBase
             diceRight = record.diceRight;
             diceValues = record.diceValues;
             Coordinate = record.coordinate;
+            dice.localRotation = record.diceRotation;
             record = null;
             RefreshDiceHintUI();
         }
@@ -241,7 +249,21 @@ public class PlayerController : CharacterBase
                 equips[diceUp - 1].attackDistanceType = func.attackDistanceType;
                 equips[diceUp - 1].attackRelativeGrids = func.attackRelativeGrids;
                 func.Performance();
-
+                switch (func.attackDistanceType)
+                {
+                    case 0:
+                        PlayState("棒子");
+                        break;
+                    case 1:
+                        PlayState("射箭");
+                        break;
+                    case 2:
+                        PlayState("棒子");
+                        break;
+                    case 3:
+                        PlayState("开枪");
+                        break;
+                }
                 Audio.PlayOneShot(GetItem);
             }
         }
