@@ -23,6 +23,7 @@ public class LevelScene : SceneInfo
 
     public override void OnEnter()
     {
+        base.OnEnter();
         panelManager.Push(new LevelPanel());
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameRoot : MonoBehaviour
@@ -123,16 +124,15 @@ public class GameRoot : MonoBehaviour
 
     private IEnumerator HideMask()
     {
-        Debug.Log("??????!!!!");
+        RawImage RI = GameObject.Find("CanvasMask").GetComponent<RawImage>();
 
-        panelManager.BlackMaskCpn.gameObject.SetActive(true);
-        panelManager.BlackMaskCpn.transform.SetAsLastSibling();
+        RI.transform.SetAsLastSibling();
         for (float x = 0f; x < 1.0f; x += Time.deltaTime / 1f)
         {
-            panelManager.BlackMaskCpn.color = Color.Lerp(Color.black, Color.clear, x);
+            RI.color = Color.Lerp(Color.black, Color.clear, x);
             yield return null;
         }
-        panelManager.BlackMaskCpn.gameObject.SetActive(false);
+        RI.gameObject.SetActive(false);
     }
 
 }
