@@ -209,12 +209,12 @@ public class PlayerController : CharacterBase
                 if (fail)// 失败，次数turnCount
                 {
                     pause = true;
-                    LeanTween.delayedCall(gameObject, 2, () => PanelManager.Instance.Push(new ReplayPanel(turnCount)));
+                    LeanTween.delayedCall(gameObject, 1, () => PanelManager.Instance.Push(new ReplayPanel(turnCount)));
                 }
                 else if (defeatAll)// 通关
                 {
                     pause = true;
-                    LeanTween.delayedCall(gameObject, 2, () => PanelManager.Instance.Push(new NextLevelPanel(turnCount)));
+                    LeanTween.delayedCall(gameObject, 1, () => PanelManager.Instance.Push(new NextLevelPanel(turnCount)));
                 }
                 else// 判断无路可走
                 {
