@@ -27,10 +27,10 @@ public class LevelScene : SceneInfo
         base.OnEnter();
         panelManager.Push(new LevelPanel());
         if(LevelNum == 1)
-            panelManager.Push(new ToastPanel("第1关的教程，子文快写"));
+            panelManager.Push(new ToastPanel("If the UPWARD number is greater, you can defeat the enemy!"));
         else if (LevelNum == 2)
-            panelManager.Push(new ToastPanel("第2关的教程，子文快写"));
-        else if (LevelNum == 4)
-            panelManager.Push(new ToastPanel("第4关的教程，子文快写"));
+            panelManager.Push(new ToastPanel("First get the WEAPON, then the FRIEND"));
+        else if (LevelNum == 5)
+            panelManager.Push(new ToastPanel("Weapon and Friend can only help for ONCE!"));
     }
 }
