@@ -9,7 +9,7 @@ public class GameMap : MonoBehaviour
     public Vector3 terrainGridRatio = new Vector3(1.0f, 0, 0);
     public GameObject[] terrainGridPrefabs = new GameObject[3];  // 空白地形，目前是三个随机
     public GameObject[] functionPrefabs = new GameObject[3];  // 0-药水 1-普通装备 2-伙伴
-    public GameObject[] weaponPrefabs = new GameObject[2];  // 0-剑 1-弓 (其实可以和普通装备合到一个prefab里，看美术资源情况再调整)
+    public GameObject[] weaponPrefabs = new GameObject[4];  // 0-剑 1-弓 2-棍 3-枪(其实可以和普通装备合到一个prefab里，看美术资源情况再调整)
     public GameObject playerPrefab;
     public List<GameObject> monsterPrefabList;
     public bool createAvatar = false;
@@ -145,7 +145,19 @@ public class GameMap : MonoBehaviour
                     else if (!hasOperator && hasOperand) functionType = 2;
                     if (data.Length > 2 && data[2].Length > 1)
                     {  // 武器实例化
-                        int weaponType = data[2][0] == '+' ? 0 : 1;
+                        int weaponType = 0;
+                        switch (data[2][1])
+                        {
+                            case '*':
+                                weaponType = 1;
+                                break;
+                            case '-':
+                                weaponType = 2;
+                                break;
+                            case '/':
+                                weaponType = 3;
+                                break;
+                        }
                         functionObject = PrefabUtility.InstantiatePrefab(weaponPrefabs[weaponType], terrainObject.transform) as GameObject;
                     }
                     else  // 一般装备实例化
