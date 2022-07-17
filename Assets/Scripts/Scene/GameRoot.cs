@@ -39,7 +39,7 @@ public class GameRoot : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && panelManager.GetPeek()!=null && panelManager.GetPeek().isExitIfClicked)
+        if (Input.GetMouseButtonDown(0) && panelManager != null && panelManager.GetPeek()!=null && panelManager.GetPeek().isExitIfClicked)
         {
             if (!panelManager.isMouseInPanel(panelManager.GetPeek()))
                 panelManager.Pop();
