@@ -40,6 +40,10 @@ public class PlayerController : CharacterBase
     public AudioClip Move;
     private AudioSource Audio;
     public Transform body;
+    public Transform weaponSword;
+    public Transform weaponBow;
+    public Transform weaponGunzi;
+    public Transform weaponGun;
 
     class Record
     {
@@ -149,7 +153,7 @@ public class PlayerController : CharacterBase
 
         if (validTurn)
         {
-            PlayState("walk");
+            
             //camera.transform.position = new Vector3(transform.position.x + 4.5f, camera.transform.position.y, camera.transform.position.z);
             RefreshDiceHintUI();
             RefreshEquipFriendUI();
@@ -269,10 +273,22 @@ public class PlayerController : CharacterBase
     {
         if (equips[diceUp - 1] == null)
         {
+            PlayState("walk");
+            weaponSword.gameObject.SetActive(false);
+            weaponBow.gameObject.SetActive(false);
+            weaponGunzi.gameObject.SetActive(false);
+            weaponGun.gameObject.SetActive(false);
             return;
         }
 
-        switch (equips[diceUp - 1].attackDistanceType)
+        int type = equips[diceUp - 1].attackDistanceType;
+        
+        weaponSword.gameObject.SetActive(type == 0);
+        weaponBow.gameObject.SetActive(type == 1);
+        weaponGunzi.gameObject.SetActive(type == 2);
+        weaponGun.gameObject.SetActive(type == 3);
+        
+        switch (type)
         {
             case 0:
                 PlayState("棒子");
