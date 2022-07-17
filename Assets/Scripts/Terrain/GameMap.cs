@@ -180,8 +180,11 @@ public class GameMap : MonoBehaviour
                         functionObject = PrefabUtility.InstantiatePrefab(functionPrefabs[functionType], terrainObject.transform) as GameObject;
                     functionObject.transform.Translate(0, 1, 0);
                     // 添加环境物体功能Component
-                    var GridFunction = functionObject.AddComponent<GridFunction>();
-                    GridFunction.SetInfo(functionType, gridDatas[j]);
+                    var gridFunction = functionObject.AddComponent<GridFunction>();
+                    gridFunction.SetInfo(functionType, gridDatas[j]);
+                    // 调整伙伴朝向
+                    if (gridFunction.functionState == 2)
+                        functionObject.transform.RotateAround(functionObject.transform.position, new Vector3(0, 1, 0), 90);
                 }
             }
         }
