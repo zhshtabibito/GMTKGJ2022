@@ -2242,6 +2242,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 92845102919266338, guid: e1325c6eebc840e4990955fcfac04239, type: 3}
+      propertyPath: m_text
+      value: '>8'
+      objectReference: {fileID: 0}
     - target: {fileID: 2221883173726247273, guid: e1325c6eebc840e4990955fcfac04239, type: 3}
       propertyPath: m_Name
       value: Friend Variant 8
@@ -6541,6 +6545,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 895129317}
     m_Modifications:
+    - target: {fileID: 294388976768563376, guid: d72fc858d553a374aafe1348d33603f5, type: 3}
+      propertyPath: m_text
+      value: x
+      objectReference: {fileID: 0}
+    - target: {fileID: 294388976768563376, guid: d72fc858d553a374aafe1348d33603f5, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 294388976768563376, guid: d72fc858d553a374aafe1348d33603f5, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 294388976768563376, guid: d72fc858d553a374aafe1348d33603f5, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 294388976768563376, guid: d72fc858d553a374aafe1348d33603f5, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278255360
+      objectReference: {fileID: 0}
     - target: {fileID: 6530439982277108872, guid: d72fc858d553a374aafe1348d33603f5, type: 3}
       propertyPath: m_Name
       value: WeaponBy
@@ -11408,6 +11432,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 92845102919266338, guid: ab128e1ce75664b48ac32fef9c5cb15a, type: 3}
+      propertyPath: m_text
+      value: '>6'
+      objectReference: {fileID: 0}
     - target: {fileID: 2221883173726247273, guid: ab128e1ce75664b48ac32fef9c5cb15a, type: 3}
       propertyPath: m_Name
       value: Friend Variant 9
@@ -13766,6 +13794,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1304398121}
     m_Modifications:
+    - target: {fileID: 92845102919266338, guid: 9627905c4ef8bfd4c8177996d0abb786, type: 3}
+      propertyPath: m_text
+      value: '2
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 92845102919266338, guid: 9627905c4ef8bfd4c8177996d0abb786, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 92845102919266338, guid: 9627905c4ef8bfd4c8177996d0abb786, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 92845102919266338, guid: 9627905c4ef8bfd4c8177996d0abb786, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 92845102919266338, guid: 9627905c4ef8bfd4c8177996d0abb786, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278255360
+      objectReference: {fileID: 0}
     - target: {fileID: 2221883173726247273, guid: 9627905c4ef8bfd4c8177996d0abb786, type: 3}
       propertyPath: m_Name
       value: Friend Variant 2
@@ -16849,6 +16899,28 @@ PrefabInstance:
     - target: {fileID: 7170873583090627372, guid: 472a8f2f838510d4b99da5c84e3d084e, type: 3}
       propertyPath: m_Name
       value: Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782097469073528744, guid: 472a8f2f838510d4b99da5c84e3d084e, type: 3}
+      propertyPath: m_text
+      value: '+3
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782097469073528744, guid: 472a8f2f838510d4b99da5c84e3d084e, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782097469073528744, guid: 472a8f2f838510d4b99da5c84e3d084e, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782097469073528744, guid: 472a8f2f838510d4b99da5c84e3d084e, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782097469073528744, guid: 472a8f2f838510d4b99da5c84e3d084e, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278255360
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 472a8f2f838510d4b99da5c84e3d084e, type: 3}

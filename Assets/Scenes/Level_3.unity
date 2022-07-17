@@ -13795,6 +13795,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 92845102919266338, guid: a1576b2dd749d52459f38be1e0d45690, type: 3}
+      propertyPath: m_text
+      value: '>4
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 2221883173726247273, guid: a1576b2dd749d52459f38be1e0d45690, type: 3}
       propertyPath: m_Name
       value: Friend Variant 1
@@ -15387,7 +15393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7782097469073528744, guid: 472a8f2f838510d4b99da5c84e3d084e, type: 3}
       propertyPath: m_text
-      value: '+1
+      value: '+3
 
 '
       objectReference: {fileID: 0}
