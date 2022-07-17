@@ -70,6 +70,11 @@ public class PlayerController : CharacterBase
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+        {
+            RestoreRecord();
+        }
+        
         if (lastTime < 0.5f)
         {
             lastTime += Time.deltaTime;
@@ -133,10 +138,6 @@ public class PlayerController : CharacterBase
                 r.SetPropertyBlock(block);
             }
             RefreshDiceHintUI();
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
-        {
-            RestoreRecord();
         }
 
         if (nextGrid != null && nextGrid.isWalkable())
@@ -280,7 +281,10 @@ public class PlayerController : CharacterBase
         if (func.functionState == 0)
         {
             diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, string.Empty);
-            upTipText.text = func.functionOperator.ToString() + func.functionOperand.ToString();
+            if (upTipText != null)
+            {
+                upTipText.text = func.functionOperator.ToString() + func.functionOperand.ToString();
+            }
             func.Performance();
             LeanTween.delayedCall(gameObject, 1, () => upTipText.text = "");
         }
