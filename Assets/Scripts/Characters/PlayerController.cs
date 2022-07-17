@@ -136,24 +136,7 @@ public class PlayerController : CharacterBase
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
         {
-            diceFront = record.diceFront;
-            diceUp = record.diceUp;
-            diceRight = record.diceRight;
-            diceValues = record.diceValues;
-            Coordinate = record.coordinate;
-            dice.localRotation = record.diceRotation;
-            Destroy(record.stillGo);
-            record = null;
-            var renders = GetComponentsInChildren<Renderer>();
-            var block = new MaterialPropertyBlock();
-            var colorId = Shader.PropertyToID("_Color");
-            foreach (var r in renders)
-            {
-                r.GetPropertyBlock(block);
-                block.SetColor(colorId, Color.white);
-                r.SetPropertyBlock(block);
-            }
-            RefreshDiceHintUI();
+            RestoreRecord();
         }
 
         if (nextGrid != null && nextGrid.isWalkable())
@@ -265,6 +248,31 @@ public class PlayerController : CharacterBase
             }
         }
         
+    }
+
+    private void RestoreRecord()
+    {
+        if (record == null)
+            return;
+        diceFront = record.diceFront;
+        diceUp = record.diceUp;
+        diceRight = record.diceRight;
+        diceValues = record.diceValues;
+        Coordinate = record.coordinate;
+        dice.localRotation = record.diceRotation;
+        Destroy(record.stillGo);
+        record = null;
+        var renders = GetComponentsInChildren<Renderer>();
+        var block = new MaterialPropertyBlock();
+        var colorId = Shader.PropertyToID("_Color");
+        foreach (var r in renders)
+        {
+            r.GetPropertyBlock(block);
+            block.SetColor(colorId, Color.white);
+            r.SetPropertyBlock(block);
+        }
+
+        RefreshDiceHintUI();
     }
 
     private void ProcessGridFunction(GridFunction func, BaseGrid nextGrid)
@@ -381,5 +389,10 @@ public class PlayerController : CharacterBase
     void RefreshEquipFriendUI()
     {
         GameObject.Find("HudAll")?.GetComponent<EquipHud>()?.Refresh(equips[diceUp - 1], friends[diceUp - 1]);        
+    }
+    
+    void OnApplicationFocus(bool hasFocus)
+    {
+        RestoreRecord();
     }
 }
