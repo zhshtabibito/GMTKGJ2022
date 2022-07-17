@@ -19,6 +19,16 @@ public class GridFunction: MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        var text = GetComponentInChildren<TMPro.TMP_Text>();
+        if (text)
+        {
+            if (functionState <= 1) text.text = functionOperator.ToString();
+            if (functionState == 0 || functionState == 2) text.text += functionOperand.ToString();
+        }
+    }
+
     public void SetInfo(int functionState, string functionData)
     {
         var data = functionData.Split('}');
