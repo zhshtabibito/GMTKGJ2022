@@ -192,7 +192,7 @@ public class GameMap : MonoBehaviour
     private void ClearChildrens()
     {
         if (this.transform.childCount > 0)
-            for (int i = 0; i < this.transform.childCount; i++)
+            for (int i = this.transform.childCount - 1; i >= 0; i--)
             {
                 DestroyImmediate(this.transform.GetChild(i).gameObject);
             }
