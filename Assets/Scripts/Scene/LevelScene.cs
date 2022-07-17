@@ -27,7 +27,7 @@ public class LevelScene : SceneInfo
         base.OnEnter();
         panelManager.Push(new LevelPanel());
         if(LevelNum == 1)
-            panelManager.Push(new ToastPanel("If the UPWARD number is greater, you can defeat the enemy!"));
+            panelManager.Push(new ToastPanel("If the UPWARD number is greater, you can defeat the enemy!\n Try HOLD SHIFT key and move!"));
         else if (LevelNum == 2)
             panelManager.Push(new ToastPanel("First get the WEAPON, then the FRIEND"));
         else if (LevelNum == 5)
