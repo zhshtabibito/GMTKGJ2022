@@ -210,8 +210,8 @@ public class PlayerController : CharacterBase
         if (func.functionState == 0)
         {
             diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, string.Empty);
-            Destroy(func.gameObject);
             upTipText.text = func.functionOperator.ToString() + func.functionOperand.ToString();
+            Destroy(func.gameObject);
             LeanTween.delayedCall(gameObject, 1, () => upTipText.text = "");
         }
         else if (func.functionState == 1) //装备
@@ -275,6 +275,6 @@ public class PlayerController : CharacterBase
 
     void RefreshEquipFriendUI()
     {
-        GameObject.Find("HudAll").GetComponent<EquipHud>().Refresh(equips[diceUp - 1], friends[diceUp - 1]);        
+        GameObject.Find("HudAll")?.GetComponent<EquipHud>()?.Refresh(equips[diceUp - 1], friends[diceUp - 1]);        
     }
 }
