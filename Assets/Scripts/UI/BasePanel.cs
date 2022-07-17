@@ -47,7 +47,7 @@ public abstract class BasePanel
     public virtual void OnEnter()
     {
         ActivePanel.PanelAppearance(true);
-        Debug.Log(ActivePanel.parent);
+        // Debug.Log(ActivePanel.parent);
         ActivePanel.SetSiblingIndex(ActivePanel.parent.childCount - 1);
         if (!Info.Init)
         {

@@ -12,7 +12,7 @@ public class PanelManager
     private Stack<BasePanel> panelStack;
 
     public Transform CanvasObj;
-    public RawImage BlackMaskCpn;
+    public RawImage BlackMaskCpn = null;
 
     public PanelManager()
     {
@@ -21,7 +21,10 @@ public class PanelManager
         dictPanel = new Dictionary<string, BasePanel>();
         panelStack = new Stack<BasePanel>();
 
-        // BlackMaskCpn = BlackMask.GetComponent<RawImage>();
+        Debug.Log(GameObject.Find("CanvasMask").GetComponent<RawImage>() == null);
+        if (BlackMaskCpn == null)
+            BlackMaskCpn = GameObject.Find("CanvasMask").GetComponent<RawImage>();
+
     }
 
     public BasePanel GetPeek()
@@ -36,10 +39,8 @@ public class PanelManager
             return dictUI[panel.Path];
         }
 
-        if(CanvasObj==null)
+        if (CanvasObj == null)
             CanvasObj = GameObject.Find("Canvas").transform;
-        if (BlackMaskCpn == null)
-            BlackMaskCpn = GameObject.Find("CanvasMask").GetComponent<RawImage>();
 
         GameObject obj = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(panel.Path), CanvasObj);
         obj.name = panel.Name;
