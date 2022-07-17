@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class LevelPanel : BasePanel
@@ -11,6 +12,15 @@ public class LevelPanel : BasePanel
     {
 
     }
+
+    protected override void InitEvent()
+    {
+        ActivePanel.GetOrAddComponentInChildren<Button>("BackBtn").onClick.AddListener(() =>
+        {
+            Push(new ReplayPanel(0));
+        });
+    }
+
 
     public override void OnEnter()
     {

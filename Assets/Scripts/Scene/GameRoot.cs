@@ -13,7 +13,7 @@ public class GameRoot : MonoBehaviour
     private string sceneName;
     public SceneInfo scene;
 
-
+    public RawImage BlackMaskCpn = null;
 
     void Awake()
     {
@@ -27,7 +27,10 @@ public class GameRoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(scene == null)
+        BlackMaskCpn = GameObject.Find("CanvasMask").GetComponent<RawImage>();
+        BlackMaskCpn.gameObject.SetActive(false);
+
+        if (scene == null)
         {
             scene = new StartScene();
             scene.OnEnter();
@@ -45,8 +48,6 @@ public class GameRoot : MonoBehaviour
 
     public void LoadScene(SceneInfo newScene, bool reload = true)
     {
-
-
         if (reload)
         {
             // SceneManager.LoadScene(sceneName);
@@ -91,13 +92,15 @@ public class GameRoot : MonoBehaviour
 
     private IEnumerator ShowMaskAndLoadScene(SceneInfo newScene)
     {
-        panelManager.BlackMaskCpn.color = Color.clear;
-        panelManager.BlackMaskCpn.gameObject.SetActive(true);
 
-        panelManager.BlackMaskCpn.transform.SetAsLastSibling();
+
+        BlackMaskCpn.color = Color.clear;
+        BlackMaskCpn.gameObject.SetActive(true);
+
+        BlackMaskCpn.transform.SetAsLastSibling();
         for (float x = 0f; x < 1.0f; x += Time.deltaTime / 1f)
         {
-            panelManager.BlackMaskCpn.color = Color.Lerp(Color.clear, Color.black, x);
+            BlackMaskCpn.color = Color.Lerp(Color.clear, Color.black, x);
             yield return null;
         }
 
@@ -124,15 +127,15 @@ public class GameRoot : MonoBehaviour
 
     private IEnumerator HideMask()
     {
-        RawImage RI = GameObject.Find("CanvasMask").GetComponent<RawImage>();
+        BlackMaskCpn = GameObject.Find("CanvasMask").GetComponent<RawImage>();
 
-        RI.transform.SetAsLastSibling();
+        BlackMaskCpn.transform.SetAsLastSibling();
         for (float x = 0f; x < 1.0f; x += Time.deltaTime / 1f)
         {
-            RI.color = Color.Lerp(Color.black, Color.clear, x);
+            BlackMaskCpn.color = Color.Lerp(Color.black, Color.clear, x);
             yield return null;
         }
-        RI.gameObject.SetActive(false);
+        BlackMaskCpn.gameObject.SetActive(false);
     }
 
 }

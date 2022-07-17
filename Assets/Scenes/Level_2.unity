@@ -3448,13 +3448,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6769a417ee45dba680f1ace9125e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dice: {fileID: 0}
   diceUp: 1
   diceFront: 2
   diceRight: 3
   diceValues: 06000000
   route: 
   operater: 0
-  number: 6
+  number: 5
   isDice: 0
 --- !u!1001 &417867663
 PrefabInstance:

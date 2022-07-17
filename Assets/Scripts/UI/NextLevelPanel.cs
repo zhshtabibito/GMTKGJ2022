@@ -31,7 +31,7 @@ public class NextLevelPanel : BasePanel
     public override void OnEnter()
     {
         base.OnEnter();
-        GameObject.Find("TurnCntText").GetComponent<TMP_Text>().text = $"You've Rolled: \n\n< color =#FFE6B5>{turnCount}</color>";
+        GameObject.Find("TurnCntText").GetComponent<TMP_Text>().text = $"You've Rolled: \n\n<color=#FFE6B5>{turnCount}</color>";
     }
 
     public override void OnChange(BasePanel newPanel)
