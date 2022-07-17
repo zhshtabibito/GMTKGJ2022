@@ -22,6 +22,17 @@ public class PlayerController : CharacterBase
     private int[] friends = new int[6]{0,0,0,0,0,0};
     private int turnCount;
     private bool pause;
+    private Record record;
+
+    class Record
+    {
+        public Vector3 coordinate;
+        public int diceUp;
+        public int diceFront;
+        public int diceRight;
+        public int[] diceValues;
+    }
+
 
     void Start()
     {
@@ -65,37 +76,60 @@ public class PlayerController : CharacterBase
         {
             validTurn = true;
         }
+        else if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        {
+            record = new Record();
+            record.diceFront = diceFront;
+            record.diceUp = diceUp;
+            record.diceRight = diceRight;
+            record.diceValues = diceValues;
+            record.coordinate = Coordinate;
+            RefreshDiceHintUI();
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+        {
+            diceFront = record.diceFront;
+            diceUp = record.diceUp;
+            diceRight = record.diceRight;
+            diceValues = record.diceValues;
+            Coordinate = record.coordinate;
+            record = null;
+            RefreshDiceHintUI();
+        }
+
         if (nextGrid != null && nextGrid.isWalkable())
         {
-            var lastGrid = map.GetGrid((int) Coordinate.x, (int)Coordinate.z);
-            lastGrid.onLeave(true);
-            UpdateByKey(key);
-            validTurn = true;
-            nextGrid.onEnter(true);
-            var func = nextGrid.GetComponentInChildren<GridFunction>();
-            if (func != null)
+            if (record == null)    // 没有使用技能时
             {
-                if (func.functionState == 0)
+                var lastGrid = map.GetGrid((int) Coordinate.x, (int)Coordinate.z);
+                lastGrid.onLeave(true);
+                nextGrid.onEnter(true);
+                var func = nextGrid.GetComponentInChildren<GridFunction>();
+                if (func != null)
                 {
-                    diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, string.Empty);
-                    Destroy(func.gameObject);
-                }
-                else if (func.functionState == 1)//装备
-                {
-                    equips[diceUp - 1] = func.functionOperator;
-                    Destroy(func.gameObject);
-                }
-                else if (func.functionState == 2)
-                {
-                    if (equips[diceUp - 1] != ' ')
+                    if (func.functionState == 0)
                     {
-                        diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, equips[diceUp - 1].ToString());
-                        equips[diceUp - 1] = ' ';
+                        diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, string.Empty);
                         Destroy(func.gameObject);
                     }
+                    else if (func.functionState == 1)//装备
+                    {
+                        equips[diceUp - 1] = func.functionOperator;
+                        Destroy(func.gameObject);
+                    }
+                    else if (func.functionState == 2)
+                    {
+                        if (equips[diceUp - 1] != ' ')
+                        {
+                            diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, equips[diceUp - 1].ToString());
+                            equips[diceUp - 1] = ' ';
+                            Destroy(func.gameObject);
+                        }
+                    }
                 }
-                
             }
+            UpdateByKey(key);
+            validTurn = true;
         }
 
         if (validTurn)
@@ -103,64 +137,58 @@ public class PlayerController : CharacterBase
             //camera.transform.position = new Vector3(transform.position.x + 4.5f, camera.transform.position.y, camera.transform.position.z);
             RefreshDiceHintUI();
             RefreshEquipFriendUI();
-            bool defeatAll = true;
-            bool fail = false;
-            turnCount++;
-            foreach (var monster in FindObjectsOfType<MonsterController>())
+            if (record == null) // 没有使用技能时
             {
-                monster.Move();
-                if (monster.Coordinate == Coordinate && !monster.hasDefeat)
+                bool defeatAll = true;
+                bool fail = false;
+                turnCount++;
+                foreach (var monster in FindObjectsOfType<MonsterController>())
                 {
-                    if (monster.Battle(currentDiceValue))
+                    monster.Move();
+                    if (monster.Coordinate == Coordinate && !monster.hasDefeat)
                     {
-                        diceValues[diceUp - 1] = diceUp;
+                        if (monster.Battle(currentDiceValue))
+                        {
+                            diceValues[diceUp - 1] = diceUp;
+                        }
+                        else
+                        {
+                            fail = true;
+                            break;
+                        }
                     }
-                    else
+                    if (!monster.hasDefeat)
                     {
-                        fail = true;
-                        break;
+                        defeatAll = false;
                     }
                 }
-
-                if (!monster.hasDefeat)
+                if (fail)// 失败，次数turnCount
                 {
-                    defeatAll = false;
-                }
-            }
-
-            if (fail)
-            {
-                // 失败，次数turnCount
-                pause = true;
-                PanelManager.Instance.Push(new ReplayPanel(turnCount));
-            }
-            else if (defeatAll)
-            {
-                // 通关
-                pause = true;
-                PanelManager.Instance.Push(new NextLevelPanel(turnCount));
-            }
-            else
-            {
-                // 判断无路可走
-                var up = map.GetGrid((int) Coordinate.x - 1, (int)Coordinate.z);
-                var down = map.GetGrid((int) Coordinate.x + 1, (int)Coordinate.z);
-                var left = map.GetGrid((int) Coordinate.x, (int)Coordinate.z-1);
-                var right = map.GetGrid((int) Coordinate.x, (int)Coordinate.z+1);
-
-                bool canWalk = (up != null && up.isWalkable()) || (down != null && down.isWalkable()) ||
-                               (left != null && left.isWalkable()) || (right != null && right.isWalkable());
-                if (!canWalk)
-                {
-                    // 失败，次数turnCount
                     pause = true;
                     PanelManager.Instance.Push(new ReplayPanel(turnCount));
                 }
+                else if (defeatAll)// 通关
+                {
+                    pause = true;
+                    PanelManager.Instance.Push(new NextLevelPanel(turnCount));
+                }
+                else// 判断无路可走
+                {
+                    var up = map.GetGrid((int) Coordinate.x - 1, (int)Coordinate.z);
+                    var down = map.GetGrid((int) Coordinate.x + 1, (int)Coordinate.z);
+                    var left = map.GetGrid((int) Coordinate.x, (int)Coordinate.z-1);
+                    var right = map.GetGrid((int) Coordinate.x, (int)Coordinate.z+1);
+
+                    bool canWalk = (up != null && up.isWalkable()) || (down != null && down.isWalkable()) ||
+                                   (left != null && left.isWalkable()) || (right != null && right.isWalkable());
+                    if (!canWalk)// 失败，次数turnCount
+                    {
+                        pause = true;
+                        PanelManager.Instance.Push(new ReplayPanel(turnCount));
+                    }
+                }
             }
         }
-
-        
-        
         
     }
 
