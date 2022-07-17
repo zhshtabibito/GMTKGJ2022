@@ -111,18 +111,6 @@ public class GameRoot : MonoBehaviour
 
         SceneManager.LoadScene(sceneName);
         SceneManager.sceneLoaded += SceneLoaded;
-
-        //BlackMask.SetAsLastSibling();
-        //for (float x = 1f; x > 0f; x -= Time.deltaTime / 2f)
-        //{
-        //    BlackMaskCpn.color = Color.Lerp(Color.clear, Color.black, x);
-        //    yield return null;
-        //}
-        //BlackMask.gameObject.SetActive(false);
-        //if (panelStack.Peek().GetType() == typeof(CutPanel))
-        //{
-        //    CutManager.Instance.OnFinishLoad();
-        //}
     }
 
     private IEnumerator HideMask()
