@@ -21,7 +21,7 @@ public class PanelManager
         dictPanel = new Dictionary<string, BasePanel>();
         panelStack = new Stack<BasePanel>();
 
-        Debug.Log(GameObject.Find("CanvasMask").GetComponent<RawImage>() == null);
+        // Debug.Log(GameObject.Find("CanvasMask").GetComponent<RawImage>());
         if (BlackMaskCpn == null)
             BlackMaskCpn = GameObject.Find("CanvasMask").GetComponent<RawImage>();
 

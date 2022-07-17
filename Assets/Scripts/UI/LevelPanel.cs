@@ -15,7 +15,8 @@ public class LevelPanel : BasePanel
     public override void OnEnter()
     {
         base.OnEnter();
-        PlayerController player = GameObject.Find("Player(Clone)").GetComponent<PlayerController>();
+        // PlayerController player = GameObject.Find("Player(Clone)").GetComponent<PlayerController>();
+        PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
 
         player.frontText = GameObject.Find("Num(1)").GetComponent<TMP_Text>();
         player.leftText = GameObject.Find("Num(2)").GetComponent<TMP_Text>();

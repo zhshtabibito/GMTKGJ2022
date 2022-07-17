@@ -90,11 +90,6 @@ public class GameRoot : MonoBehaviour
 
     private IEnumerator ShowMaskAndLoadScene(SceneInfo newScene)
     {
-        Debug.Log(panelManager);
-        Debug.Log(panelManager.BlackMaskCpn);
-        Debug.Log(panelManager.BlackMaskCpn.color);
-
-
         panelManager.BlackMaskCpn.color = Color.clear;
         panelManager.BlackMaskCpn.gameObject.SetActive(true);
 
@@ -126,5 +121,18 @@ public class GameRoot : MonoBehaviour
         //}
     }
 
+    private IEnumerator HideMask()
+    {
+        Debug.Log("??????!!!!");
+
+        panelManager.BlackMaskCpn.gameObject.SetActive(true);
+        panelManager.BlackMaskCpn.transform.SetAsLastSibling();
+        for (float x = 0f; x < 1.0f; x += Time.deltaTime / 1f)
+        {
+            panelManager.BlackMaskCpn.color = Color.Lerp(Color.black, Color.clear, x);
+            yield return null;
+        }
+        panelManager.BlackMaskCpn.gameObject.SetActive(false);
+    }
 
 }
