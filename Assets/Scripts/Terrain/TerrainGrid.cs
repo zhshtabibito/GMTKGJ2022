@@ -33,7 +33,7 @@ public class TerrainGrid : BaseGrid
     }
 
     // 特供方法：移除障碍
-    public void RemoveHinder()
+    public override void RemoveHinder()
     {
         if (_terrainType == 3)
         {
