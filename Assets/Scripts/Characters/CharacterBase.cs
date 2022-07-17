@@ -80,14 +80,19 @@ public class CharacterBase : MonoBehaviour
     }
     public void PlayIdle()
     {
+        GetComponentInChildren<Animator>()?.ResetTrigger("attack");
+        GetComponentInChildren<Animator>()?.ResetTrigger("walk");
         GetComponentInChildren<Animator>()?.SetTrigger("idle");
     }
     public void PlayWalk()
-    {
+    {GetComponentInChildren<Animator>()?.ResetTrigger("idle");
+        GetComponentInChildren<Animator>()?.ResetTrigger("attack");
         GetComponentInChildren<Animator>()?.SetTrigger("walk");
     }
     public void PlayAttack()
     {
+        GetComponentInChildren<Animator>()?.ResetTrigger("idle");
+        GetComponentInChildren<Animator>()?.ResetTrigger("walk");
         GetComponentInChildren<Animator>()?.SetTrigger("attack");
     }
 }
