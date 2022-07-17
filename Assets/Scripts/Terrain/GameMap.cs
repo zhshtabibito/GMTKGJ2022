@@ -7,7 +7,7 @@ public class GameMap : MonoBehaviour
 {
     public TextAsset mapDataFile; // 待解析的.txt数据文件
     public Vector3 terrainGridRatio = new Vector3(1.0f, 0, 0);
-    public GameObject[] terrainGridPrefabs = new GameObject[3];  // 空白地形，目前是三个随机
+    public GameObject[] terrainGridPrefabs = new GameObject[4];  // 空白地形，前三个随机，第四个是墙
     public GameObject[] functionPrefabs = new GameObject[3];  // 0-药水 1-普通装备 2-伙伴
     public GameObject[] weaponPrefabs = new GameObject[4];  // 0-剑 1-弓 2-棍 3-枪(其实可以和普通装备合到一个prefab里，看美术资源情况再调整)
     public GameObject removeableHinder;
@@ -86,7 +86,11 @@ public class GameMap : MonoBehaviour
                 // 生成地块Object
                 var ratio = Random.Range(0, terrainGridRatio.x + terrainGridRatio.y + terrainGridRatio.z);
                 GameObject terrainObject = null;
-                if (ratio <= terrainGridRatio[0] || gridTerrainTypeNumber >= 2)
+                if (gridTerrainTypeNumber == 1)
+                {
+                    terrainObject = PrefabUtility.InstantiatePrefab(terrainGridPrefabs[3], transform) as GameObject;
+                }
+                else if (ratio <= terrainGridRatio[0] || gridTerrainTypeNumber >= 2)
                 {
                     terrainObject = PrefabUtility.InstantiatePrefab(terrainGridPrefabs[0], transform) as GameObject;
                 }
