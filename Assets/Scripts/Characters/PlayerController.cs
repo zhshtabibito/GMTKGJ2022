@@ -66,9 +66,16 @@ public class PlayerController : CharacterBase
         Audio = GetComponent<AudioSource>();
     }
 
+    private float lastTime;
     // Update is called once per frame
     void Update()
     {
+        if (lastTime < 0.5f)
+        {
+            lastTime += Time.deltaTime;
+            return;
+        }
+
         if (pause)
         {
             return;
@@ -157,6 +164,7 @@ public class PlayerController : CharacterBase
                 lastGrid.onLeave(true);
             }
             UpdateByKey(key);
+            lastTime = 0;
             validTurn = true;
             if (record == null)
             {
