@@ -139,7 +139,11 @@ public class GameMap : MonoBehaviour
                         }
                     }
                     if (avatar)
+                    {
                         avatar.transform.Translate(i, 1, j);
+                        if (gridDatas[j][0] == 'Y')
+                            avatar.transform.RotateAround(avatar.transform.position, new Vector3(0, 1, 0), 90);
+                    }
                 }
                 // 生成障碍object
                 GameObject obstacle = null;
