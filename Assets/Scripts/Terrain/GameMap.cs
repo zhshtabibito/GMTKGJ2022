@@ -77,11 +77,17 @@ public class GameMap : MonoBehaviour
                 var ratio = Random.Range(0, terrainGridRatio.x + terrainGridRatio.y + terrainGridRatio.z);
                 GameObject terrainObject = null;
                 if (ratio <= terrainGridRatio[0])
+                {
                     terrainObject = Instantiate(terrainGridPrefabs[0], transform);
-                else if (ratio <= terrainGridRatio[1])
+                }
+                else if (ratio <= terrainGridRatio[1] + terrainGridRatio[0])
+                {
                     terrainObject = Instantiate(terrainGridPrefabs[1], transform);
+                }
                 else
+                {
                     terrainObject = Instantiate(terrainGridPrefabs[2], transform);
+                }
                 terrainObject.transform.Translate(new Vector3(gridSize[0] * i, 0, gridSize[1] * j));
                 // 添加地块component
                 int gridTerrainTypeNumber = 0;
