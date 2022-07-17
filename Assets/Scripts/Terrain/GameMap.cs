@@ -10,6 +10,8 @@ public class GameMap : MonoBehaviour
     public GameObject[] terrainGridPrefabs = new GameObject[3];  // 空白地形，目前是三个随机
     public GameObject[] functionPrefabs = new GameObject[3];  // 0-药水 1-普通装备 2-伙伴
     public GameObject[] weaponPrefabs = new GameObject[4];  // 0-剑 1-弓 2-棍 3-枪(其实可以和普通装备合到一个prefab里，看美术资源情况再调整)
+    public GameObject removeableHinder;
+    public GameObject unremovableHinder;
     public GameObject playerPrefab;
     public List<GameObject> monsterPrefabList;
     public bool createAvatar = false;
@@ -73,10 +75,18 @@ public class GameMap : MonoBehaviour
             createdGrids.Add(new List<BaseGrid>());
             for (int j = 0; j < gridDatas.Length; j++)
             {
+                // 读取地块类型
+                int gridTerrainTypeNumber = 0;
+                if (gridDatas[j].Length >= 1 && gridDatas[j][0] >= '0' && gridDatas[j][0] <= '3')
+                {
+                    gridTerrainTypeNumber = int.Parse(gridDatas[j]);
+                }
+                else if (gridDatas[j].Contains(')') && !gridDatas[j].Contains('}'))
+                    gridTerrainTypeNumber = 4;
                 // 生成地块Object
                 var ratio = Random.Range(0, terrainGridRatio.x + terrainGridRatio.y + terrainGridRatio.z);
                 GameObject terrainObject = null;
-                if (ratio <= terrainGridRatio[0])
+                if (ratio <= terrainGridRatio[0] || gridTerrainTypeNumber >= 2)
                 {
                     terrainObject = PrefabUtility.InstantiatePrefab(terrainGridPrefabs[0], transform) as GameObject;
                 }
@@ -88,15 +98,9 @@ public class GameMap : MonoBehaviour
                 {
                     terrainObject = PrefabUtility.InstantiatePrefab(terrainGridPrefabs[2], transform) as GameObject;
                 }
-                terrainObject.transform.Translate(new Vector3(gridSize[0] * i, 0, gridSize[1] * j));
+                // terrainObject.transform.Rotate(new Vector3(0, 90 * (int)Random.Range(0, 4), 0), Space.Self);
+                terrainObject.transform.Translate(new Vector3(gridSize[0] * i, 0, gridSize[1] * j), Space.World);
                 // 添加地块component
-                int gridTerrainTypeNumber = 0;
-                if (gridDatas[j].Length >= 1 && gridDatas[j][0] >= '0' && gridDatas[j][0] <= '3')
-                {
-                    gridTerrainTypeNumber = int.Parse(gridDatas[j]);
-                }
-                else if (gridDatas[j].Contains(')') && !gridDatas[j].Contains('}'))
-                    gridTerrainTypeNumber = 4;
                 BaseGrid terrainComponent = null;
                 if (gridTerrainTypeNumber < 4)
                 {
@@ -133,6 +137,18 @@ public class GameMap : MonoBehaviour
                     if (avatar)
                         avatar.transform.Translate(i, 1, j);
                 }
+                // 生成障碍object
+                GameObject obstacle = null;
+                if (gridTerrainTypeNumber == 2)
+                {
+                    obstacle = PrefabUtility.InstantiatePrefab(unremovableHinder, terrainObject.transform) as GameObject;
+                }
+                else if (gridTerrainTypeNumber == 3)
+                {
+                    obstacle = PrefabUtility.InstantiatePrefab(removeableHinder, terrainObject.transform) as GameObject;
+                }
+                if (obstacle)
+                    obstacle.transform.Translate(0, 0.75f, 0);
                 // 生成环境物体Object
                 if (gridDatas[j].Contains('}'))
                 {

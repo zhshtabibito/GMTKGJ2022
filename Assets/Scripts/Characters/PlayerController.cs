@@ -33,6 +33,13 @@ public class PlayerController : CharacterBase
     private Record record;
     private List<BaseGrid> coloredGrids = new List<BaseGrid>();
 
+    public AudioClip GroundFall;
+    public AudioClip ColdWeapen;
+    public AudioClip HotWeapon;
+    public AudioClip GetItem;
+    public AudioClip Move;
+    private AudioSource Audio;
+
     class Record
     {
         public Vector3 coordinate;
@@ -48,6 +55,8 @@ public class PlayerController : CharacterBase
         camera = Camera.main;
         foreach(var i in equips)
         RefreshDiceHintUI();
+
+        Audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -119,6 +128,10 @@ public class PlayerController : CharacterBase
             {
                 nextGrid.onEnter(true);
                 var func = nextGrid.GetComponentInChildren<GridFunction>();
+
+                Audio.PlayOneShot(GroundFall);
+                Audio.PlayOneShot(Move);
+
                 if (func != null)
                 {
                     ProcessGridFunction(func, nextGrid);
@@ -228,6 +241,8 @@ public class PlayerController : CharacterBase
                 equips[diceUp - 1].attackDistanceType = func.attackDistanceType;
                 equips[diceUp - 1].attackRelativeGrids = func.attackRelativeGrids;
                 Destroy(func.gameObject);
+
+                Audio.PlayOneShot(GetItem);
             }
         }
         else if (func.functionState == 2)
@@ -239,6 +254,8 @@ public class PlayerController : CharacterBase
                 Destroy(func.gameObject);
                 upTipText.text = equips[diceUp - 1]._operator.ToString() + friends[diceUp - 1].ToString();
                 LeanTween.delayedCall(gameObject, 1, () => upTipText.text = "");
+
+                Audio.PlayOneShot(GetItem);
             }
         }
     }
