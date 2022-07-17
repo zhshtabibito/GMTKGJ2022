@@ -46,35 +46,30 @@ public class LevelChoosePanel : BasePanel
         {
             GameRoot.Instance.LoadScene(new LevelScene(8));
         });
-        //ActivePanel.GetOrAddComponentInChildren<Button>("LevelBtn(9)").onClick.AddListener(() =>
-        //{
-        //    GameRoot.Instance.LoadScene(new LevelScene(9));
-        //});
-        //ActivePanel.GetOrAddComponentInChildren<Button>("LevelBtn(10)").onClick.AddListener(() =>
-        //{
-        //    GameRoot.Instance.LoadScene(new LevelScene(10));
-        //});
+        ActivePanel.GetOrAddComponentInChildren<Button>("LevelBtn(9)").onClick.AddListener(() =>
+        {
+            GameRoot.Instance.LoadScene(new LevelScene(9));
+        });
+        ActivePanel.GetOrAddComponentInChildren<Button>("LevelBtn(10)").onClick.AddListener(() =>
+        {
+            GameRoot.Instance.LoadScene(new LevelScene(10));
+        });
         ActivePanel.GetOrAddComponentInChildren<Button>("CloseBtn").onClick.AddListener(() =>
         {
             Pop();
         });
-
-
-        
-
-
     }
 
     public override void OnEnter()
     {
         base.OnEnter();
 
-        int SL = Mathf.Min(SavingManager.Level, 8);
+        int SL = Mathf.Min(SavingManager.Level, 10);
         for (int i = 1; i <= SL; i++)
         {
             GameObject.Find($"LevelBtn({i})").GetComponent<Button>().interactable = true;
         }
-        for (int i = SL+1; i <= 8; i++)
+        for (int i = SL+1; i <= 10; i++)
         {
             GameObject.Find($"LevelBtn({i})").GetComponent<Button>().interactable = false;
         }
