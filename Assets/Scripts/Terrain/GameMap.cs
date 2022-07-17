@@ -62,6 +62,7 @@ public class GameMap : MonoBehaviour
 
     public void ImportGameMapData()
     {
+#if UNITY_EDITOR
         if (!mapDataFile) return;
         ClearChildrens();
         var lines = mapDataFile.text.Split("\n");
@@ -198,6 +199,7 @@ public class GameMap : MonoBehaviour
         }
         foreach (var needLockGridIndex in needLockGrids)
             createdGrids[needLockGridIndex.x][needLockGridIndex.y].Lock();
+#endif
     }
 
     private void ClearChildrens()
