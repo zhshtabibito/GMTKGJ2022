@@ -11,7 +11,7 @@ public class GearGrid : BaseGrid
         base.Start();
     }
 
-    public virtual void onEnter(bool isPlayer)
+    public override void onEnter(bool isPlayer)
     {
         // 进入时触发格子表现
         base.onEnter(isPlayer);
