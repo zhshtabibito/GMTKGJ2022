@@ -22,6 +22,8 @@ public class GearGrid : BaseGrid
                 BaseGrid targetGrid = gameMap.GetGrid(gridIndex.x, gridIndex.y);
                 targetGrid.UnLock();
             }
+        foreach (var meshRenderer in GetComponentsInChildren<MeshRenderer>())
+            meshRenderer.enabled = false;
     }
 
     // 读/配表数据相关

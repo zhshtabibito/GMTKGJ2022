@@ -12,6 +12,7 @@ public class GameMap : MonoBehaviour
     public GameObject[] weaponPrefabs = new GameObject[4];  // 0-剑 1-弓 2-棍 3-枪(其实可以和普通装备合到一个prefab里，看美术资源情况再调整)
     public GameObject removeableHinder;
     public GameObject unremovableHinder;
+    public GameObject gearButtonPrefab;
     public GameObject playerPrefab;
     public List<GameObject> monsterPrefabList;
     public bool createAvatar = false;
@@ -117,6 +118,9 @@ public class GameMap : MonoBehaviour
                     terrainComponent = terrainObject.AddComponent<GearGrid>();
                     terrainComponent.SetInfo(new Vector2Int(i, j), gridDatas[j]);
                     needLockGrids.AddRange(terrainComponent.relatedGrids);
+                    // 机关类型头顶加一个小prefab
+                    GameObject childButton = PrefabUtility.InstantiatePrefab(gearButtonPrefab, terrainObject.transform) as GameObject;
+                    childButton.transform.Translate(0, 0.75f, 0);
                 }
                 createdGrids[i].Add(terrainComponent);
                 // 创建角色
