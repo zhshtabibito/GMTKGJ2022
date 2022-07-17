@@ -335,12 +335,13 @@ public class PlayerController : CharacterBase
 
     List<BaseGrid> GetAllAttackRangeGrids()
     {
+        UseEquip();
+        
         var results = new List<BaseGrid>();
         if (equips[diceUp - 1] == null || equips[diceUp - 1].attackRelativeGrids == null ||
             equips[diceUp - 1].attackRelativeGrids.Count == 0)
             return results;
-
-        UseEquip();
+        
         foreach (var g in equips[diceUp - 1].attackRelativeGrids)
         {
             var grid = map.GetGrid((int) Coordinate.x + g.x, (int) Coordinate.z + g.y);

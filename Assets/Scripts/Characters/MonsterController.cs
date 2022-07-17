@@ -57,6 +57,7 @@ public class MonsterController : CharacterBase
         if (win)
         {
             hasDefeat = true;
+            LeanTween.delayedCall(2f, () => Destroy(gameObject));
         }
 
         return win;
