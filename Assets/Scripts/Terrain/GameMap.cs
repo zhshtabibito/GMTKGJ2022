@@ -6,7 +6,8 @@ using UnityEngine;
 public class GameMap : MonoBehaviour
 {
     public TextAsset mapDataFile; // 待解析的.txt数据文件
-    public GameObject[] terrainGridPrefabs = new GameObject[5];
+    public Vector3 terrainGridRatio = new Vector3(1.0f, 0, 0);
+    public GameObject[] terrainGridPrefabs = new GameObject[3];  // 空白地形，目前是三个随机
     public GameObject[] functionPrefabs = new GameObject[3];  // 0-药水 1-普通装备 2-伙伴
     public GameObject[] weaponPrefabs = new GameObject[2];  // 0-剑 1-弓 (其实可以和普通装备合到一个prefab里，看美术资源情况再调整)
     public GameObject playerPrefab;
@@ -73,21 +74,28 @@ public class GameMap : MonoBehaviour
             for (int j = 0; j < gridDatas.Length; j++)
             {
                 // 生成地块Object
-                int gridTerrainPrefabNumber = 0;
+                var ratio = Random.Range(0, terrainGridRatio.x + terrainGridRatio.y + terrainGridRatio.z);
+                GameObject terrainObject = null;
+                if (ratio <= terrainGridRatio[0])
+                    terrainObject = Instantiate(terrainGridPrefabs[0], transform);
+                else if (ratio <= terrainGridRatio[1])
+                    terrainObject = Instantiate(terrainGridPrefabs[1], transform);
+                else
+                    terrainObject = Instantiate(terrainGridPrefabs[2], transform);
+                terrainObject.transform.Translate(new Vector3(gridSize[0] * i, 0, gridSize[1] * j));
+                // 添加地块component
+                int gridTerrainTypeNumber = 0;
                 if (gridDatas[j].Length >= 1 && gridDatas[j][0] >= '0' && gridDatas[j][0] <= '3')
                 {
-                    gridTerrainPrefabNumber = int.Parse(gridDatas[j]);
+                    gridTerrainTypeNumber = int.Parse(gridDatas[j]);
                 }
                 else if (gridDatas[j].Contains(')') && !gridDatas[j].Contains('}'))
-                    gridTerrainPrefabNumber = 4;
-                var terrainObject = Instantiate(terrainGridPrefabs[gridTerrainPrefabNumber], transform);
-                terrainObject.transform.Translate(new Vector3(gridSize[0] * i, 0, gridSize[1] * j));
-                // 添加地块Component
+                    gridTerrainTypeNumber = 4;
                 BaseGrid terrainComponent = null;
-                if (gridTerrainPrefabNumber < 4)
+                if (gridTerrainTypeNumber < 4)
                 {
                     terrainComponent = terrainObject.AddComponent<TerrainGrid>();
-                    terrainComponent.SetInfo(new Vector2Int(i, j), gridTerrainPrefabNumber.ToString());
+                    terrainComponent.SetInfo(new Vector2Int(i, j), gridTerrainTypeNumber.ToString());
                 }
                 else
                 {
