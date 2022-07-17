@@ -46,7 +46,7 @@ public class GridFunction: MonoBehaviour
             var relativeGridDataList = data[2][2..].Split(')');
             foreach(var relativeGridData in relativeGridDataList)
             {
-                if (relativeGridData.Length <= 4) continue;
+                if (relativeGridData.Length <= 2) continue;
                 var indsData = relativeGridData[1..].Split(';');
                 attackRelativeGrids.Add(new Vector2Int(int.Parse(indsData[0]), int.Parse(indsData[1])));
             }
