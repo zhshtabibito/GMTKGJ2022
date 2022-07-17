@@ -10,6 +10,7 @@ public class BaseGrid : MonoBehaviour
     public GridFunction _function;
     public bool isLocked = false;
     public List<Vector2Int> relatedGrids;
+    private bool isColored;
 
     protected virtual void Start()
     {
@@ -47,6 +48,7 @@ public class BaseGrid : MonoBehaviour
         {
             _isDestructed = true;
             this.transform.Translate(0, -0.5f, 0);
+            UnColorAttackRange();
             Debug.LogFormat("player leave grid: {0}", gridIndex);
         }
         else
@@ -117,4 +119,21 @@ public class BaseGrid : MonoBehaviour
     }
 
     public virtual void RemoveHinder() { }
+
+    public virtual void ColorAttackRange()
+    {
+        isColored = true;
+        var r = GetComponentInChildren<Renderer>();
+        r.material.color = Color.red;
+    }
+    
+    public virtual void UnColorAttackRange()
+    {
+        if (isColored)
+        {
+            var r = GetComponentInChildren<Renderer>();
+            r.material.color = Color.clear;
+            isColored = false;
+        }
+    }
 }

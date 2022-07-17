@@ -28,12 +28,13 @@ public class EquipHud : MonoBehaviour
         
     }
 
-    public void Refresh(char e, int f)
+    public void Refresh(Equip equip, int f)
     {
         LImage?.SetActive(false);
         LIcon?.SetActive(false);
         RImage?.SetActive(false);
 
+        char e = equip == null ? ' ' : equip._operator;
         Debug.Log($"Equip {e}, friend {f}");
 
         switch (e)

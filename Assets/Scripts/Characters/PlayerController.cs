@@ -5,6 +5,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+public class Equip
+{
+    public char _operator = ' '; // +-*/
+    public int attackDistanceType;  // 0-剑 1-弓
+    public List<Vector2Int> attackRelativeGrids = new List<Vector2Int>();  // 相对坐标列表
+}
+
 public class PlayerController : CharacterBase
 {
 
@@ -16,12 +23,10 @@ public class PlayerController : CharacterBase
     public TMP_Text backText;
     public TMP_Text upTipText;
     public TMP_Text downTipText;
-    public Image equipImg;
-    public Image friendImg;
-    
+
     GameMap map;
     private Camera camera;
-    private char[] equips = new char[6]{' ',' ',' ',' ',' ',' ',};
+    private Equip[] equips = new Equip[6]{null, null, null, null, null, null};
     private int[] friends = new int[6]{0,0,0,0,0,0};
     private int turnCount;
     private bool pause;
@@ -36,11 +41,11 @@ public class PlayerController : CharacterBase
         public int[] diceValues;
     }
 
-
     void Start()
     {
         map = FindObjectOfType<GameMap>();
         camera = Camera.main;
+        foreach(var i in equips)
         RefreshDiceHintUI();
     }
 
@@ -115,32 +120,7 @@ public class PlayerController : CharacterBase
                 var func = nextGrid.GetComponentInChildren<GridFunction>();
                 if (func != null)
                 {
-                    if (func.functionState == 0)
-                    {
-                        diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, string.Empty);
-                        Destroy(func.gameObject);
-                        upTipText.text = func.functionOperator.ToString() + func.functionOperand.ToString();
-                        LeanTween.delayedCall(gameObject, 1, () => upTipText.text = "");
-                    }
-                    else if (func.functionState == 1)//装备
-                    {
-                        if (friends[diceUp - 1] == 0) // 仅当没有伙伴时
-                        {
-                            equips[diceUp - 1] = func.functionOperator;
-                            Destroy(func.gameObject);
-                        }
-                    }
-                    else if (func.functionState == 2)
-                    {
-                        if (equips[diceUp - 1] != ' ' && friends[diceUp - 1] == 0)    // 仅当有装备没有伙伴时
-                        {
-                            diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, equips[diceUp - 1].ToString());
-                            friends[diceUp - 1] = func.functionOperand;
-                            Destroy(func.gameObject);
-                            upTipText.text = equips[diceUp - 1].ToString() + friends[diceUp - 1].ToString();
-                            LeanTween.delayedCall(gameObject, 1, () => upTipText.text = "");
-                        }
-                    }
+                    ProcessGridFunction(func, nextGrid);
                 }
             }
         }
@@ -150,19 +130,37 @@ public class PlayerController : CharacterBase
             //camera.transform.position = new Vector3(transform.position.x + 4.5f, camera.transform.position.y, camera.transform.position.z);
             RefreshDiceHintUI();
             RefreshEquipFriendUI();
+            var attackGrids = GetAllAttackRangeGrids();
+
             if (record == null) // 没有使用技能时
             {
                 bool defeatAll = true;
                 bool fail = false;
                 turnCount++;
+                foreach (var g in attackGrids)
+                {
+                    g.RemoveHinder();
+                    g.ColorAttackRange();
+                }
                 foreach (var monster in FindObjectsOfType<MonsterController>())
                 {
                     monster.Move();
-                    if (monster.Coordinate == Coordinate && !monster.hasDefeat)
+                    bool inAttackRange = false;
+                    foreach (var g in attackGrids)
+                    {
+                        if (monster.Coordinate.x == g.gridIndex.x && monster.Coordinate.z == g.gridIndex.y)
+                        {
+                            inAttackRange = true;
+                            break;
+                        }
+                    }
+                    if ((monster.Coordinate == Coordinate || inAttackRange) && !monster.hasDefeat)
                     {
                         if (monster.Battle(currentDiceValue))
                         {
                             diceValues[diceUp - 1] = diceUp;
+                            equips[diceUp - 1] = null;
+                            friends[diceUp - 1] = 0;
                             downTipText.text = "↓↓↓";
                             LeanTween.delayedCall(gameObject, 1, () => downTipText.text = "");
                         }
@@ -205,6 +203,58 @@ public class PlayerController : CharacterBase
             }
         }
         
+    }
+
+    private void ProcessGridFunction(GridFunction func, BaseGrid nextGrid)
+    {
+        if (func.functionState == 0)
+        {
+            diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, string.Empty);
+            Destroy(func.gameObject);
+            upTipText.text = func.functionOperator.ToString() + func.functionOperand.ToString();
+            LeanTween.delayedCall(gameObject, 1, () => upTipText.text = "");
+        }
+        else if (func.functionState == 1) //装备
+        {
+            if (friends[diceUp - 1] == 0) // 仅当没有伙伴时
+            {
+                equips[diceUp - 1] = new Equip();
+                equips[diceUp - 1]._operator = func.functionOperator;
+                equips[diceUp - 1].attackDistanceType = func.attackDistanceType;
+                equips[diceUp - 1].attackRelativeGrids = func.attackRelativeGrids;
+                Destroy(func.gameObject);
+            }
+        }
+        else if (func.functionState == 2)
+        {
+            if (equips[diceUp - 1] != null && friends[diceUp - 1] == 0) // 仅当有装备没有伙伴时
+            {
+                diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, equips[diceUp - 1]._operator.ToString());
+                friends[diceUp - 1] = func.functionOperand;
+                Destroy(func.gameObject);
+                upTipText.text = equips[diceUp - 1]._operator.ToString() + friends[diceUp - 1].ToString();
+                LeanTween.delayedCall(gameObject, 1, () => upTipText.text = "");
+            }
+        }
+    }
+
+    List<BaseGrid> GetAllAttackRangeGrids()
+    {
+        var results = new List<BaseGrid>();
+        if (equips[diceUp - 1] == null || equips[diceUp - 1].attackRelativeGrids == null ||
+            equips[diceUp - 1].attackRelativeGrids.Count == 0)
+            return results;
+        
+        foreach (var g in equips[diceUp - 1].attackRelativeGrids)
+        {
+            var grid = map.GetGrid((int) Coordinate.x + g.x, (int) Coordinate.z + g.y);
+            if (grid != null)
+            {
+                results.Add(grid);
+            }
+        }
+
+        return results;
     }
 
     void RefreshDiceHintUI()
