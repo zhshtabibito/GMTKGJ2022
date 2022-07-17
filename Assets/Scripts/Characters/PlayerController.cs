@@ -14,8 +14,11 @@ public class PlayerController : CharacterBase
     public TMP_Text leftText;
     public TMP_Text frontText;
     public TMP_Text backText;
+    public TMP_Text upTipText;
+    public TMP_Text downTipText;
     public Image equipImg;
     public Image friendImg;
+    
     GameMap map;
     private Camera camera;
     private char[] equips = new char[6]{' ',' ',' ',' ',' ',' ',};
@@ -99,10 +102,15 @@ public class PlayerController : CharacterBase
 
         if (nextGrid != null && nextGrid.isWalkable())
         {
-            if (record == null)    // 没有使用技能时
+            if (record == null)
             {
-                var lastGrid = map.GetGrid((int) Coordinate.x, (int)Coordinate.z);
+                var lastGrid = map.GetGrid((int) Coordinate.x, (int) Coordinate.z);
                 lastGrid.onLeave(true);
+            }
+            UpdateByKey(key);
+            validTurn = true;
+            if (record == null)
+            {
                 nextGrid.onEnter(true);
                 var func = nextGrid.GetComponentInChildren<GridFunction>();
                 if (func != null)
@@ -111,25 +119,30 @@ public class PlayerController : CharacterBase
                     {
                         diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, string.Empty);
                         Destroy(func.gameObject);
+                        upTipText.text = func.functionOperator.ToString() + func.functionOperand.ToString();
+                        LeanTween.delayedCall(gameObject, 1, () => upTipText.text = "");
                     }
                     else if (func.functionState == 1)//装备
                     {
-                        equips[diceUp - 1] = func.functionOperator;
-                        Destroy(func.gameObject);
+                        if (friends[diceUp - 1] == 0) // 仅当没有伙伴时
+                        {
+                            equips[diceUp - 1] = func.functionOperator;
+                            Destroy(func.gameObject);
+                        }
                     }
                     else if (func.functionState == 2)
                     {
-                        if (equips[diceUp - 1] != ' ')
+                        if (equips[diceUp - 1] != ' ' && friends[diceUp - 1] == 0)    // 仅当有装备没有伙伴时
                         {
                             diceValues[diceUp - 1] = nextGrid.Settlement(currentDiceValue, equips[diceUp - 1].ToString());
-                            equips[diceUp - 1] = ' ';
+                            friends[diceUp - 1] = func.functionOperand;
                             Destroy(func.gameObject);
+                            upTipText.text = equips[diceUp - 1].ToString() + friends[diceUp - 1].ToString();
+                            LeanTween.delayedCall(gameObject, 1, () => upTipText.text = "");
                         }
                     }
                 }
             }
-            UpdateByKey(key);
-            validTurn = true;
         }
 
         if (validTurn)
@@ -150,6 +163,8 @@ public class PlayerController : CharacterBase
                         if (monster.Battle(currentDiceValue))
                         {
                             diceValues[diceUp - 1] = diceUp;
+                            downTipText.text = "↓↓↓";
+                            LeanTween.delayedCall(gameObject, 1, () => downTipText.text = "");
                         }
                         else
                         {

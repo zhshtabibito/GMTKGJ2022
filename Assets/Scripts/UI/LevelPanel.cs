@@ -23,6 +23,9 @@ public class LevelPanel : BasePanel
         player.rightText = GameObject.Find("Num(4)").GetComponent<TMP_Text>();
         player.backText = GameObject.Find("Num(5)").GetComponent<TMP_Text>();
         player.bottomText = GameObject.Find("Num(6)").GetComponent<TMP_Text>();
-
+        player.upTipText = GameObject.Find("NumUp(1)").GetComponent<TMP_Text>();
+        player.downTipText = GameObject.Find("NumDown(1)").GetComponent<TMP_Text>();
+        player.upTipText.text = "";
+        player.downTipText.text = "";
     }
 }
