@@ -1953,6 +1953,7 @@ MonoBehaviour:
   - {fileID: 5667366425263135925, guid: b95ac6976d22f29499a77289cdc827db, type: 3}
   removeableHinder: {fileID: 9043004365723299629, guid: 9aecb34581db1de4281aa4a9c7c5ae3f, type: 3}
   unremovableHinder: {fileID: 9043004365723299629, guid: 9aecb34581db1de4281aa4a9c7c5ae3f, type: 3}
+  gearButtonPrefab: {fileID: 0}
   playerPrefab: {fileID: 8562933960768482490, guid: 7e6930c648b5ce1409b2030a0898216d, type: 3}
   monsterPrefabList:
   - {fileID: 2221883173726247273, guid: e1325c6eebc840e4990955fcfac04239, type: 3}
@@ -2170,7 +2171,7 @@ Transform:
   - {fileID: 1409311267}
   - {fileID: 1451983999}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &203797611
 PrefabInstance:
@@ -2515,6 +2516,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 364989667}
     m_Modifications:
+    - target: {fileID: 92845102919266338, guid: 9627905c4ef8bfd4c8177996d0abb786, type: 3}
+      propertyPath: m_text
+      value: '2
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 92845102919266338, guid: 9627905c4ef8bfd4c8177996d0abb786, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 92845102919266338, guid: 9627905c4ef8bfd4c8177996d0abb786, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 92845102919266338, guid: 9627905c4ef8bfd4c8177996d0abb786, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 92845102919266338, guid: 9627905c4ef8bfd4c8177996d0abb786, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278255360
+      objectReference: {fileID: 0}
     - target: {fileID: 2221883173726247273, guid: 9627905c4ef8bfd4c8177996d0abb786, type: 3}
       propertyPath: m_Name
       value: Friend Variant 2
@@ -5238,6 +5261,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1904454198}
     m_Modifications:
+    - target: {fileID: 294388976768563376, guid: d72fc858d553a374aafe1348d33603f5, type: 3}
+      propertyPath: m_text
+      value: 'x
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 294388976768563376, guid: d72fc858d553a374aafe1348d33603f5, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 294388976768563376, guid: d72fc858d553a374aafe1348d33603f5, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 294388976768563376, guid: d72fc858d553a374aafe1348d33603f5, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 294388976768563376, guid: d72fc858d553a374aafe1348d33603f5, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278255360
+      objectReference: {fileID: 0}
     - target: {fileID: 6530439982277108872, guid: d72fc858d553a374aafe1348d33603f5, type: 3}
       propertyPath: m_Name
       value: WeaponBy
@@ -13868,7 +13913,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1616607811
 PrefabInstance:
@@ -14045,6 +14090,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 92845102919266338, guid: e1325c6eebc840e4990955fcfac04239, type: 3}
+      propertyPath: m_text
+      value: '>8'
+      objectReference: {fileID: 0}
     - target: {fileID: 2221883173726247273, guid: e1325c6eebc840e4990955fcfac04239, type: 3}
       propertyPath: m_Name
       value: Friend Variant 8

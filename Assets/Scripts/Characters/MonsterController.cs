@@ -63,4 +63,9 @@ public class MonsterController : CharacterBase
         return win;
     }
 
+    private void Start()
+    {
+        GetComponentInChildren<TMP_Text>().text = $">{number}";
+        GetComponentInChildren<TMP_Text>().color = Color.red;
+    }
 }

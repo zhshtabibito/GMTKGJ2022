@@ -4570,6 +4570,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 92845102919266338, guid: e1325c6eebc840e4990955fcfac04239, type: 3}
+      propertyPath: m_text
+      value: '>8'
+      objectReference: {fileID: 0}
     - target: {fileID: 2221883173726247273, guid: e1325c6eebc840e4990955fcfac04239, type: 3}
       propertyPath: m_Name
       value: Friend Variant 8
@@ -6940,6 +6944,28 @@ PrefabInstance:
     - target: {fileID: 7170873583090627372, guid: 472a8f2f838510d4b99da5c84e3d084e, type: 3}
       propertyPath: m_Name
       value: Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782097469073528744, guid: 472a8f2f838510d4b99da5c84e3d084e, type: 3}
+      propertyPath: m_text
+      value: '+3
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782097469073528744, guid: 472a8f2f838510d4b99da5c84e3d084e, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782097469073528744, guid: 472a8f2f838510d4b99da5c84e3d084e, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782097469073528744, guid: 472a8f2f838510d4b99da5c84e3d084e, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782097469073528744, guid: 472a8f2f838510d4b99da5c84e3d084e, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278255360
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 472a8f2f838510d4b99da5c84e3d084e, type: 3}
@@ -17240,7 +17266,7 @@ RectTransform:
   m_Children:
   - {fileID: 694230851}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

@@ -2132,6 +2132,7 @@ MonoBehaviour:
   - {fileID: 5667366425263135925, guid: b95ac6976d22f29499a77289cdc827db, type: 3}
   removeableHinder: {fileID: 1533869447507430206, guid: 70807b4064770ea49aba3a3dc6a887a0, type: 3}
   unremovableHinder: {fileID: 3650355377320393527, guid: e3f67071775406f49a71673c7ee8e1db, type: 3}
+  gearButtonPrefab: {fileID: 0}
   playerPrefab: {fileID: 8562933960768482490, guid: 7e6930c648b5ce1409b2030a0898216d, type: 3}
   monsterPrefabList:
   - {fileID: 2221883173726247273, guid: 49324fd66dba0a74ea8493d6d0f63e6d, type: 3}
@@ -2352,7 +2353,7 @@ Transform:
   - {fileID: 473009646}
   - {fileID: 555111040}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &213811467
 PrefabInstance:
@@ -6211,6 +6212,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1705637499}
     m_Modifications:
+    - target: {fileID: 92845102919266338, guid: a1576b2dd749d52459f38be1e0d45690, type: 3}
+      propertyPath: m_text
+      value: '1
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 92845102919266338, guid: a1576b2dd749d52459f38be1e0d45690, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 92845102919266338, guid: a1576b2dd749d52459f38be1e0d45690, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 92845102919266338, guid: a1576b2dd749d52459f38be1e0d45690, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 92845102919266338, guid: a1576b2dd749d52459f38be1e0d45690, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278255360
+      objectReference: {fileID: 0}
     - target: {fileID: 2221883173726247273, guid: a1576b2dd749d52459f38be1e0d45690, type: 3}
       propertyPath: m_Name
       value: Friend Variant 1
@@ -7550,6 +7573,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 92845102919266338, guid: 49324fd66dba0a74ea8493d6d0f63e6d, type: 3}
+      propertyPath: m_text
+      value: '>5
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 2221883173726247273, guid: 49324fd66dba0a74ea8493d6d0f63e6d, type: 3}
       propertyPath: m_Name
       value: Friend Variant 5
@@ -10538,6 +10567,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 92845102919266338, guid: 49324fd66dba0a74ea8493d6d0f63e6d, type: 3}
+      propertyPath: m_text
+      value: '>5
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 2221883173726247273, guid: 49324fd66dba0a74ea8493d6d0f63e6d, type: 3}
       propertyPath: m_Name
       value: Friend Variant 5
@@ -13396,6 +13431,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 92845102919266338, guid: 49324fd66dba0a74ea8493d6d0f63e6d, type: 3}
+      propertyPath: m_text
+      value: '>5
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 2221883173726247273, guid: 49324fd66dba0a74ea8493d6d0f63e6d, type: 3}
       propertyPath: m_Name
       value: Friend Variant 5
@@ -13931,7 +13972,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1600914211
 PrefabInstance:
@@ -14978,6 +15019,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 92845102919266338, guid: 49324fd66dba0a74ea8493d6d0f63e6d, type: 3}
+      propertyPath: m_text
+      value: '>5
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 2221883173726247273, guid: 49324fd66dba0a74ea8493d6d0f63e6d, type: 3}
       propertyPath: m_Name
       value: Friend Variant 5
@@ -18061,7 +18108,7 @@ RectTransform:
   m_Children:
   - {fileID: 1135849001}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -18851,6 +18898,28 @@ PrefabInstance:
     - target: {fileID: 5667366425263135925, guid: b95ac6976d22f29499a77289cdc827db, type: 3}
       propertyPath: m_Name
       value: WeaponDiv
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810655008163130378, guid: b95ac6976d22f29499a77289cdc827db, type: 3}
+      propertyPath: m_text
+      value: '/
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810655008163130378, guid: b95ac6976d22f29499a77289cdc827db, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810655008163130378, guid: b95ac6976d22f29499a77289cdc827db, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810655008163130378, guid: b95ac6976d22f29499a77289cdc827db, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810655008163130378, guid: b95ac6976d22f29499a77289cdc827db, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278255360
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95ac6976d22f29499a77289cdc827db, type: 3}
