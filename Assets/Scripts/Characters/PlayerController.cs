@@ -53,6 +53,7 @@ public class PlayerController : CharacterBase
         public int diceRight;
         public int[] diceValues;
         public Quaternion diceRotation;
+        public GameObject stillGo;
     }
 
     void Start()
@@ -113,6 +114,13 @@ public class PlayerController : CharacterBase
             record.diceValues = diceValues;
             record.coordinate = Coordinate;
             record.diceRotation = dice.localRotation;
+            record.stillGo = Instantiate(gameObject);
+            Destroy(record.stillGo.GetComponent<PlayerController>());
+            var renders = GetComponentsInChildren<Renderer>();
+            foreach (var r in renders)
+            {
+                r.material.color = new Color(1,1,1,0.5f);
+            }
             RefreshDiceHintUI();
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
@@ -123,7 +131,13 @@ public class PlayerController : CharacterBase
             diceValues = record.diceValues;
             Coordinate = record.coordinate;
             dice.localRotation = record.diceRotation;
+            Destroy(record.stillGo);
             record = null;
+            var renders = GetComponentsInChildren<Renderer>();
+            foreach (var r in renders)
+            {
+                r.material.color = Color.white;
+            }
             RefreshDiceHintUI();
         }
 
@@ -209,12 +223,12 @@ public class PlayerController : CharacterBase
                 if (fail)// 失败，次数turnCount
                 {
                     pause = true;
-                    LeanTween.delayedCall(gameObject, 2, () => PanelManager.Instance.Push(new ReplayPanel(turnCount)));
+                    LeanTween.delayedCall(gameObject, 1, () => PanelManager.Instance.Push(new ReplayPanel(turnCount)));
                 }
                 else if (defeatAll)// 通关
                 {
                     pause = true;
-                    LeanTween.delayedCall(gameObject, 2, () => PanelManager.Instance.Push(new NextLevelPanel(turnCount)));
+                    LeanTween.delayedCall(gameObject, 1, () => PanelManager.Instance.Push(new NextLevelPanel(turnCount)));
                 }
                 else// 判断无路可走
                 {
