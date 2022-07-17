@@ -54,6 +54,14 @@ public class LevelChoosePanel : BasePanel
         //{
         //    GameRoot.Instance.LoadScene(new LevelScene(10));
         //});
+        ActivePanel.GetOrAddComponentInChildren<Button>("CloseBtn").onClick.AddListener(() =>
+        {
+            Pop();
+        });
+
+
+        
+
 
     }
 
