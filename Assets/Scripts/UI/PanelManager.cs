@@ -29,7 +29,7 @@ public class PanelManager
 
     public BasePanel GetPeek()
     {
-        if (panelStack == null)
+        if (panelStack == null || panelStack.Count == 0)
             return null;
         return panelStack.Peek();
     }
