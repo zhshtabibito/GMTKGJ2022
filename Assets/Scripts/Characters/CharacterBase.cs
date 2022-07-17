@@ -34,8 +34,10 @@ public class CharacterBase : MonoBehaviour
                 diceUp = diceFront;
                 diceFront = 7 - oldDiceUp;
                 PlayIdle();
-                dice?.Rotate(0,0,90, Space.World);
-                
+                if (dice)
+                {
+                    dice.Rotate(0,0,90, Space.World);
+                }
                 break;
             case 's':
                 coord.x++;
@@ -43,8 +45,10 @@ public class CharacterBase : MonoBehaviour
                 diceUp = 7 - diceFront;
                 diceFront = oldDiceUp;
                 PlayWalk();
-                dice?.Rotate(0,0,-90, Space.World);
-                
+                if (dice)
+                {
+                    dice.Rotate(0, 0, -90, Space.World);
+                }
                 break;
             case 'a':
                 coord.z--;
@@ -52,8 +56,10 @@ public class CharacterBase : MonoBehaviour
                 diceUp = diceRight;
                 diceRight = 7 - oldDiceUp;
                 PlayWalk();
-                dice?.Rotate(-90,0,0, Space.World);
-                
+                if (dice)
+                {
+                    dice.Rotate(-90, 0, 0, Space.World);
+                }
                 break;
             case 'd':
                 coord.z++;
@@ -61,8 +67,10 @@ public class CharacterBase : MonoBehaviour
                 diceUp = 7 - diceRight;
                 diceRight = oldDiceUp;
                 PlayAttack();
-                dice?.Rotate(90,0,0, Space.World);
-                
+                if (dice)
+                {
+                    dice.Rotate(90, 0, 0, Space.World);
+                }
                 break;
         }
     }
