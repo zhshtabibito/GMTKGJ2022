@@ -29,7 +29,7 @@ public class PlayerController : CharacterBase
     private Equip[] equips = new Equip[6]{null, null, null, null, null, null};
     private int[] friends = new int[6]{0,0,0,0,0,0};
     private int turnCount;
-    private bool pause;
+     bool pause;
     private Record record;
     private List<BaseGrid> coloredGrids = new List<BaseGrid>();
 
@@ -117,9 +117,13 @@ public class PlayerController : CharacterBase
             record.stillGo = Instantiate(gameObject);
             Destroy(record.stillGo.GetComponent<PlayerController>());
             var renders = GetComponentsInChildren<Renderer>();
+            var block = new MaterialPropertyBlock();
+            var colorId = Shader.PropertyToID("_Color");
             foreach (var r in renders)
             {
-                r.material.color = new Color(1,1,1,0.5f);
+                r.GetPropertyBlock(block);
+                block.SetColor(colorId, new Color(1,1,1,0.5f));
+                r.SetPropertyBlock(block);
             }
             RefreshDiceHintUI();
         }
@@ -134,9 +138,13 @@ public class PlayerController : CharacterBase
             Destroy(record.stillGo);
             record = null;
             var renders = GetComponentsInChildren<Renderer>();
+            var block = new MaterialPropertyBlock();
+            var colorId = Shader.PropertyToID("_Color");
             foreach (var r in renders)
             {
-                r.material.color = Color.white;
+                r.GetPropertyBlock(block);
+                block.SetColor(colorId, Color.white);
+                r.SetPropertyBlock(block);
             }
             RefreshDiceHintUI();
         }
@@ -201,6 +209,7 @@ public class PlayerController : CharacterBase
                     }
                     if ((monster.Coordinate == Coordinate || inAttackRange) && !monster.hasDefeat)
                     {
+                        PlayState("棒子");
                         if (monster.Battle(currentDiceValue))
                         {
                             diceValues[diceUp - 1] = diceUp;

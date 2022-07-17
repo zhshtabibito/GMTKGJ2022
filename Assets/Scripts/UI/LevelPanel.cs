@@ -41,10 +41,11 @@ public class LevelPanel : BasePanel
 
         MonsterController[] ML = GameObject.FindObjectsOfType<MonsterController>();
         int MCnt = ML.Length;
+
         string goal = ML[0].number.ToString();
         for (int i = 1; i < MCnt; i++)
         {
-            goal += (", " + ML[i].ToString());
+            goal += (", " + ML[i].number.ToString());
         }
 
         GameObject.Find("BossValue").GetComponentInChildren<TMP_Text>().text = "GOAL: > <color=#FFE6B5>" + goal + "</color>";
