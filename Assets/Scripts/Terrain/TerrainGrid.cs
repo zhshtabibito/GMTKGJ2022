@@ -8,13 +8,6 @@ public class TerrainGrid : BaseGrid
     // 0=空地 1=围墙 2=不可破坏障碍 3=可破坏障碍
     private int _terrainType;
 
-    public override void SetInfo(Vector2Int gridIndex, string gridData)
-    {
-        base.SetInfo(gridIndex, gridData);
-        if (_terrainType == 2 || _terrainType == 3)
-            transform.Translate(0, 0.5f, 0);
-    }
-
     public override bool isWalkable(bool isPlayer = true)
     {
         if (isPlayer)
@@ -37,10 +30,10 @@ public class TerrainGrid : BaseGrid
     {
         if (_terrainType == 3)
         {
-            transform.Translate(0, -0.5f, 0);
             _terrainType = 0;
+            foreach (var render in GetComponentsInChildren<MeshRenderer>())
+                render.enabled = false;
         }
-        // do some performance here
     }
 
     public override void Lock()
