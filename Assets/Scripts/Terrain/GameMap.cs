@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameMap : MonoBehaviour
 {
     public TextAsset mapDataFile; // 待解析的.txt数据文件
-    public GameObject[] terrainGridPrefabs = new GameObject[4];
+    public GameObject[] terrainGridPrefabs = new GameObject[5];
     public GameObject[] functionPrefabs = new GameObject[3];  // 0-药水 1-装备 2-伙伴
     public GameObject playerPrefab;
     public List<GameObject> monsterPrefabList;
@@ -61,11 +61,14 @@ public class GameMap : MonoBehaviour
         if (!mapDataFile) return;
         ClearChildrens();
         var lines = mapDataFile.text.Split("\n");
+        List<Vector2Int> needLockGrids = new List<Vector2Int>();
+        List<List<BaseGrid>> createdGrids = new List<List<BaseGrid>>();
         // 生成地块实例
         for (int i = 0; i < lines.Length; i++)
         {
             if (lines[i].Length == 0) continue;
             var gridDatas = lines[i].Split(',');
+            createdGrids.Add(new List<BaseGrid>());
             for (int j = 0; j < gridDatas.Length; j++)
             {
                 // 生成地块Object
@@ -74,11 +77,24 @@ public class GameMap : MonoBehaviour
                 {
                     gridTerrainPrefabNumber = int.Parse(gridDatas[j]);
                 }
+                else if (gridDatas[j].Contains(')'))
+                    gridTerrainPrefabNumber = 4;
                 var terrainObject = Instantiate(terrainGridPrefabs[gridTerrainPrefabNumber], transform);
                 terrainObject.transform.Translate(new Vector3(gridSize[0] * i, 0, gridSize[1] * j));
                 // 添加地块Component
-                var terrainComponent = terrainObject.AddComponent<TerrainGrid>();
-                terrainComponent.SetInfo(new Vector2Int(i, j), gridTerrainPrefabNumber.ToString());
+                BaseGrid terrainComponent = null;
+                if (gridTerrainPrefabNumber < 4)
+                {
+                    terrainComponent = terrainObject.AddComponent<TerrainGrid>();
+                    terrainComponent.SetInfo(new Vector2Int(i, j), gridTerrainPrefabNumber.ToString());
+                }
+                else
+                {
+                    terrainComponent = terrainObject.AddComponent<GearGrid>();
+                    terrainComponent.SetInfo(new Vector2Int(i, j), gridDatas[j]);
+                    needLockGrids.AddRange(terrainComponent.relatedGrids);
+                }
+                createdGrids[i].Add(terrainComponent);
                 // 创建角色
                 if (createAvatar) {
                     GameObject avatar = null;
@@ -119,6 +135,8 @@ public class GameMap : MonoBehaviour
                 }
             }
         }
+        foreach (var needLockGridIndex in needLockGrids)
+            createdGrids[needLockGridIndex.x][needLockGridIndex.y].Lock();
     }
 
     private void ClearChildrens()

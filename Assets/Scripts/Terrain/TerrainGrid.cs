@@ -18,13 +18,8 @@ public class TerrainGrid : BaseGrid
     public override bool isWalkable(bool isPlayer = true)
     {
         if (isPlayer)
-            return _terrainType <= 0 && !isDestructed;
+            return _terrainType <= 0 && base.isWalkable(isPlayer);
         return true;
-    }
-
-    public override int Settle(int number)
-    {
-        return number;
     }
 
     public override string GetString()
@@ -46,5 +41,15 @@ public class TerrainGrid : BaseGrid
             _terrainType = 0;
         }
         // do some performance here
+    }
+
+    public override void Lock()
+    {
+        if (_terrainType == 0) base.Lock();
+    }
+
+    public override void UnLock()
+    {
+        if (_terrainType == 0) base.UnLock();
     }
 }

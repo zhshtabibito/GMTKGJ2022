@@ -8,8 +8,10 @@ public class BaseGrid : MonoBehaviour
     public Vector2Int gridIndex = new Vector2Int(0, 0);
     private bool _isDestructed = false;
     public GridFunction _function;
+    public bool isLocked = false;
+    public List<Vector2Int> relatedGrids;
 
-    private void Start()
+    protected virtual void Start()
     {
         _function = GetComponentInChildren<GridFunction>();
     }
@@ -25,7 +27,7 @@ public class BaseGrid : MonoBehaviour
     public virtual bool isWalkable(bool isPlayer=true)
     {
         if (isPlayer)
-            return !isDestructed;
+            return !isDestructed && !isLocked;
         return true;
     }
 
@@ -51,34 +53,10 @@ public class BaseGrid : MonoBehaviour
             Debug.LogFormat("monster leave grid: {0}", gridIndex);
     }
 
-    public virtual bool needOperator()
-    {
-        // 先忽略它
-        return false;
-    }
-
-    public virtual bool needOperand()
-    {
-        // 先忽略它
-        return false;
-    }
-
     public virtual string GetFunctionalData()
     {
         // 先忽略它
         return "";
-    }
-
-    public virtual int Settle(int operand)
-    {
-        // 先忽略它
-        throw new System.NotImplementedException();
-    }
-
-    public virtual int Settle(int operand, Vector2Int helpGridIndex)
-    {
-        // 先忽略它
-        throw new System.NotImplementedException();
     }
 
     // 读/配表数据相关
@@ -118,5 +96,23 @@ public class BaseGrid : MonoBehaviour
         }
         else
             return avatarOperand;
+    }
+
+    public virtual void Lock()
+    {
+        if (!isLocked && !_isDestructed)
+        {
+            transform.Translate(0, 0.5f, 0);
+            isLocked = true;
+        }
+    }
+
+    public virtual void UnLock()
+    {
+        if (isLocked)
+        {
+            transform.Translate(0, -0.5f, 0);
+            isLocked = false;
+        }
     }
 }
