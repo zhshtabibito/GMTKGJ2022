@@ -7,6 +7,8 @@ public class GridFunction: MonoBehaviour
     public char functionOperator;
     public int functionOperand;
     public int functionState;  // 0-药水 1-装备 2-伙伴
+    public int attackDistanceType;  // 0-剑 1-弓
+    public List<Vector2Int> attackRelativeGrids;  // 相对坐标列表
     public int needFunctionState
     {
         get
