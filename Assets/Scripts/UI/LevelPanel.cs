@@ -38,5 +38,16 @@ public class LevelPanel : BasePanel
         player.downTipText = GameObject.Find("NumDown(1)").GetComponent<TMP_Text>();
         player.upTipText.text = "";
         player.downTipText.text = "";
+
+        MonsterController[] ML = GameObject.FindObjectsOfType<MonsterController>();
+        int MCnt = ML.Length;
+        string goal = ML[0].number.ToString();
+        for (int i = 1; i < MCnt; i++)
+        {
+            goal += (", " + ML[i].ToString());
+        }
+
+        GameObject.Find("BossValue").GetComponentInChildren<TMP_Text>().text = "GOAL: <color=#FFE6B5>" + goal + "</color>";
+
     }
 }
