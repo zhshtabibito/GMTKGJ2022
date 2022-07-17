@@ -93,6 +93,8 @@ public class GridFunction: MonoBehaviour
 
     public void Performance()
     {
+        foreach (var skinRender in GetComponentsInChildren<SkinnedMeshRenderer>())
+            skinRender.enabled = false;
         foreach (var render in GetComponentsInChildren<MeshRenderer>())
             render.enabled = false;
         foreach (var particleSystem in GetComponentsInChildren<ParticleSystem>())
