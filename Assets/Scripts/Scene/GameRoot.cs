@@ -44,18 +44,22 @@ public class GameRoot : MonoBehaviour
 
     public void LoadScene(SceneInfo newScene, bool reload = true)
     {
-        isReady = false;
-        scene?.OnExit();
-        scene = newScene;
-        sceneName = newScene.SceneName;
+
 
         if (reload)
         {
-            SceneManager.LoadScene(sceneName);
-            SceneManager.sceneLoaded += SceneLoaded;
+            // SceneManager.LoadScene(sceneName);
+            // SceneManager.sceneLoaded += SceneLoaded;
+            StartCoroutine("ShowMaskAndLoadScene", newScene);
         }
         else
+        {
+            isReady = false;
+            scene?.OnExit();
+            scene = newScene;
+            sceneName = newScene.SceneName;
             scene?.OnEnter();
+        }
     }
 
     protected void SceneLoaded(Scene newScene, LoadSceneMode mode)
@@ -84,7 +88,7 @@ public class GameRoot : MonoBehaviour
 #endif
     }
 
-    private IEnumerator ShowMask()
+    private IEnumerator ShowMaskAndLoadScene(SceneInfo newScene)
     {
         panelManager.BlackMaskCpn.color = Color.clear;
         panelManager.BlackMaskCpn.gameObject.SetActive(true);
@@ -95,6 +99,14 @@ public class GameRoot : MonoBehaviour
             panelManager.BlackMaskCpn.color = Color.Lerp(Color.clear, Color.black, x);
             yield return null;
         }
+
+        isReady = false;
+        scene?.OnExit();
+        scene = newScene;
+        sceneName = newScene.SceneName;
+
+        SceneManager.LoadScene(sceneName);
+        SceneManager.sceneLoaded += SceneLoaded;
 
         //BlackMask.SetAsLastSibling();
         //for (float x = 1f; x > 0f; x -= Time.deltaTime / 2f)
@@ -109,5 +121,18 @@ public class GameRoot : MonoBehaviour
         //}
     }
 
+    private IEnumerator HideMask()
+    {
+        Debug.Log("??????!!!!");
+
+        panelManager.BlackMaskCpn.gameObject.SetActive(true);
+        panelManager.BlackMaskCpn.transform.SetAsLastSibling();
+        for (float x = 0f; x < 1.0f; x += Time.deltaTime / 1f)
+        {
+            panelManager.BlackMaskCpn.color = Color.Lerp(Color.black, Color.clear, x);
+            yield return null;
+        }
+        panelManager.BlackMaskCpn.gameObject.SetActive(false);
+    }
 
 }
