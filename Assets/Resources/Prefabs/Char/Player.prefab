@@ -926,9 +926,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dice: {fileID: 711703001159914950}
-  diceUp: 2
-  diceFront: 6
-  diceRight: 4
+  diceUp: 6
+  diceFront: 4
+  diceRight: 2
   diceValues: 010000000200000003000000040000000500000006000000
   upText: {fileID: 0}
   bottomText: {fileID: 0}
@@ -1105,7 +1105,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 144ed8bf2e3be4b4b834cb8ecfb0b04b, type: 3}
   m_PrefabInstance: {fileID: 4348207409373799837}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &283303956346764579
+--- !u!95 &449332045
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -1115,7 +1115,7 @@ Animator:
   m_GameObject: {fileID: 3501133405087553740}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6eb51e569642c41dea83cc28100c7398, type: 2}
+  m_Controller: {fileID: 9100000, guid: fabb3ff04c9e94b24bfccd93d006dea3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
