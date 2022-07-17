@@ -209,6 +209,7 @@ public class PlayerController : CharacterBase
                     }
                     if ((monster.Coordinate == Coordinate || inAttackRange) && !monster.hasDefeat)
                     {
+                        PlayState("棒子");
                         if (monster.Battle(currentDiceValue))
                         {
                             diceValues[diceUp - 1] = diceUp;
