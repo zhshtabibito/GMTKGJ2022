@@ -35,7 +35,8 @@ public class CharacterBase : MonoBehaviour
                 diceFront = 7 - oldDiceUp;
                 if (dice)
                 {
-                    dice.Rotate(0,0,90, Space.World);
+                    LeanTween.rotateAround(dice.gameObject, Vector3.forward, 90, 0.5f);
+                    //dice.Rotate(0,0,90, Space.World);
                 }
                 break;
             case 's':
@@ -45,7 +46,8 @@ public class CharacterBase : MonoBehaviour
                 diceFront = oldDiceUp;
                 if (dice)
                 {
-                    dice.Rotate(0, 0, -90, Space.World);
+                    LeanTween.rotateAround(dice.gameObject, Vector3.forward,-90, 0.5f);
+                    //dice.Rotate(0, 0, -90, Space.World);
                 }
                 break;
             case 'a':
@@ -55,7 +57,8 @@ public class CharacterBase : MonoBehaviour
                 diceRight = 7 - oldDiceUp;
                 if (dice)
                 {
-                    dice.Rotate(-90, 0, 0, Space.World);
+                    LeanTween.rotateAround(dice.gameObject, Vector3.right,-90, 0.5f);
+                    //dice.Rotate(-90, 0, 0, Space.World);
                 }
                 break;
             case 'd':
@@ -65,7 +68,8 @@ public class CharacterBase : MonoBehaviour
                 diceRight = oldDiceUp;
                 if (dice)
                 {
-                    dice.Rotate(90, 0, 0, Space.World);
+                    LeanTween.rotateAround(dice.gameObject, Vector3.right,90, 0.5f);
+                    //dice.Rotate(90, 0, 0, Space.World);
                 }
                 break;
         }
